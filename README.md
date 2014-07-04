@@ -2,10 +2,13 @@
 
 How to setup the database
 
-Notice  ``db/fixtures/the_business.sql``.  The data in this file needs to be added to the postgres database for the application.  Directions as follows:
+Notice  ``db/fixtures/the_business.sql``.  The data in this file needs to be added to the postgres database for the application.  
 
-0. The first time you setup the database, do this in your terminal.  Every subsequent build should not require this step, even if you have dropped the postgres database.
+The very first time you do this, complete the following steps:
 
+1. ``brew install postgis``
+
+2. 
 ```TEMPLATE_DB_NAME=template_postgis
 
 # Create the template spatial database.
