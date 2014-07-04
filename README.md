@@ -35,7 +35,10 @@ VACUUM FULL FREEZE;
 EOS 
 ```
 
-1. ``DB_NAME="parkstorm_development"
+Every time you want to create the database, do this:
+
+1. 
+```DB_NAME="parkstorm_development"
 DB_USER="catherine_is_super_cool"
 
 createuser --no-superuser --createdb --no-createrole $DB_USER
@@ -44,11 +47,11 @@ echo "GRANT ALL ON SCHEMA public TO $DB_USER" | psql $DB_NAME
 for t in geography_columns geometry_columns spatial_ref_sys
 do
     echo "ALTER TABLE $t OWNER TO $DB_USER" | psql -d $DB_NAME
-done``
+done
+```
+2. Navigate to db/fixtures
 
-3. Navigate to db/fixtures
-
-4. Do this in the terminal: ``psql -d $DB_NAME $DB_USER < the_business.sql`` 
+3. Do this in the terminal: ``psql -d $DB_NAME $DB_USER < the_business.sql`` 
 
 see this link for more details (some of the details are irrelevant): http://www.bigfastblog.com/landsliding-into-postgis-with-kml-files
 
