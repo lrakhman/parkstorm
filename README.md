@@ -72,29 +72,8 @@ See [this link](http://www.bigfastblog.com/landsliding-into-postgis-with-kml-fil
 
 ## Other cool stuff
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Where does the data come from?
 
-Things you may want to cover:
+The data for this app is available from the city of Chicago through [Socrata](http://www.socrata.com/). It can be seen in visual form [here](https://data.cityofchicago.org/Sanitation/Map-Street-Sweeping-2014/czxu-ejis). We accessed the data in kml form which can be had [here](https://data.cityofchicago.org/api/geospatial/czxu-ejis?method=export&format=KML).
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+To add this kml data into our database (see above for info on setting up the database) we needed to convert the data into SQL commands. As a result I wrote a simple kml parser (see db/fixtures/parsetastic2000.rb in this repository) to do this. Simply type ruby parsetastic2000.rb in your console while in the same directory as both the parsing file and the kml file and it will produce the sql file. The parser is not perfect, so you will likely need to do some cleanup. First, find and replace all 'NULL' with NULL (get rid of those quotes). Then, search for any <li> tags in the data and delete the markup. There will likely be around 20 to delete due to imperfections in the data and imperfections in the parsing. Once that is done you will have a sql file that is ready to be imported into a PostGis database. 
