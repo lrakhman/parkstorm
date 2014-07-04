@@ -38,7 +38,7 @@ EOS
 
 Every time you want to create the database, do this:
 
-1. 
+1)
 ```
 DB_NAME="parkstorm_development"
 DB_USER="catherine_is_super_cool"
@@ -51,9 +51,9 @@ do
     echo "ALTER TABLE $t OWNER TO $DB_USER" | psql -d $DB_NAME
 done
 ```
-2. Navigate to db/fixtures
+2) Navigate to db/fixtures
 
-3. Do this in the terminal: ``psql -d $DB_NAME $DB_USER < the_business.sql`` 
+3) Do this in the terminal: ``psql -d $DB_NAME $DB_USER < the_business.sql`` 
 
 see this link for more details (some of the details are irrelevant): http://www.bigfastblog.com/landsliding-into-postgis-with-kml-files
 
