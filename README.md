@@ -8,7 +8,7 @@ The very first time you do this, complete the following steps:
 
 1. ``brew install postgis``
 
-2. 
+2. Type the following into the command line:
 ```
 TEMPLATE_DB_NAME=template_postgis
 
