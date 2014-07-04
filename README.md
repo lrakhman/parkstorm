@@ -9,7 +9,8 @@ The very first time you do this, complete the following steps:
 1. ``brew install postgis``
 
 2. 
-```TEMPLATE_DB_NAME=template_postgis
+```
+TEMPLATE_DB_NAME=template_postgis
 
 # Create the template spatial database.
 createdb -E UTF8 $TEMPLATE_DB_NAME
@@ -38,7 +39,8 @@ EOS
 Every time you want to create the database, do this:
 
 1. 
-```DB_NAME="parkstorm_development"
+```
+DB_NAME="parkstorm_development"
 DB_USER="catherine_is_super_cool"
 
 createuser --no-superuser --createdb --no-createrole $DB_USER
