@@ -21,7 +21,7 @@ createlang -d $TEMPLATE_DB_NAME plpgsql
 # Load the PostGIS extensions
 for SQL_NAME in postgis postgis_comments spatial_ref_sys
 do
-    psql -d $TEMPLATE_DB_NAME -f /usr/local/Cellar/postgis/1.5.2/share/postgis/$SQL_NAME.sql
+    psql -d $TEMPLATE_DB_NAME -f /usr/local/Cellar/postgis/2.1.3/share/postgis/$SQL_NAME.sql
 done
 
 # Finalize our PostGIS template database
