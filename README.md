@@ -35,13 +35,14 @@ GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE public.spatial_ref_sys TO PUBLIC;
 VACUUM FULL FREEZE;
 EOS 
 ```
+If you get the error ``ERROR:  role "postgres" does not exist``, enter ``createuser -s -r postgres``.
 
 Every time you want to create the database, do this:
 
 1)
 ```
 DB_NAME="parkstorm_development"
-DB_USER="catherine_is_super_cool"
+DB_USER="<enter_your_username>"
 
 createuser --no-superuser --createdb --no-createrole $DB_USER
 createdb --template=template_postgis --encoding=UTF8 --owner=$DB_USER $DB_NAME
