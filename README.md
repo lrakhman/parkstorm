@@ -32,6 +32,8 @@ Notice  ``db/fixtures/the_business.sql``.  The data in this file needs to be add
 ####The very first time you need the database, set up PostGIS:
 [PostGIS](http://postgis.net/) extends Postgres so that it can include geospatial data that can then be queried.
 
+For OSX users:
+
 1. ``brew install postgis``
 
 2. Type the following into the command line:
@@ -64,6 +66,8 @@ EOS
 Some notes:
 * If you get the error ``ERROR:  role "postgres" does not exist``, enter ``createuser -s -r postgres``.
 * If you get partway through this and it fails, google the error.  **After fixing the error**, be sure to ``rake db:drop`` the database from inside the rails app.  You do NOT need to ``rake db:create``; that's what we're doing in the block of code above.
+
+For Linux users, see [this link](http://www.google.com) for directions to install PostGIS.
 
 ####Every time you need to create the database, do this:
 
