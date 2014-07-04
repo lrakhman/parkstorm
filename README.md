@@ -1,12 +1,12 @@
 ## README
 
-How to setup the database
+###How to setup the database
 
 Notice  ``db/fixtures/the_business.sql``.  The data in this file needs to be added to the postgres database for the application.  
 
 **NOTE: Unforunately, you cannot copy multiple lines from this file at a time -- the terminal doesn't like it.**
 
-####The very first time you do this, set up PostGIS:
+####The very first time you need the database, set up PostGIS:
 
 1. ``brew install postgis``
 
