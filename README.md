@@ -1,4 +1,27 @@
 ## README
+###Git Work-flow:
+
+**To start working on the app:**          
+
+git clone repo    
+git pull origin master      
+git checkout -b "your_branch_name"    
+
+**To submit a pull request:**            
+
+git checkout "your_branch_name"      
+git add your changes      
+git commit your changes      
+git checkout master     
+git pull/fetch origin master       
+git checkout "your_branch_name"       
+git merge master (if MERGE CONFLICTS exist, resolve them)        
+git add and commit any changes      
+git push origin "your_branch_name"        
+
+Lastly, submit a pull request on Github     
+
+
 
 ###How to setup the database
 
