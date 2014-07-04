@@ -23,16 +23,26 @@ ActiveRecord::Schema.define(version: 20140703233341) do
     t.datetime "updated_at"
   end
 
-# Could not dump table "regions" because of following StandardError
-#   Unknown type 'geometry(GeometryCollection,4326)' for column 'geom'
-# Note: CV entered the following table info manually
-  create_table "spatial_ref_sys", id: false, force: true do |t|
-    t.integer "srid",                   null: false
-    t.string  "auth_name", limit: 256
-    t.integer "auth_srid"
-    t.string  "srtext",    limit: 2048
-    t.string  "proj4text", limit: 2048
+  create_table "regions", primary_key: "gid", force: true do |t|
+    t.string  "ward",       limit: 2
+    t.integer "ward_num"
+    t.integer "sweep"
+    t.string  "wardsweep",  limit: 5
+    t.string  "ward_secti", limit: 254
+    t.string  "month_4",    limit: 254
+    t.string  "month_5",    limit: 254
+    t.string  "month_6",    limit: 254
+    t.string  "month_7",    limit: 254
+    t.string  "month_8",    limit: 254
+    t.string  "month_9",    limit: 254
+    t.string  "month_10",   limit: 254
+    t.string  "month_11",   limit: 254
+    t.decimal "shape_area"
+    t.decimal "shape_len"
+    t.spatial "geom",       limit: {:srid=>4326, :type=>"geometry"}
   end
+
+  add_index "regions", ["geom"], :name => "regions_geom_gist", :spatial => true
 
   create_table "users", force: true do |t|
     t.string   "email",           null: false
