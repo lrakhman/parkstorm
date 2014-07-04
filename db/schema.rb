@@ -25,7 +25,8 @@ ActiveRecord::Schema.define(version: 20140703233341) do
 
 # Could not dump table "regions" because of following StandardError
 #   Unknown type 'geometry(GeometryCollection,4326)' for column 'geom'
-create_table "spatial_ref_sys", id: false, force: true do |t|
+# Note: CV entered the following table info manually
+  create_table "spatial_ref_sys", id: false, force: true do |t|
     t.integer "srid",                   null: false
     t.string  "auth_name", limit: 256
     t.integer "auth_srid"
