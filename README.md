@@ -55,6 +55,8 @@ done
 
 3) Do this in the terminal: ``psql -d $DB_NAME $DB_USER < the_business.sql`` 
 
+To verify it worked, open the rails console and check that there are 888 regions.
+
 see this link for more details (some of the details are irrelevant): http://www.bigfastblog.com/landsliding-into-postgis-with-kml-files
 
 
