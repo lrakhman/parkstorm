@@ -4,9 +4,10 @@
 
 Notice  ``db/fixtures/the_business.sql``.  The data in this file needs to be added to the postgres database for the application.  
 
-**NOTE: Unforunately, you cannot copy multiple lines from this file at a time -- the terminal doesn't like it.**
+**NOTE: Unfortunately, you cannot copy multiple lines from this file at a time -- the terminal doesn't like it.**
 
 ####The very first time you need the database, set up PostGIS:
+[PostGIS](http://postgis.net/) extends Postgres so that it can include geospatial data that can then be queried.
 
 1. ``brew install postgis``
 
@@ -63,7 +64,7 @@ done
 
 To verify that all this worked, open the rails console and check that there are 888 regions (``Region.all.count``).
 
-see this link for more details (some of the details are irrelevant): http://www.bigfastblog.com/landsliding-into-postgis-with-kml-files
+See [this link](http://www.bigfastblog.com/landsliding-into-postgis-with-kml-files) for more details (some of the details are irrelevant).
 
 
 
