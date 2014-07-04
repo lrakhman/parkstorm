@@ -38,3 +38,6 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# add queries to postgis
+gem 'activerecord-postgis-adapter'
+
