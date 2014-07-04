@@ -4,7 +4,7 @@ class Region < ActiveRecord::Base
 
   def self.find_ward_section(lat, long)
     query = "SELECT ward_secti FROM regions 
-    WHERE ST_DISTANCE_SPHERE(geom,
+    WHERE ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3)
     ST_MakePoint(#{lat}, #{long})) <= 0;"
 
     Region.connection.execute(query).first
@@ -13,7 +13,7 @@ class Region < ActiveRecord::Base
   def sections_nearby(distance)
     center = find_center
     query = "SELECT ward_secti FROM regions 
-    WHERE ST_DISTANCE_SPHERE(geom, \'#{center}\') <= #{distance} * 1609.34;"
+    WHERE ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3), \'#{center}\') <= #{distance} * 1609.34;"
 
     result = []
     Region.connection.execute(query).each {|thing| result << thing}
