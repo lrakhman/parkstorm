@@ -5,7 +5,8 @@ How to setup the database
 Notice  ``db/fixtures/the_business.sql``.  The data in this file needs to be added to the postgres database for the application.  Directions as follows:
 
 0. The first time you setup the database, do this in your terminal.  Every subsequent build should not require this step, even if you have dropped the postgres database.
-``TEMPLATE_DB_NAME=template_postgis
+
+```TEMPLATE_DB_NAME=template_postgis
 
 # Create the template spatial database.
 createdb -E UTF8 $TEMPLATE_DB_NAME
@@ -28,7 +29,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE public.geometry_columns TO PUBLIC;
 GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE public.spatial_ref_sys TO PUBLIC;
 VACUUM FULL FREEZE;
-EOS``
+EOS```
 
 1. ``DB_NAME="parkstorm_development"
 DB_USER="catherine_is_super_cool"
