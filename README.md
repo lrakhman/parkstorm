@@ -62,6 +62,8 @@ done
 
 3) Do this in the terminal: ``psql -d $DB_NAME $DB_USER < the_business.sql`` 
 
+4) From the Rails app, ``rake db:migrate`` to add the other tables (besides ``regions``).
+
 To verify that all this worked, open the Rails console and check that there are 888 regions (``Region.all.count``).
 
 See [this link](http://www.bigfastblog.com/landsliding-into-postgis-with-kml-files) for more details (some of the details are irrelevant).
