@@ -4,7 +4,7 @@ class Region < ActiveRecord::Base
 
   def self.find_ward_section(lat, long)
     query = "SELECT ward_secti FROM regions 
-    WHERE ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3)
+    WHERE ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3),
     ST_MakePoint(#{lat}, #{long})) <= 0;"
 
     Region.connection.execute(query).first
