@@ -42,7 +42,7 @@ Every time you want to create the database, do this:
 1)
 ```
 DB_NAME="parkstorm_development"
-DB_USER="<enter_your_username>"
+DB_USER="<enter the name of your computer>"
 
 createuser --no-superuser --createdb --no-createrole $DB_USER
 createdb --template=template_postgis --encoding=UTF8 --owner=$DB_USER $DB_NAME
