@@ -4,6 +4,8 @@ How to setup the database
 
 Notice  ``db/fixtures/the_business.sql``.  The data in this file needs to be added to the postgres database for the application.  
 
+**NOTE: Unforunately, you cannot copy multiple lines from this file at a time -- the terminal doesn't like it.**
+
 The very first time you do this, complete the following steps:
 
 1. ``brew install postgis``
@@ -35,7 +37,9 @@ GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE public.spatial_ref_sys TO PUBLIC;
 VACUUM FULL FREEZE;
 EOS 
 ```
-If you get the error ``ERROR:  role "postgres" does not exist``, enter ``createuser -s -r postgres``.
+Some notes:
+* If you get the error ``ERROR:  role "postgres" does not exist``, enter ``createuser -s -r postgres``.
+* If you get partway through this and it fails, google the error.  **After fixing the error**, be sure to ``rake db:drop`` the database from inside the rails app.  You do NOT need to ``rake db:create``; that's what we're doing in the block of code above.
 
 Every time you want to create the database, do this:
 
@@ -57,7 +61,7 @@ done
 
 3) Do this in the terminal: ``psql -d $DB_NAME $DB_USER < the_business.sql`` 
 
-To verify that all this worked, open the rails console and check that there are 888 regions.
+To verify that all this worked, open the rails console and check that there are 888 regions (``Region.all.count``).
 
 see this link for more details (some of the details are irrelevant): http://www.bigfastblog.com/landsliding-into-postgis-with-kml-files
 
