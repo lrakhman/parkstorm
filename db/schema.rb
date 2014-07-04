@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140703235624) do
+ActiveRecord::Schema.define(version: 20140703233341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,10 +23,8 @@ ActiveRecord::Schema.define(version: 20140703235624) do
     t.datetime "updated_at"
   end
 
-  create_table "regions", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+# Could not dump table "regions" because of following StandardError
+#   Unknown type 'geometry(GeometryCollection,4326)' for column 'geom'
 
   create_table "users", force: true do |t|
     t.string   "email",           null: false
@@ -37,6 +35,6 @@ ActiveRecord::Schema.define(version: 20140703235624) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end
