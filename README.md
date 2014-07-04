@@ -29,7 +29,8 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE public.geometry_columns TO PUBLIC;
 GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE public.spatial_ref_sys TO PUBLIC;
 VACUUM FULL FREEZE;
-EOS```
+EOS 
+```
 
 1. ``DB_NAME="parkstorm_development"
 DB_USER="catherine_is_super_cool"
