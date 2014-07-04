@@ -12,7 +12,7 @@ class Region < ActiveRecord::Base
 
   def sections_nearby(distance)
     center = find_center
-    query = "SELECT geom FROM regions 
+    query = "SELECT ward_secti FROM regions 
     WHERE ST_DISTANCE_SPHERE(geom, \'#{center}\') <= #{distance} * 1609.34;"
 
     result = []
