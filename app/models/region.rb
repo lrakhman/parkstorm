@@ -20,6 +20,12 @@ class Region < ActiveRecord::Base
     result
   end
 
+  def get_geo
+    query = "SELECT ST_AsGeoJSON(geom) FROM regions WHERE ward_secti = '#{self.ward_secti}';"
+
+    ward1 = Region.connection.execute(query).first
+    ward1["st_asgeojson"].gsub(/\"/, "\"")
+  end
 
   private
   def find_center
