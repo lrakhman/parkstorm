@@ -1,4 +1,4 @@
-== README
+## README
 
 How to setup the database
 
@@ -59,6 +59,7 @@ see this link for more details (some of the details are irrelevant): http://www.
 
 
 
+## Other cool stuff
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
