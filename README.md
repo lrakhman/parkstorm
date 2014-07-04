@@ -53,7 +53,7 @@ do
     echo "ALTER TABLE $t OWNER TO $DB_USER" | psql -d $DB_NAME
 done
 ```
-2) Navigate to db/fixtures
+2) In your terminal, navigate to db/fixtures
 
 3) Do this in the terminal: ``psql -d $DB_NAME $DB_USER < the_business.sql`` 
 
