@@ -16,7 +16,18 @@
 												polygonCoords.push([coords[1], coords[0]]);
 											})
 										});
-	  var polygon = L.polygon(polygonCoords).addTo(map);
+	  var polygon = L.multiPolygon([polygonCoords], {color: 'green'}).addTo(map);
+	  polygon.bindPopup("Street Sweeping dates are blah blah balh!");
+
+	  map.on('click', function(e) {
+		  if(typeof(marker)==='undefined')
+		  {
+			  marker = L.marker(e.latlng,{ draggable: true});
+			  marker.addTo(map);        
+		  }
+		  else 
+		 	{
+		  	marker.setLatLng(e.latlng);         
+		 	}});
   });
 </script>
-<p><%= @region.get_geo %></p>
