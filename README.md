@@ -44,8 +44,6 @@ For Linux users, see [this link](http://www.google.com) for directions to instal
 
 To verify that all this worked, open the Rails console and check that there are 888 regions (``Region.all.count``) and also that ``Region.first`` doesn't throw an error message.
 
-See [this link](http://www.bigfastblog.com/landsliding-into-postgis-with-kml-files) for more details (some of the details are irrelevant).
-
 
 
 ## Other cool stuff
