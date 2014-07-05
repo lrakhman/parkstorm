@@ -46,7 +46,7 @@ gem 'activerecord-postgis-adapter'
 
 
 # get user location from IP address
-gem 'geokit-rails'
+
 
 
 
