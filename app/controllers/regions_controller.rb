@@ -1,5 +1,11 @@
+
+include Geokit::Geocoders
 class RegionsController < ApplicationController
   def index
-    @client_ip = remote_ip
+    # load zoomed out map centered on chicago
+  end
+
+  def load_index
+
   end
 end

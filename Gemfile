@@ -41,3 +41,7 @@ gem 'bcrypt', '~> 3.1.7'
 # add queries to postgis
 gem 'activerecord-postgis-adapter'
 
+# get user location from IP address
+gem 'geokit-rails'
+
+
