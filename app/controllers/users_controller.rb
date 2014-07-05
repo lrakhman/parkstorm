@@ -5,4 +5,6 @@ class UsersController < ApplicationController
     @regions = Region.all.pluck(:ward_secti)
   end
 
+ 
+
 end
