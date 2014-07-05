@@ -43,4 +43,12 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'actionpack-page_caching'
 # add queries to postgis
 gem 'activerecord-postgis-adapter'
+
+
+# get user location from IP address
+gem 'geokit-rails'
+
+
+
 gem 'simplecov', :require => false, :group => :test
+
