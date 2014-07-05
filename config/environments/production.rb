@@ -25,7 +25,7 @@ Rails.application.configure do
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
-  config.cache_store = :dalli_store { expires_in: 12.hours }
+  config.cache_store = :dalli_store, { expires_in: 12.hours }
 
 
   config.action_mailer.smtp_settings = {
