@@ -3,7 +3,7 @@ Rails.application.configure do
 
 
   config.action_mailer.default_url_options = { :host =>
-   'www.dontparkthere.herokuapp.com' }
+   'http://mailer-testing.herokuapp.com/' }
 
   config.action_mailer.delivery_method = :mandrill_delivery
   # Code is not reloaded between requests.
@@ -31,8 +31,15 @@ Rails.application.configure do
   :address   => "smtp.mandrillapp.com",
   :port      => 587,
   :user_name => ENV["MANDRILL_USERNAME"],
-  :password  => ENV["MANDRILL_API_KEY"]
+  :password  => ENV["MANDRILL_API_KEY"],
+  :authentication => "plain",
+  :enable_starttls_auto => true,
+  :domain => 'http://mailer-testing.herokuapp.com/'
 }
+
+
+  
+
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
