@@ -19,7 +19,7 @@ class RegionsController < ApplicationController
   def load_surrounding_regions
     lat = params['latitude']
     long = params['longitude']
-    @regions = Region.areas_to_display([lat, long], 0.5)
+    @regions = Region.areas_to_display([lat, long], 1)
     render partial: 'map', locals: {regions: @regions}
     # respond_to do |format|
     #   format.js {render :json => @regions}
