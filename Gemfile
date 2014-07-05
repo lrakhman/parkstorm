@@ -1,4 +1,10 @@
 source 'https://rubygems.org'
+
+gem 'twilio-ruby'
+gem 'oauth'
+gem 'mandrill'
+gem 'mandrill-api'
+
 #testing
 gem 'rspec-rails'
 gem 'capybara', '~> 2.2.1'
