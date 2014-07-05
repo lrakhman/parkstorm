@@ -14,7 +14,6 @@ class RegionsController < ApplicationController
 
     @region = Region.areas_to_display([lat, long], 0).flatten[0]
 
-
     render partial: 'local_map', locals: {region: @region, swept_soon: region.swept_soon?}
   end
 
