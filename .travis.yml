@@ -4,6 +4,7 @@ rvm:
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
   - cp config/database.yml.travis config/database.yml
+  - psql -U postgres -c "create extension postgis"
 # script:
 #   - RAILS_ENV=test bundle exec rake db:migrate --trace
 #   - bundle exec rake

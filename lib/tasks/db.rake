@@ -13,7 +13,7 @@ namespace :db  do
 
   desc "import regions db after test db migrate"
   task :travis_after_migrate => :environment do
-    system('psql -d travis_ci_test -c "CREATE EXTENSION postgis";')
+    # system('psql -d travis_ci_test -c "CREATE EXTENSION postgis";')
     system('psql -d travis_ci_test < db/fixtures/the_business.sql')
   end
 end
