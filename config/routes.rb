@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'regions#index'
-  post '/current_position' => 'regions#load_regions'
+  post '/current_position' => 'regions#load_region'
   post '/update_surrounding' => 'regions#load_surrounding_regions'
 
   # Example of regular route:
