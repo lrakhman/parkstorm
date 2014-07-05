@@ -81,4 +81,26 @@ RSpec.describe Region, :type => :model do
       expect(Region.find(600).next_cleaning_day).to be nil
     end
   end
+
+  describe '.areas_to_display' do
+    
+    let(:area) { Region.areas_to_display([41.890633, -87.629238], 1) }
+
+    it 'should return an array of two arrays' do
+      expect(area[0]).to be_a Array
+      expect(area[1]).to be_a Array
+    end
+
+    it 'should return two empty arrays if the location is not in Chicago' do
+      area = Region.areas_to_display([50,50], 10)
+      expect(area[0]).to be_empty
+      expect(area[1]).to be_empty
+    end
+
+    it 'should return all regions with a sufficiently large radius' do
+      area = Region.areas_to_display([41.890633, -87.62939], 100)
+      expect(area[0].count + area[1].count).to eq(Region.all.count)
+
+    end
+  end
 end
