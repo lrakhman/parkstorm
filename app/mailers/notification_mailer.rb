@@ -12,9 +12,7 @@ class NotificationMailer < ActionMailer::Base
   end
 
   def order_notification(user)
-
       @user = user
-
       mail(:to => @user.email)
   end
 end
