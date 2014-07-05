@@ -1,7 +1,8 @@
 
 class RegionsController < ApplicationController
   def index
-    # load zoomed out map centered on chicago
+    # load a map of chicago
+    # @regions = Region.areas_to_display([41.905585, -87.631297], 100)
   end
 
   def load_region
@@ -24,5 +25,8 @@ class RegionsController < ApplicationController
     #   format.js {render :json => @regions}
     # end
   end
+
+
+    
 
 end
