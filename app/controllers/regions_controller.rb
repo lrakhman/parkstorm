@@ -11,7 +11,7 @@ class RegionsController < ApplicationController
 
     @region = Region.find_by_location(lat, long)
 
-    render partial: 'map', locals: {regions: @regions}
+    render partial: 'map', locals: {regions: @region}
   end
 
   def load_surrounding_regions
@@ -23,8 +23,5 @@ class RegionsController < ApplicationController
     #   format.js {render :json => @regions}
     # end
   end
-
-
-    
 
 end
