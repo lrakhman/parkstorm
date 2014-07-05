@@ -40,4 +40,4 @@ gem 'bcrypt', '~> 3.1.7'
 
 # add queries to postgis
 gem 'activerecord-postgis-adapter'
-
+gem 'simplecov', :require => false, :group => :test
