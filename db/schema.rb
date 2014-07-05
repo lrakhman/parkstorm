@@ -24,27 +24,6 @@ ActiveRecord::Schema.define(version: 20140704145829) do
     t.datetime "updated_at"
   end
 
-  create_table "regions", primary_key: "gid", force: true do |t|
-    t.string  "ward",       limit: 2
-    t.integer "ward_num"
-    t.integer "sweep"
-    t.string  "wardsweep",  limit: 5
-    t.string  "ward_secti", limit: 254
-    t.string  "month_4",    limit: 254
-    t.string  "month_5",    limit: 254
-    t.string  "month_6",    limit: 254
-    t.string  "month_7",    limit: 254
-    t.string  "month_8",    limit: 254
-    t.string  "month_9",    limit: 254
-    t.string  "month_10",   limit: 254
-    t.string  "month_11",   limit: 254
-    t.decimal "shape_area"
-    t.decimal "shape_len"
-    t.spatial "geom",       limit: {:srid=>4326, :type=>"geometry"}
-  end
-
-  add_index "regions", ["geom"], :name => "regions_geom_gist", :spatial => true
-
   create_table "users", force: true do |t|
     t.string   "email",           null: false
     t.string   "password_digest"
