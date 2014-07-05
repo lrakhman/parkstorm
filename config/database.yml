@@ -17,8 +17,7 @@
 default: &default
   adapter: postgis
   encoding: utf-8
-  # For details on connection pooling, see rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  # template: template_postgis
   pool: 5
 
 development:
