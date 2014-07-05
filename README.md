@@ -1,4 +1,39 @@
 ## README [![Build Status](https://travis-ci.org/kaplali/parkstorm.svg?branch=master)](https://travis-ci.org/kaplali/parkstorm)
+
+###About this App
+
+This application allows users to easily determine the street sweeping schedule for any location in Chicago.
+
+###Dependencies
+
+The application runs on Rails and depends on many of the standard gems that come with a new Rails app.  In addition, Don't Park There Chicago depends on:
+
+* [PostGIS](http://postgis.net/)
+  * PostGIS extends Postgres so that it can include geospatial data that can then be queried.  It must be installed before the database can be used.
+    * For OSX users, ``brew install postgis``.
+    * For Linux users, see [this link](http://www.google.com) for directions to install PostGIS.
+  * The [activerecord-postgis-adapter](https://github.com/rgeo/activerecord-postgis-adapter) is included in the Gemfile and provides ActiveRecord query support for PostGIS.  As long as the application has been bundled, the gem should work.
+
+* [Devise](https://github.com/plataformatec/devise)
+
+These dependencies require **ActiveRecord 4.0+** and **Ruby 1.9.3+**.  PostGIS must be version 2.0+
+
+
+###How to setup the database
+Note: The procedure below will not work unless PostGIS is installed.  See above for instructions on installing PostGIS.
+
+1. ``rake db:create``
+2. ``rake db:migrate``
+3. ``rake db:after_migrate``  This task populates the ``regions`` table in the database with the map data.
+
+To verify that all this worked, open the Rails console and check that there are 888 regions (``Region.all.count``) and also that ``Region.first`` doesn't throw an error message.
+
+###Running the tests
+
+1. ``rake db:test:prepare``
+2. ``rake db:test_after_prepare``
+3. ``rspec spec``
+
 ###Git Work-flow:
 
 **To start working on the app:**          
@@ -20,33 +55,6 @@ git add and commit any changes
 git push origin "your_branch_name"        
 
 Lastly, submit a pull request on Github     
-
-###Running the tests
-
-1. ``rake db:test:prepare``
-2. ``rake db:test_after_prepare``
-3. ``rspec spec``
-
-###How to setup the database
-
-####The very first time you need the database, set up PostGIS:
-[PostGIS](http://postgis.net/) extends Postgres so that it can include geospatial data that can then be queried.
-
-For OSX users, ``brew install postgis``.
-
-For Linux users, see [this link](http://www.google.com) for directions to install PostGIS.
-
-####Every time you need to create the database, do this:
-
-1. ``rake db:create``
-2. ``rake db:migrate``
-3. ``rake db:after_migrate``  This task populates the ``regions`` table in the database with the map data.
-
-To verify that all this worked, open the Rails console and check that there are 888 regions (``Region.all.count``) and also that ``Region.first`` doesn't throw an error message.
-
-
-
-## Other cool stuff
 
 ## Where does the data come from?
 
