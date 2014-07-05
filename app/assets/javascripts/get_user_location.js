@@ -1,10 +1,10 @@
 $(document).ready(function(){
 
-  geoFindUser();
+  findUser();
 
 });
 
-function geoFindUser() {
+function findUser() {
  
   if (navigator.geolocation){
 
@@ -12,13 +12,13 @@ function geoFindUser() {
       var latitude  = position.coords.latitude;
       var longitude = position.coords.longitude;
       var data = {latitude: latitude, longitude: longitude};
-      $.post('/current_position', data, console.log('success'));
+      $.post('/current_position', data, function(response){
+        console.log(response);
+        // replace this response with something that renders new map
+      }, 'JSON')
     };
 
-    function error() {
-      
-    };
-
-    navigator.geolocation.getCurrentPosition(success, error);
+    navigator.geolocation.getCurrentPosition(success);
   }
 }
+

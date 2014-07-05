@@ -173,8 +173,8 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   capybara (~> 2.2.1)
   coffee-rails (~> 4.0.0)
-  geokit-rails
   devise
+  geokit-rails
   jbuilder (~> 2.0)
   jquery-rails
   pg
