@@ -15,12 +15,12 @@ function findUser() {
 
       $.post('/current_position', data, function(response){ 
         console.log(response);
-          // replace this response with something that renders new map
+          // replace this response with something that renders new map on top of old map
       }, 'JSON');
 
       $.post('/update_surrounding', data, function(response){ 
         console.log(response);
-          // replace this response with something that renders new map
+        // render new map at the bottom of the page? put it on the page in the right place
       }, 'JSON');
     };
     navigator.geolocation.getCurrentPosition(success);
