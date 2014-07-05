@@ -2,24 +2,24 @@ require 'rails_helper'
 
 RSpec.describe Region, :type => :model do
 
-  describe '.find_ward_section' do
+  describe '.find_by_location' do
 
-    it 'should return a hash with the ward_secti' do
-      expect(Region.find_ward_section(41.890633, -87.629238)["ward_secti"]).to be_truthy
+    it 'should return a Region' do
+      expect(Region.find_by_location(41.890633, -87.629238)).to be_a Region
     end
 
     it 'should return the correct ward_secti' do  
-      expect(Region.find_ward_section(41.890633, -87.629238)).to eq({"ward_secti"=>"4202"})
+      expect(Region.find_by_location(41.890633, -87.629238).ward_secti).to eq("4202")
     end
 
     it 'should return nil for locations outside Chicago' do
-      expect(Region.find_ward_section(50,50)).to eq(nil)
+      expect(Region.find_by_location(50,50)).to eq(nil)
     end
 
     it 'should handle discontinuous polygons' do
-      region1 = Region.find_ward_section(41.803713, -87.613624)
-      region2 = Region.find_ward_section(41.804873, -87.613774)
-      region3 = Region.find_ward_section(41.806256, -87.613613)
+      region1 = Region.find_by_location(41.803713, -87.613624)
+      region2 = Region.find_by_location(41.804873, -87.613774)
+      region3 = Region.find_by_location(41.806256, -87.613613)
       expect(region1).to eq(region3)
       expect(region1).not_to eq(region2)
     end

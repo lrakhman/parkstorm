@@ -2,12 +2,16 @@ class Region < ActiveRecord::Base
 	has_many :notifications
 	has_many :users, through: :notifications
 
-  def self.find_ward_section(lat, long)
+  def self.find_by_location(lat, long)
     query = "SELECT ward_secti FROM regions 
     WHERE ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3),
     ST_MakePoint(#{long}, #{lat})) <= 0;"
 
-    Region.connection.execute(query).first
+    if found_section = Region.connection.execute(query).first
+      Region.find_by_ward_secti(found_section["ward_secti"])
+    else
+      found_section
+    end
   end
 
   def sections_nearby(distance)
@@ -16,7 +20,7 @@ class Region < ActiveRecord::Base
     WHERE ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3), \'#{center}\') <= #{distance} * 1609.34;"
 
     result = []
-    Region.connection.execute(query).each {|thing| result << thing}
+    Region.connection.execute(query).each {|thing| result << Region.find_by_ward_secti(thing["ward_secti"])}
     result
   end
 
