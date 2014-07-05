@@ -10,8 +10,6 @@ GEM
       activesupport (= 4.1.1)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
-    actionpack-page_caching (1.0.2)
-      actionpack (>= 4.0.0, < 5)
     actionview (4.1.1)
       activesupport (= 4.1.1)
       builder (~> 3.1)
@@ -48,6 +46,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    dalli (2.7.2)
     devise (3.2.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -75,6 +74,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memcachier (0.0.2)
     mime-types (1.25.1)
     mini_portile (0.6.0)
     minitest (5.3.5)
@@ -85,6 +85,8 @@ GEM
     pg (0.17.1)
     polyglot (0.3.5)
     rack (1.5.2)
+    rack-cache (1.2)
+      rack (>= 0.4)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.1.1)
@@ -171,16 +173,18 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionpack-page_caching
   activerecord-postgis-adapter
   bcrypt (~> 3.1.7)
   capybara (~> 2.2.1)
   coffee-rails (~> 4.0.0)
+  dalli
   devise
   geokit-rails
   jbuilder (~> 2.0)
   jquery-rails
+  memcachier
   pg
+  rack-cache
   rails (= 4.1.1)
   rspec-rails
   sass-rails (~> 4.0.3)

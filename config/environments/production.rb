@@ -13,7 +13,7 @@ Rails.application.configure do
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
-  config.action_controller.page_cache_directory = "#{Rails.root.to_s}/public/deploy"
+  config.cache_store = :dalli_store { expires_in 12.hours }
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
   # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
@@ -22,7 +22,8 @@ Rails.application.configure do
   # Disable Rails's static asset server (Apache or nginx will already do this).
   # config.serve_static_assets = false
   config.serve_static_assets = true
-
+  config.static_cache_control = "public, max-age=2592000"
+  config.assets.digest = true
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
@@ -81,4 +82,17 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-end
+
+  client = Dalli::Client.new((ENV["MEMCACHIER_SERVERS"] || "").split(","),
+                             :username => ENV["MEMCACHIER_USERNAME"],
+                             :password => ENV["MEMCACHIER_PASSWORD"],
+                             :failover => true,
+                             :socket_timeout => 1.5,
+                             :socket_failure_delay => 0.2,
+                             :value_max_bytes => 10485760)
+    config.action_dispatch.rack_cache = {
+      :metastore    => client,
+      :entitystore  => client
+    }
+    config.static_cache_control = "public, max-age=2592000"
+  end
