@@ -44,7 +44,25 @@ class Region < ActiveRecord::Base
     cleaning_days.sort.find { |day| day >= today }
   end
 
+  def swept_soon?
+    two_days_from_now = Date.today + 2
+    if next_cleaning_day
+      two_days_from_now >= next_cleaning_day
+    else
+      false
+    end
+  end
+
+  def self.areas_to_display(location, distance)
+    query = "SELECT ward_secti FROM regions 
+    WHERE ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3), 'MULTIPOINT(#{location[1]} #{location[0]})') <= #{distance} * 1609.34;"
+    result = []
+    Region.connection.execute(query).each {|thing| result << Region.find_by_ward_secti(thing["ward_secti"])}
+    [result.select{ |region| region.swept_soon? }, result.reject{ |region| region.swept_soon? }]
+  end
+
   private
+
   def find_center
     query = "SELECT ST_AsText(ST_CollectionExtract(ST_GeomFromText(\'#{self.geom}\'),1));"
 
