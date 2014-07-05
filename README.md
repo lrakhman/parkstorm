@@ -36,7 +36,7 @@ For Linux users, see [this link](http://www.google.com) for directions to instal
 
 1. ``rake db:create``
 2. ``rake db:migrate``
-3. ``rake db:after_migrate``
+3. ``rake db:after_migrate``  This task populates the ``regions`` table in the database with the map data.
 
 To verify that all this worked, open the Rails console and check that there are 888 regions (``Region.all.count``) and also that ``Region.first`` doesn't throw an error message.
 
