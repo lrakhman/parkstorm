@@ -21,8 +21,12 @@ RSpec.describe Region, :type => :model do
     it 'should return self with a distance of 0' do
       expect(region.sections_nearby(0)[0]["ward_secti"]).to eq(region.ward_secti)
     end
+    it 'should return only self with a distance of 0' do
+      expect(region.sections_nearby(0).count). to eq(1)
+    end
     it 'handles in between distances' do
       expect(region.sections_nearby(1).count).to eq(15)
     end
   end
+  describe '#'
 end
