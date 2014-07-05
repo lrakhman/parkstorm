@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
-
+#testing
 gem 'rspec-rails'
+gem 'capybara', '~> 2.2.1'
+gem 'devise'
+# gem "omniauth"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use postgresql as the database for Active Record
