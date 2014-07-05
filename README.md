@@ -1,4 +1,4 @@
-## README
+## README [![Build Status](https://travis-ci.org/kaplali/parkstorm.svg?branch=master)](https://travis-ci.org/kaplali/parkstorm)
 ###Git Work-flow:
 
 **To start working on the app:**          
