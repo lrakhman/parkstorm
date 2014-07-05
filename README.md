@@ -21,7 +21,11 @@ git push origin "your_branch_name"
 
 Lastly, submit a pull request on Github     
 
+###Running the tests
 
+1. ``rake db:test:prepare``
+2. ``rake db:test_after_prepare``
+3. ``rspec spec``
 
 ###How to setup the database
 
