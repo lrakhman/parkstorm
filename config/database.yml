@@ -16,7 +16,7 @@
 #
 default: &default
   adapter: postgis
-  template: template_postgis
+  # template: template_postgis
   host: localhost
   pool: 5
 
