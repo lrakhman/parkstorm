@@ -1,0 +1,23 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/Lo/Code/DBCstuff/honey_badgers/phase3/parkstorm/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Lo/Code/DBCstuff/honey_badgers/phase3/parkstorm/app/helpers/notifications_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Lo/Code/DBCstuff/honey_badgers/phase3/parkstorm/app/helpers/regions_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Lo/Code/DBCstuff/honey_badgers/phase3/parkstorm/app/helpers/users_helper.rb": [
+        1,
+        null
+      ]
+    },
+    "timestamp": 1404566236
+  }
+}
