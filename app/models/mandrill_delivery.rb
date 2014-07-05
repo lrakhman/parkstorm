@@ -4,6 +4,8 @@ class MandrillDelivery
   def initialize(mail)
   end
 
+  
+
   def deliver!(mail)
     build_meta_mandrill(mail)
     send_mandrill(mail)
