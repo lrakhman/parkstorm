@@ -20,6 +20,25 @@ class Region < ActiveRecord::Base
     result
   end
 
+  def cleaning_days
+    months = { month_4: 4, month_5: 5, month_6: 6, month_7: 7, month_8: 8,
+               month_9: 9, month_10: 10, month_11: 11 }
+    days = []
+    months.keys.each do |key|
+      day_string = self.send(key)
+      if day_string
+        day_string.split(",").each do |day|
+          days << Date.new(2014,months[key],day.to_i)
+        end
+      end
+    end
+    days
+  end
+
+  def next_cleaning_day
+    today = Date.today
+    cleaning_days.sort.find { |day| day > today }
+  end
 
   private
   def find_center
