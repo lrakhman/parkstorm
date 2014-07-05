@@ -9,11 +9,12 @@ class RegionsController < ApplicationController
     lat = params['latitude']
     long = params['longitude']
 
-    @region = Region.find_by_location(lat, long)
+    region = Region.find_by_location(lat, long)
 
-    respond_to do |format|
-      format.js {render :json => @region}
-    end
+
+    @region = Region.areas_to_display([lat, long], 0).flatten[0]
+
+    render partial: 'local_map', locals: {region: @region, swept_soon: region.swept_soon?}
   end
 
   def load_surrounding_regions
