@@ -65,6 +65,7 @@ GEM
     erubis (2.7.0)
     excon (0.37.0)
     execjs (2.2.1)
+    geocoder (1.2.2)
     hike (1.2.3)
     httpi (2.2.4)
       rack
@@ -202,6 +203,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   dalli
   devise
+  geocoder
   jbuilder (~> 2.0)
   jquery-rails
   mandrill
