@@ -1,19 +1,24 @@
 <header class="navigation">
   <div class="menu-wrapper">
     <a href="javascript:void(0)" class="logo">
-      <img src="https://raw.github.com/Magnus-G/Random/master/placeholder_logo_1.png" alt="">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
     </a>
     <p class="navigation-menu-button" id="js-mobile-menu">DPT CHI</p>
     <div class="nav">
       <ul id="navigation-menu">
         <li class="nav-link"><a href="javascript:void(0)">DPT CHI</a></li>
-          </ul>
-        </li>
-        
       </ul>
     </div>
     <div class="navigation-tools">
-      <a href="javascript:void(0)">
+      <div class="search-bar">
+        <div class="search-and-submit">
+          <form action=<%= user_session_path %> method='post'>
+            <input type="search" placeholder="Enter Search" />
+            <button type="submit">Email!</button>
+          </form>
+        </div>
+      </div>
+      <a href="javascript:void(0)" class="login">
         <div class="modal">
           <label for="modal-1">
             <div class="btn js-btn">Log In</div>
