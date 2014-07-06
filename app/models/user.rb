@@ -7,11 +7,6 @@ class User < ActiveRecord::Base
 	has_many :notifications
 	has_many :regions, through: :notifications
 
-	# scope :swept_soon, -> { where()}
-
-	# where the region.swept_soon? == true; runs block on each thing in
-	# association and only return the ones that are true
-
 	#format for email should be changed, but good for now
 	validates :email, uniqueness: true, :format => /.+@.+\..+/ 
 
@@ -20,6 +15,13 @@ class User < ActiveRecord::Base
 		"#{firstname} #{lastname}"
 	end
 
-	def self.send_reminders
+	def send_reminders
+		regions = self.regions.select {|x| x.swept_soon? }.map(&:ward_secti)
+		# regions.map(&:to_i)
+		if regions.any?
+			User.all.email.each {|x| x.send_email}
+		end
 	end
+
 end
+

@@ -1,9 +1,13 @@
 class Notification < ActiveRecord::Base
 	belongs_to :user
-	belongs_to :region #, scope :swept_soon, -> { where(Region.)}
+	belongs_to :region
 
-	# scope :swept_soon, -> { where()}
+	def send_email
+		Notification.select {|x| x.region.swept_soon?}
+	end
 
-	# where the region.swept_soon? == true; runs block on each thing in
-	# association and only return the ones that are true
+	
+
+
 end
+
