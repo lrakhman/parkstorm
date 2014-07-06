@@ -1,4 +1,5 @@
 class RegionsController < ApplicationController
+  skip_before_filter :verify_authenticity_token, :only => [:load_surrounding_regions]
 
   def index
     # load a map of chicago
