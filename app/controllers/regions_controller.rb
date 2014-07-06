@@ -15,7 +15,8 @@ class RegionsController < ApplicationController
 
     @region = Region.areas_to_display([lat, long], 0).flatten[0]
 
-     render json: {next_sweep: "#{Date::MONTHNAMES[region.next_cleaning_day.month]} #{region.next_cleaning_day.day}", sweep_days: region.cleaning_days } 
+     render json: { next_sweep: "#{Date::MONTHNAMES[region.next_cleaning_day.month]} #{region.next_cleaning_day.day}", 
+                    sweep_days: region.cleaning_days } 
   end
 
   def load_surrounding_regions
@@ -38,6 +39,6 @@ class RegionsController < ApplicationController
       Rails.cache.write('map5', fourth_quarter)
       @regions = [Rails.cache.fetch('map1'), Rails.cache.fetch('map2') + Rails.cache.fetch('map3') + Rails.cache.fetch('map4') + Rails.cache.fetch('map5')]
     end
-    render partial: 'map', locals: {regions: @regions}
+    render partial: 'map', locals: { regions: @regions, lat: lat, long: long }
   end
 end
