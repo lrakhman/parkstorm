@@ -4,6 +4,7 @@ gem 'twilio-ruby'
 gem 'oauth'
 gem 'mandrill'
 gem 'mandrill-api'
+gem 'delayed_job_active_record'
 
 #testing
 gem 'rspec-rails'
@@ -39,7 +40,7 @@ gem 'spring',        group: :development
 gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
