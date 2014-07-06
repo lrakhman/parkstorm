@@ -1,5 +1,5 @@
 function watchForClick(marker) {    
-  var marker = marker
+  var marker = marker;
   active_map.on('click', function(e) {
     active_map.off('click');
     if(typeof(marker)==='undefined') {

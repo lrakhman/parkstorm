@@ -34,19 +34,19 @@ function findAddress(){
 }
 
 function updatePage(data, location) {
-  postCurrentLocation(data, location);
-  
   $.post('/load_region', data, function(response){ 
     $('#active_map').append(response)
   });
+
+  postCurrentLocation(data, location);
 }
 
 function updatePageFromAddress(data, location) {
-  postCurrentLocation(data, location);
-
   $.post('/load_region_from_address', data, function(response){ 
     $('#active_map').replaceWith(response)
   });
+
+  postCurrentLocation(data, location);
 }
 
 function postCurrentLocation(data, location) {
