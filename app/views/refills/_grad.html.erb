@@ -4,19 +4,45 @@
     <p>The Next Street Cleaning<br>
     	For Your Location Is:<br>
     	_____________________</p>
-    	<header class="address_search">
-    		<header class="navigation">
-		      <div class="search-bar">
-		        <div class="search-and-submit">
-		          <input type="search" placeholder="Enter Your Address" />
-		          <button type="submit">
-		            <img src="https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png" alt="">
-		          </button>
-				    </div>
+  	<header class="address_search">
+  		<header class="navigation">
+	      <div class="search-bar">
+	        <div class="search-and-submit">
+	          <input type="search" placeholder="Enter Your Address" />
+	          <button type="submit">
+	            <img src="https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png" alt="">
+	          </button>
 			    </div>
-			  </header>
-			 </header>
-    	<p>Sign Up OR Click to Start!</p>
+		    </div>
+		  </header>
+		</header>
+			
+	      <label for="modal-2">
+	        <div class="btn js-btn">Sign Up</div>
+	      </label>
+			<div class="modal">
+	      <input class="modal-state" id="modal-2" type="checkbox" />
+	      <div class="modal-window">
+	        <div class="modal-inner">
+	          <label class="modal-close" for="modal-2"></label>
+	          <h1>Sign Up</h1>
+	          <div class="container">
+	            <form action=<%= user_registration_path %> method='post'>
+	            	<input type="text" required>
+	              <label for="" placeholder="Your First Name" alt="First Name"></label>
+	              <input type="text" required>
+	              <label for="" placeholder="Your Last Name" alt="Last Name"></label>
+	              <input type="Email" required>
+	              <label for="" placeholder="Your Email Address" alt="Email"></label>
+	              <input type="password" required>
+	              <label for="" placeholder="Your Password" alt="Password"></label>
+	              <input type="submit" value="Sign Up">
+	            </form>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+
   </div>
   <div class="overlay"></div>
 </div>
