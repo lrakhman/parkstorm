@@ -193,12 +193,10 @@ header.navigation {
     }
   }
 
-  a.sign-up {
-    margin-top: 13px;
+  a.login {
     float: right;
     @include transition (all 0.2s ease-in-out);
     display: inline;
-    background: $navigation-nav-button-background;
     border-radius: $base-border-radius; 
     color: white;
     font-size: .8em;  
