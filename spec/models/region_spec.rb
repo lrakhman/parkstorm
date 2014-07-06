@@ -103,4 +103,21 @@ RSpec.describe Region, :type => :model do
 
     end
   end
+
+  describe '#future_cleaning_days' do
+    
+    it 'should return an array of Dates' do
+      region = Region.find(1)
+      expect(region.future_cleaning_days).to be_a Array
+      expect(region.future_cleaning_days[0]).to be_a Date
+    end
+
+    it 'should only have dates in the future' do
+      expect(Region.find(1).future_cleaning_days.select { |day| day <= Date.today }).to be_empty
+    end
+
+    it 'should return an empty array for a region with no street sweeping' do
+      expect(Region.find(600).future_cleaning_days).to be_empty
+    end
+  end
 end
