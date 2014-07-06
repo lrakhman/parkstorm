@@ -1,4 +1,10 @@
 source 'https://rubygems.org'
+#Gems for sassaholic
+gem 'sass'
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
+gem 'refills'
 #testing
 gem 'rspec-rails'
 gem 'capybara', '~> 2.2.1'
