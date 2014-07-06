@@ -15,7 +15,7 @@ class RegionsController < ApplicationController
 
     @region = Region.areas_to_display([lat, long], 0).flatten[0]
 
-    render partial: 'local_map', locals: {region: @region, swept_soon: region.swept_soon?}
+     render json: {next_sweep: "#{Date::MONTHNAMES[region.next_cleaning_day.month]} #{region.next_cleaning_day.day}", sweep_days: region.cleaning_days } 
   end
 
   def load_surrounding_regions
