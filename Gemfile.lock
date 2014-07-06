@@ -199,9 +199,9 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
-  neat
   mandrill
   mandrill-api
+  neat
   oauth
   pg
   rails (= 4.1.1)
