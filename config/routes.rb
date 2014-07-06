@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'regions#index'
   post '/current_position' => 'regions#load_region'
-  get '/update_surrounding' => 'regions#load_surrounding_regions'
+  post '/update_surrounding' => 'regions#load_surrounding_regions'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

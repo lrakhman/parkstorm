@@ -14,18 +14,15 @@ function findUser() {
       var data = {latitude: latitude, longitude: longitude};
 
       $.post('/current_position', data, function(response){ 
-        $('#map_container').append(response)
+        $('#active_map').append(response)
           // replace this response with something that renders new map on top of old map
       }, 'JSON');
 
-      $.get('/update_surrounding', data, function(response){ 
-        $('#map_container ').append(response)
+      $.post('/update_surrounding', data, function(response){ 
+        $('#active_map').replaceWith(response)
         // render new map at the bottom of the page? put it on the page in the right place
       });
     };
     navigator.geolocation.getCurrentPosition(success);
   }
 }
-
-
-
