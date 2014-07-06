@@ -1,12 +1,6 @@
 <div id="map_script">
 <script>
   $(document).ready(function() {
-    if (typeof active_map === 'undefined') {
-      active_map = L.map('active_map').setView([<%= lat %>, <%= long %>], 15);
-      L.tileLayer('http://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-        '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-        'Imagery © <a href="http://mapbox.com">Mapbox</a>', id: 'examples.map-i86knfo3'}).addTo(active_map);
-    }
     var placeholder = [];
     <% regions[0].each do |region| %>
       region = <%= region.html_safe %>;
@@ -21,33 +15,7 @@
     everything = L.layerGroup([marker].concat.apply([marker], placeholder));
     everything.addTo(active_map);
 
-    active_map.on('click', function(e) {
-      active_map.off('click');
-      if(typeof(marker)==='undefined') {
-        marker = L.marker(e.latlng,{ draggable: true});       
-      } else {
-        marker.setLatLng(e.latlng);         
-      }
-      var data = { latitude: e.latlng.lat, longitude: e.latlng.lng }
-      $.post('/current_position', data, function(response){ 
-        $('.copy p:first-child').html('Next Street Cleaning<br>For Your Location Is:<br>' + response.next_sweep);
-        var days = response.sweep_days;
-        str = "<h3>Next Cleaning: " + response.next_sweep + "</h3><h3>Street Cleaning Days</h3><ul>";
-        if (days.length == 0) {
-          str += '<li>None</li>'
-        } else {
-          for (var i=0; i<days.length; i++) {
-            str += '<li>' + days[i] + '</li>';
-          }
-        }
-        $('.cleaning_col').html(str + '</ul>');
-      }, 'JSON');
-      $.post('/load_region', data, function(response){
-        active_map.removeLayer(everything);
-        $('#map_script').remove();
-        $('#active_map').append(response);
-      })
-    });
+    watchForClick(marker);
   });
 </script>
 </div>
