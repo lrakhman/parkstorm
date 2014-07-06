@@ -46,7 +46,7 @@ class Region < ActiveRecord::Base
   end
 
   def swept_soon?
-    two_days_from_now = Date.today + 2
+    two_days_from_now = Date.today + 9
     if next_cleaning_day
       two_days_from_now >= next_cleaning_day
     else
