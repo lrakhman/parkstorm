@@ -14,8 +14,8 @@ Rails.application.configure do
   config.assets.digest = true
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
-  config.action_controller.perform_caching = true
-  config.cache_store = :dalli_store, { expires_in: 12.hours }
+  config.action_controller.perform_caching = false
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
@@ -34,20 +34,6 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
-
-  client = Dalli::Client.new((ENV["MEMCACHIER_SERVERS"] || "").split(","),
-                             :username => ENV["MEMCACHIER_USERNAME"],
-                             :password => ENV["MEMCACHIER_PASSWORD"],
-                             :failover => true,
-                             :socket_timeout => 1.5,
-                             :socket_failure_delay => 0.2,
-                             :value_max_bytes => 10485760)
-    config.action_dispatch.rack_cache = {
-      :metastore    => client,
-      :entitystore  => client
-    }
-    config.static_cache_control = "public, max-age=2592000"
-
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
