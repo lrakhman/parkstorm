@@ -26,4 +26,11 @@ class RegionsController < ApplicationController
     @regions = Region.areas_to_display([lat, long], 0.25)
     render partial: 'map', locals: { regions: @regions, lat: lat, long: long }
   end
+
+  def load_region_from_address
+    lat = params['latitude']
+    long = params['longitude']
+    @regions = Region.areas_to_display([lat, long], 0.25)
+    render partial: 'address_map', locals: { regions: @regions, lat: lat, long: long }
+  end
 end

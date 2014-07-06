@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root 'regions#index'
   post '/current_position' => 'regions#current_position'
   post '/load_region' => 'regions#load_region'
+  post '/load_region_from_address' => 'regions#load_region_from_address'
   post '/update_surrounding' => 'regions#load_surrounding_regions'
 
   # Example of regular route:
