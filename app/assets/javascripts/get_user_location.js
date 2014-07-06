@@ -21,11 +21,12 @@ function findUser() {
         }
         $('.cleaning_col').html(str + '</ul>');
       }, 'JSON');
-
-      $.post('/update_surrounding', data, function(response){ 
-        $('#active_map').replaceWith(response)
-        // render new map at the bottom of the page? put it on the page in the right place
-      });
+      $.post('/load_region', data, function(response){
+        $('#active_map').append(response);
+      })
+      // $.post('/update_surrounding', data, function(response){ 
+      //   $('#active_map').replaceWith(response);
+      // });
     };
     navigator.geolocation.getCurrentPosition(success);
   }
