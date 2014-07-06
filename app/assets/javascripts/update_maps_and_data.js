@@ -30,6 +30,7 @@ function findAddress(){
     var lat = results[0].geometry.location.k;
     var lng = results[0].geometry.location.B;
     data = {latitude: lat, longitude: lng};
+    
     updatePage(data, address);
   });
 }
