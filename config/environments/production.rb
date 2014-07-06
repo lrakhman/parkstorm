@@ -1,6 +1,18 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+
+  config.action_mailer.default_url_options = { :host =>
+   'http://mailer-testing.herokuapp.com/' }
+
+  config.action_mailer.delivery_method = :mandrill_delivery
+  # Code is not reloaded between requests.
+  config.cache_classes = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -14,12 +26,28 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+
+  config.action_mailer.smtp_settings = {
+  :address   => "smtp.mandrillapp.com",
+  :port      => 587,
+  :user_name => ENV["MANDRILL_USERNAME"],
+  :password  => ENV["MANDRILL_API_KEY"],
+  :authentication => "plain",
+  :enable_starttls_auto => true,
+  :domain => 'http://mailer-testing.herokuapp.com/'
+}
+
+
+  
+
+
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
   # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
+
   # config.serve_static_assets = false
   config.serve_static_assets = true
 

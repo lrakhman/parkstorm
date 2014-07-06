@@ -1,4 +1,16 @@
 source 'https://rubygems.org'
+
+#Gems for sassaholic
+gem 'sass'
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
+gem 'refills'
+
+gem 'twilio-ruby'
+gem 'oauth'
+gem 'mandrill'
+gem 'mandrill-api'
 #testing
 gem 'rspec-rails'
 gem 'capybara', '~> 2.2.1'
@@ -43,4 +55,12 @@ gem 'bcrypt', '~> 3.1.7'
 
 # add queries to postgis
 gem 'activerecord-postgis-adapter'
+
+
+# get user location from IP address
+
+
+
+
 gem 'simplecov', :require => false, :group => :test
+
