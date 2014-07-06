@@ -43,7 +43,7 @@ gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
+gem 'memcachier'
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -52,7 +52,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+gem 'rack-cache'
+gem 'dalli'
 # add queries to postgis
 gem 'activerecord-postgis-adapter'
 
