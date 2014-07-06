@@ -23,5 +23,11 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	def add_regions
+		self.regions << session[:current_region]
+	end
+
+	
+
 end
 

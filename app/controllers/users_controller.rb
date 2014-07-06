@@ -11,10 +11,12 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     super
-    NotificationMailer.sign_up_notification(@user).deliver
+    @user = User.new(params[:id])
+    @user.regions << session[:current_region]
   end
 
 end
 
-    # @regions = Region.all.pluck(:ward_secti)
+        # NotificationMailer.sign_up_notification(@user).deliver
+
 
