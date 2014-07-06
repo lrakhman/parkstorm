@@ -65,6 +65,7 @@ GEM
     erubis (2.7.0)
     excon (0.37.0)
     execjs (2.2.1)
+    geocoder (1.2.2)
     hike (1.2.3)
     httpi (2.2.4)
       rack
@@ -86,7 +87,6 @@ GEM
     mandrill-api (1.0.52)
       excon (>= 0.16.0, < 1.0)
       json (>= 1.7.7, < 2.0)
-    memcachier (0.0.2)
     mime-types (1.25.1)
     mini_portile (0.6.0)
     minitest (5.3.5)
@@ -202,11 +202,11 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   dalli
   devise
+  geocoder
   jbuilder (~> 2.0)
   jquery-rails
   mandrill
   mandrill-api
-  memcachier
   neat
   oauth
   pg
