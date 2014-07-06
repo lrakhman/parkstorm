@@ -1,5 +1,4 @@
 class RegionsController < ApplicationController
-  skip_before_filter :verify_authenticity_token, :only => [:load_surrounding_regions]
 
   def index
     # load a map of chicago
@@ -16,7 +15,7 @@ class RegionsController < ApplicationController
     @region = Region.areas_to_display([lat, long], 0).flatten[0]
 
      render json: { next_sweep: "#{Date::MONTHNAMES[region.next_cleaning_day.month]} #{region.next_cleaning_day.day}", 
-                    sweep_days: region.cleaning_days } 
+                    sweep_days: region.future_cleaning_days[0..15] } 
   end
 
   def load_surrounding_regions

@@ -40,6 +40,10 @@ class Region < ActiveRecord::Base
     days
   end
 
+  def future_cleaning_days
+    cleaning_days.select { |day| day >= Date.today }
+  end
+
   def next_cleaning_day
     today = Date.today
     cleaning_days.sort.find { |day| day >= today }
