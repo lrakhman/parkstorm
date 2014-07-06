@@ -44,6 +44,10 @@ class Region < ActiveRecord::Base
     cleaning_days.select { |day| day >= Date.today }
   end
 
+  def future_cleaning_days_formatted
+    future_cleaning_days.map{|date| "#{Date::MONTHNAMES[date.month]} #{date.day}"}
+  end
+
   def next_cleaning_day
     today = Date.today
     cleaning_days.sort.find { |day| day >= today }
