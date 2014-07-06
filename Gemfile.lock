@@ -53,7 +53,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
-    dalli (2.7.2)
     devise (3.2.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -101,8 +100,6 @@ GEM
     pg (0.17.1)
     polyglot (0.3.5)
     rack (1.5.2)
-    rack-cache (1.2)
-      rack (>= 0.4)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.1.1)
@@ -200,7 +197,6 @@ DEPENDENCIES
   bourbon
   capybara (~> 2.2.1)
   coffee-rails (~> 4.0.0)
-  dalli
   devise
   geocoder
   jbuilder (~> 2.0)
@@ -210,7 +206,6 @@ DEPENDENCIES
   neat
   oauth
   pg
-  rack-cache
   rails (= 4.1.1)
   refills
   rspec-rails
