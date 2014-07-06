@@ -1,10 +1,16 @@
 source 'https://rubygems.org'
+
 #Gems for sassaholic
 gem 'sass'
 gem 'bourbon'
 gem 'neat'
 gem 'bitters'
 gem 'refills'
+
+gem 'twilio-ruby'
+gem 'oauth'
+gem 'mandrill'
+gem 'mandrill-api'
 #testing
 gem 'rspec-rails'
 gem 'capybara', '~> 2.2.1'
