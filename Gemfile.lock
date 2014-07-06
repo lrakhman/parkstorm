@@ -32,6 +32,13 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
+    bitters (0.10.0)
+      bourbon (>= 3.2)
+      sass (>= 3.2)
+      thor
+    bourbon (3.2.3)
+      sass (~> 3.2)
+      thor
     builder (3.2.2)
     capybara (2.2.1)
       mime-types (>= 1.16)
@@ -51,6 +58,7 @@ GEM
     delayed_job_active_record (4.0.1)
       activerecord (>= 3.0, < 4.2)
       delayed_job (>= 3.0, < 4.1)
+    dalli (2.7.2)
     devise (3.2.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -62,6 +70,7 @@ GEM
     erubis (2.7.0)
     excon (0.37.0)
     execjs (2.2.1)
+    geocoder (1.2.2)
     hike (1.2.3)
     httpi (2.2.4)
       rack
@@ -87,6 +96,9 @@ GEM
     mini_portile (0.6.0)
     minitest (5.3.5)
     multi_json (1.10.1)
+    neat (1.5.1)
+      bourbon (>= 3.1)
+      sass (~> 3.2.19)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     oauth (0.4.7)
@@ -94,6 +106,8 @@ GEM
     pg (0.17.1)
     polyglot (0.3.5)
     rack (1.5.2)
+    rack-cache (1.2)
+      rack (>= 0.4)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.1.1)
@@ -114,6 +128,7 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    refills (0.0.2)
     rgeo (0.3.20)
     rgeo-activerecord (1.1.0)
       activerecord (~> 4.0)
@@ -186,18 +201,26 @@ PLATFORMS
 DEPENDENCIES
   activerecord-postgis-adapter
   bcrypt (~> 3.1.7)
+  bitters
+  bourbon
   capybara (~> 2.2.1)
   coffee-rails (~> 4.0.0)
   delayed_job_active_record
+  dalli
   devise
+  geocoder
   jbuilder (~> 2.0)
   jquery-rails
   mandrill
   mandrill-api
+  neat
   oauth
   pg
+  rack-cache
   rails (= 4.1.1)
+  refills
   rspec-rails
+  sass
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   simplecov

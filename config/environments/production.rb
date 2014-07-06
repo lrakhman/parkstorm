@@ -50,7 +50,8 @@ Rails.application.configure do
 
   # config.serve_static_assets = false
   config.serve_static_assets = true
-
+  config.static_cache_control = "public, max-age=2592000"
+  config.assets.digest = true
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
@@ -109,4 +110,5 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
 end

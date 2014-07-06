@@ -40,15 +40,19 @@ class Region < ActiveRecord::Base
     days
   end
 
+  def future_cleaning_days
+    cleaning_days.select { |day| day >= Date.today }
+  end
+
   def next_cleaning_day
     today = Date.today
     cleaning_days.sort.find { |day| day >= today }
   end
 
   def swept_soon?
-    two_days_from_now = Date.today + 2
+    week_from_now = Date.today + 7
     if next_cleaning_day
-      two_days_from_now >= next_cleaning_day
+      week_from_now >= next_cleaning_day
     else
       false
     end
