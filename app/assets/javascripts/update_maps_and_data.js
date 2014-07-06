@@ -3,7 +3,6 @@ $(document).ready(function(){
   findUser();
 
   $('#address_submit').on('click', function(event){
-    // event.preventDefault();
     findAddress();
   })
 });
@@ -11,7 +10,6 @@ $(document).ready(function(){
 
 function findUser() {
   if (navigator.geolocation){
-
     function success(position) {
       var latitude  = position.coords.latitude;
       var longitude = position.coords.longitude;
@@ -39,7 +37,6 @@ function findAddress(){
 function updatePage(data, location) {
   $.post('/update_surrounding', data, function(response){ 
     $('#active_map').replaceWith(response)
-    // render new map at the bottom of the page? put it on the page in the right place
   });
 
   $.post('/current_position', data, function(response){ 
@@ -50,6 +47,5 @@ function updatePage(data, location) {
       str += '<li>' + days[i] + '</li>';
     }
     $('.cleaning_col').html(str + '</ul>');
-      // replace this response with something that renders new map on top of old map
   }, 'JSON');
 }
