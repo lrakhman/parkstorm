@@ -17,3 +17,4 @@ class UsersController < ApplicationController
 end
 
     # @regions = Region.all.pluck(:ward_secti)
+
