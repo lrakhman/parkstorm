@@ -1,9 +1,8 @@
 desc "This task is called by the Heroku scheduler add-on"
 task :send_reminders => :environment do
-  
+  Notification.sweep_notification
+  puts "I worked properly."
 end
 
-task :print => :environment do
-	puts "I work too."
-end
+
 
