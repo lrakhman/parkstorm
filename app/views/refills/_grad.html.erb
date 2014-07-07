@@ -9,7 +9,7 @@
     <header class="navigation">
       <div class="search-bar">
         <div class="search-and-submit">
-          <input id = "address" type="search" placeholder="Enter Your Address" />
+          <input id = "address" type="search" placeholder="Enter Street Address" />
           <button id = "address_submit" type="submit">
             <img src="https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png" alt="">
           </button>
@@ -18,10 +18,10 @@
   </header>
 </header>
 <div class = "modal">
-<label for="modal-2">
-        <div class="btn js-btn">Sign Up</div>
-      </label>
-    </div>
+  <label for="modal-2">
+    <div class="btn js-btn">Sign Up</div>
+  </label>
+</div>
     <a href="#move"><img src='http://i.minus.com/iYSsHan6HyRHu.png'></a>
   </div>
   <div class="overlay"></div>
@@ -32,46 +32,7 @@
   <div class="modal-window">
     <div class="modal-inner">
       <label class="modal-close" for="modal-2"></label>
-      <h1>Sign Up</h1>
-      <div class="container">
-
-    <%= form_for(:user, :url => user_registration_path, :html => { :role => 'form'}) do |f| %>
-    <h3>Sign up</h3>
-    
-    <div class="form-group">
-      <%= f.label :firstname %>
-      <%= f.text_field :firstname, :autofocus => true, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :lastname %>
-      <%= f.text_field :lastname, :autofocus => true, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-    </div>
-     <%= f.submit 'Sign up', :class => 'button right' %>
-  <% end %>
-
-   <%= form_for(:notification, :url => notifications_path, :html => { :role => 'form', :id => "email_notes"}) do |f| %>
-    <h3>Get Email Notification</h3>
-    
-    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.text_field :email, :autofocus => true, class: 'form-control1' %>
-    </div>
-    <%= f.submit 'Sign up', :class => 'button right' %>
-    <% end %>
-       
-      </div>
+     <%= render 'users/signup'%>
     </div>
   </div>
 </div>
