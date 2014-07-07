@@ -42,8 +42,6 @@ ActiveRecord::Schema.define(version: 20140707214429) do
     t.date     "sent_at"
   end
 
-  
-
   create_table "users", force: true do |t|
     t.string   "firstname"
     t.string   "lastname"
