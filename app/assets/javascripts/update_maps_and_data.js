@@ -16,8 +16,8 @@ $(document).ready(function(){
 function findUser() {
   if (navigator.geolocation){
     function success(position) {
-      var latitude  = position.coords.latitude;
-      var longitude = position.coords.longitude;
+      var latitude  = 43.795792; // position.coords.latitude;
+      var longitude = -91.312800; // position.coords.longitude;
       var data = {latitude: latitude, longitude: longitude};
 
       updatePage(data, 'your current location')
@@ -52,7 +52,6 @@ function updatePageFromAddress(data, location) {
   $.post('/load_region_from_address', data, function(response){ 
     $('#active_map').replaceWith(response)
     addLegend(active_map);
-    console.log('hello')
   });
 
   postCurrentLocation(data, location);
