@@ -12,10 +12,11 @@ class NotificationMailer < ActionMailer::Base
   end
 
   def sweep_notification(notice)
-      mail(:to => notice.email,
+      @notice = notice
+      mail(:to => @notice.email,
              # :ward => notice.region.ward,
              # :area => notice.region.sweep,
-             :subject => "Sweeping Notification for Ward #{notice.region.ward_num}")
+             :subject => "Sweeping Notification for Ward")
   end
 
 end
