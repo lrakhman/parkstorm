@@ -9,7 +9,7 @@ function watchForClick(marker) {
     }
     var data = { latitude: e.latlng.lat, longitude: e.latlng.lng }
 
-    postCurrentLocation(data, 'Your Selected Location');
+    postCurrentLocation(data, 'your selected location');
 
     $.post('/load_region', data, function(response){
       active_map.removeLayer(everything);
