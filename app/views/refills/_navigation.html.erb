@@ -15,14 +15,11 @@
           
         </div>
       </div>
+      <% unless current_user %>
       <a href="javascript:void(0)" class="login">
         <div class="modal">
           <label for="modal-1">
-          <% unless current_user %>
             <div class="btn js-btn">Log In</div>
-            <% else %>
-            <div class="btn js-btn">Log Out</div>
-            <% end %>
           </label>
           <input class="modal-state" id="modal-1" type="checkbox" />
           <div class="modal-window">
@@ -30,7 +27,7 @@
               <label class="modal-close" for="modal-1"></label>
               <h1>Log In</h1>
               <div class="container">
-              <%= form_for(:session, :url => user_session_path, :html => { :role => 'form', :id => "new_user"}) do |f| %>
+              <%= form_for(:user, :url => user_session_path, :html => { :role => 'form', :id => "new_user"}) do |f| %>
                   <div class="form-group">
                     <%= f.label :email %>
                     <%= f.text_field :email, :autofocus => true, class: 'form-control1' %>
@@ -46,6 +43,12 @@
           </div>
         </div>
       </a>
+      <% else %>
+      <a href="javascript:void(0)" class="login">
+        <div class="btn js-btn">
+        <%= link_to "Log Out", destroy_user_session_path, :method => :delete %></div>
+        </a>
+      <% end %>
     </div>
   </div>
 </header>
