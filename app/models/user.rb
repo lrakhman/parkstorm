@@ -17,14 +17,6 @@ class User < ActiveRecord::Base
 		Notification.where(email: email, user_id: nil).each {|notif| self.notifications << notif}
 	end
 
-	def send_reminders
-		regions = self.regions.select {|x| x.swept_soon? }.map(&:ward_secti)
-		
-		if regions.any?
-			User.all.email.each {|x| x.send_email}
-		end
-	end
-
 	def add_regions
 		self.regions << session[:current_region]
 	end

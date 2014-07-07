@@ -12,7 +12,7 @@ class NotificationsController < ApplicationController
  		Notification.create!(region_id: session[:current_region_id], email: params[:notification][:email])
  	end
  	logger.info params.inspect
- 		render plain: "Notification will be sent."
+ 		render plain: "Notification will be sent one week before sweeping."
  end
 end
 

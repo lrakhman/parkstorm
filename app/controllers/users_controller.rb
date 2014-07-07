@@ -16,12 +16,8 @@ class UsersController < ApplicationController
   NotificationMailer.sign_up_notification(@user).deliver
   end
 
-  private
-  
-  def verify_user
-    ## redirect to appropriate path
-    redirect_to new_user_path
-  end
+
+
 
 end
 
