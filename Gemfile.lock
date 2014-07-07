@@ -130,6 +130,8 @@ GEM
     rgeo-activerecord (1.1.0)
       activerecord (~> 4.0)
       rgeo (~> 0.3)
+    rgeo-geojson (0.3.1)
+      rgeo (~> 0.3)
     rspec-core (3.0.2)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.2)
@@ -214,6 +216,7 @@ DEPENDENCIES
   pg
   rails (= 4.1.1)
   refills
+  rgeo-geojson
   rspec-rails
   sass
   sass-rails (~> 4.0.3)

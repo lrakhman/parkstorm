@@ -56,7 +56,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 # add queries to postgis
 gem 'activerecord-postgis-adapter'
-
+gem 'rgeo-geojson'
 
 # get user location from IP address
 gem "geocoder"
