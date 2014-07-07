@@ -86,18 +86,28 @@
     color: white;
     font-weight: 800;
     background-color: rgba(0, 0, 0, 0.4);
+    height: 80px;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 5%;
     
+    #address {
+      padding: .8em 2em;
+      font-size: 1.1em;
+    }
+
     .navigation {
       background-color: rgba(0, 0, 0, 0);
 
       .search-and-submit {
-        width: 120%;
-        margin-left: -10%;
+        width: 140%;
       }
     }
 
     img {
       width: auto;
+      height: 15px;
+      margin: 0 auto;
     }
   }
 }
