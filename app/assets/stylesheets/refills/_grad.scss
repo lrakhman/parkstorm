@@ -72,4 +72,32 @@
       @include position(absolute, 0px 0px 0px 0px);
     }
   }
+
+  header.address_search {
+    box-sizing: border-box;
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    line-height: 1.5em;
+    padding: .2em 2em;
+    position: relative;
+    color: white;
+    font-weight: 800;
+    background-color: rgba(0, 0, 0, 0.4);
+    
+    .navigation {
+      background-color: rgba(0, 0, 0, 0);
+
+      .search-and-submit {
+        width: 120%;
+        margin-left: -10%;
+      }
+    }
+
+    img {
+      width: auto;
+    }
+  }
 }

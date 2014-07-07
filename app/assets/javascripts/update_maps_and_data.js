@@ -41,7 +41,7 @@ function updatePage(data, location) {
 
   postCurrentLocation(data, location);
   $.post('/current_position', data, function(response){ 
-    $('.copy p:first-child').html('The Next Street Cleaning<br>For ' + location + ' Is:<br>' + response.next_sweep);
+    $('.copy p:nth-child(2)').html('The Next Street Cleaning<br>For ' + location + ' Is:<br>' + response.next_sweep);
     var days = response.sweep_days;
     str = "<h3>Next Cleaning: " + response.next_sweep + "</h3><h3>Street Cleaning Days</h3><ul>";
     for (var i=0; i<days.length; i++) {
