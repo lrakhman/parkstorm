@@ -3,8 +3,13 @@ $(document).ready(function(){
   findUser();
 
   $('#address_submit').on('click', function(event){
-    findAddress();
+    findAddress('#address');
   })
+
+  $('#lower_address_submit').on('click', function(event){
+    findAddress('#lower_address');
+  })
+
 });
 
 
@@ -21,9 +26,9 @@ function findUser() {
   }
 }
 
-function findAddress(){
-  var address = $('#address').val();
-  $('#address').val('')
+function findAddress(selector){
+  var address = $(selector).val();
+  $(selector).val('')
   var geocoder = new google.maps.Geocoder();
   geocoder.geocode({'address': address + 'chicago'}, function(results, status){
     var lat = results[0].geometry.location.k;

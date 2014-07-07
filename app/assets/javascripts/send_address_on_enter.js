@@ -5,5 +5,11 @@ $(document).ready(function() {
     }
   });
 
+  $("#lower_address").keyup(function(event){
+    if(event.keyCode == 13){
+      $("#lower_address_submit").click();
+    }
+  });
+
   
 });
