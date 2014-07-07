@@ -1,9 +1,8 @@
 #active_map {
-  @include size(70% 800px);
+  @include size(70% 600px);
   @include position(relative auto);
   margin: auto;
   padding-right: 10px;
-  margin-top: -24px;
   float: left;
 }
 
@@ -20,4 +19,8 @@
   float: left;
   margin-right: 8px;
   opacity: 0.7;
+}
+
+#next h3:first-child {
+  margin: 0px;
 }

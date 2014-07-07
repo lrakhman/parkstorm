@@ -57,7 +57,7 @@ function postCurrentLocation(data, location) {
 
     $('#next').html("<h3>" + location + "</h3><h3>Next Cleaning: " + response.next_sweep);
 
-    str = "</h3><h3>Street Cleaning Days</h3><ul>"
+    str = "</h3><h3>Upcoming Street Cleaning Days</h3><ul>"
     var days = response.sweep_days;
     if (days.length > 0) {
       for (var i=0; i<days.length; i++) {
