@@ -52,7 +52,6 @@ function updatePageFromAddress(data, location) {
   $.post('/load_region_from_address', data, function(response){ 
     $('#active_map').replaceWith(response)
     addLegend(active_map);
-    console.log('hello')
   });
 
   postCurrentLocation(data, location);
