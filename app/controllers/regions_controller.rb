@@ -15,7 +15,7 @@ class RegionsController < ApplicationController
       render json: { next_sweep: next_sweep, sweep_days: region.future_cleaning_days_formatted[0..15] }
     else
       render json: { next_sweep: "Not a Chicago Location", sweep_days: ["None"] }
-    end 
+    end
   end
 
   def load_region
