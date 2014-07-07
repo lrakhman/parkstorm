@@ -1,8 +1,8 @@
-class MailJob 
+# class MailJob 
 
-	def perform
-		Notification.sweep_notification
-	end
+# 	def perform
+# 		Notification.sweep_notification
+# 	end
 
 	
-end
+# end

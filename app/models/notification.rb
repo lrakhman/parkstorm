@@ -5,7 +5,7 @@ class Notification < ActiveRecord::Base
 	def self.sweep_notification
 		Notification.all.each do |notice|
 			if notice.region.swept_soon?
-				NotificationMailer.sweep_notification(notice).deliver!
+				NotificationMailer.sweep_notification(notice).deliver
 			end
 		end
 	end
