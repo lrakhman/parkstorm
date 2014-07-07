@@ -1,12 +1,12 @@
 <h2><%= @user.fullname %>'s 'Profile</h2>
 
-<p>Your notifications</p>
+<p>These are your notifications</p>
+
 <ul>
   <% @user.notifications.each do |notification| %>
-    <li><%= link_to notification.region.id, notification_path(notification) %></li>
+    <li><%= notification.region.id%></li  
   <% end %>
 </ul>
-
 
 <%= link_to 'Edit', edit_user_registration_path(@user) %> |
 <%= link_to 'Back', root_path %>
