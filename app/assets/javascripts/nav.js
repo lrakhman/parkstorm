@@ -26,4 +26,8 @@ $(document).ready(function(){
   $("a[href='#move']").click(function() {
     $("html, body").animate({ scrollTop: $(document).height() }, "slow");
   });
+
+  $("#address_submit").click(function() {
+    $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+  });
 });
