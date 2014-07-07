@@ -35,7 +35,8 @@ function findAddress(){
 
 function updatePage(data, location) {
   $.post('/load_region', data, function(response){ 
-    $('#active_map').append(response)
+    $('#active_map').append(response);
+    
   });
 
   postCurrentLocation(data, location);
@@ -44,6 +45,7 @@ function updatePage(data, location) {
 function updatePageFromAddress(data, location) {
   $.post('/load_region_from_address', data, function(response){ 
     $('#active_map').replaceWith(response)
+    addLegend(active_map);
   });
 
   postCurrentLocation(data, location);
@@ -66,4 +68,14 @@ function postCurrentLocation(data, location) {
     }
     $('#future').html(str + '</ul>');
   }, 'JSON');
+}
+
+function addLegend(active_map) {
+  legend.onAdd = function (map) {
+     var div = L.DomUtil.create('div', 'info legend');
+        div.innerHTML += '<b>Streets will next be swept in:</b><br><br>' +
+              '<i style="background: red"></i> ' + 'less than a week<br><br>' + '<i style="background: green"></i> ' + 'a week or more';
+      return div;
+      };
+    legend.addTo(active_map);
 }

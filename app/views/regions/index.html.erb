@@ -11,13 +11,9 @@
     active_map = L.map('active_map').setView([41.86296, -87.62506], 13).setMaxBounds([[41.644286, -87.940101], [42.023135, -87.523661]]);
     var legend = L.control({position: 'bottomright'});
 
-  legend.onAdd = function (map) {
-   var div = L.DomUtil.create('div', 'info legend');
-      div.innerHTML += '<b>Streets will next be swept in:</b><br><br>' +
-            '<i style="background: red"></i> ' + 'less than a week<br><br>' + '<i style="background: green"></i> ' + 'more than a week';
-    return div;
-    };
-  legend.addTo(active_map);
+    addLegend(active_map)
+
   </script>
   <%= render 'refills/footer2' %>
 </div>
+
