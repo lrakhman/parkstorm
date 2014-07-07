@@ -1,0 +1,41 @@
+
+  <div class="container">
+    <%= form_for(:user, :url => user_registration_path, :html => { :role => 'form', :id => 'register'}) do |f| %>
+    <h3 id = 'signup_h3'>Sign Up for an Account</h3>
+    <p id = 'manage'><em>to manage all your notifications</em></p></p>
+    
+    <div class="form-group">
+      <%= f.label :firstname %>
+      <%= f.text_field :firstname, :autofocus => true, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :lastname %>
+      <%= f.text_field :lastname, :autofocus => true, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+    </div>
+     <%= f.submit 'Sign up', :class => 'button right' %>
+  <% end %>
+  <div id = "or">
+    <h3>OR</h3>
+  </div>
+   <%= form_for(:notification, :url => notifications_path, :html => { :role => 'form', :id => "email_notes"}) do |f| %>
+    <h3>Get Email Notification</h3>
+    
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :email, :autofocus => true, class: 'form-control1' %>
+    </div>
+    <%= f.submit 'Sign up', :class => 'button right' %>
+    <% end %>
+</div>
