@@ -24,6 +24,7 @@
   } 
 
   ul {
+    margin: 0.2em;
     margin-bottom: 1em;
     @include media($large-screen) {
       float: left;
