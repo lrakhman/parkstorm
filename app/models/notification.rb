@@ -10,7 +10,13 @@ class Notification < ActiveRecord::Base
 
 # Delayed::Job.enqueue Notifications.new('lorem ipsum...', Users.find(:all).collect(&:email))
 
-	
+	def self.sweep_notification
+		Notification.all.each do |notice|
+			if notice.region.swept_soon?
+				NotificationMailer.sweep_notification(notice).deliver
+			end
+		end
+	end
 
 
 end

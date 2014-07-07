@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-  
+  NotificationMailer.sign_up_notification(@user).deliver
   end
 
   private
@@ -25,6 +25,5 @@ class UsersController < ApplicationController
 
 end
 
-        # NotificationMailer.sign_up_notification(@user).deliver
 
 

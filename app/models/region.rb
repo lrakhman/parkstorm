@@ -81,4 +81,3 @@ class Region < ActiveRecord::Base
     Region.connection.execute(query).first.first[1]
   end
 end
-# SELECT ward_secti FROM regions WHERE ST_DISTANCE_SPHERE(geom, ST_MakePoint(-87.637280, 41.890011)) <= 0;
