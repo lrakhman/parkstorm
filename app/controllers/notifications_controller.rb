@@ -5,7 +5,7 @@ class NotificationsController < ApplicationController
  			current_user.notifications.create!(region_id: session[:current_region_id], email: current_user.email)
  		end
  	else
- 		Notification.create!(region_id: session[:current_region_id], email: params[:notifications][:email])
+ 		Notification.create!(region_id: session[:current_region_id], email: params[:notification][:email])
  	end
  		render plain: "Notification will be sent."
  end
