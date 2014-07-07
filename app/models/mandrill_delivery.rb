@@ -4,6 +4,8 @@ class MandrillDelivery
   def initialize(mail)
   end
 
+  
+
   def deliver!(mail)
     build_meta_mandrill(mail)
     send_mandrill(mail)
@@ -15,7 +17,7 @@ class MandrillDelivery
 
     #build Mandrill message hash
     @message = {
-      :from_name=> "Admin",
+      :from_name=> "DPTChicago",
       :from_email=>"admin@somewhere.com",
       :subject=> "#{mail['subject']}",
       :to=>[
@@ -40,10 +42,10 @@ class MandrillDelivery
   def send_mandrill(mail)
     m = Mandrill::API.new
 
-    sending = m.messages.send_template('Sign-Up Confirmation',
+    sending = m.messages.send_template('Sweep Notification',
                                        [
                             {
-                              :name => 'main',
+                              :name => 'Notification',
                               :content => "#{mail.body}"
                             },
                             {
@@ -54,5 +56,7 @@ class MandrillDelivery
                            message = @message)
     Rails.logger.info sending
   end
+
+
 
 end
