@@ -11,6 +11,8 @@ gem 'twilio-ruby'
 gem 'oauth'
 gem 'mandrill'
 gem 'mandrill-api'
+gem 'delayed_job_active_record'
+
 #testing
 gem 'rspec-rails'
 gem 'capybara', '~> 2.2.1'
@@ -52,8 +54,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-gem 'rack-cache'
-gem 'dalli'
 # add queries to postgis
 gem 'activerecord-postgis-adapter'
 

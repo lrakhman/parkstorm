@@ -1,7 +1,7 @@
 .cleaning_col {
 	width: 30%;
 	float: right;
-	height: 800px;
+	height: 600px;
 	padding-right: 2%;
 	padding-left: 2%;
 }
@@ -15,5 +15,15 @@
 #future {
 	overflow-y:scroll;
 	text-align: justify;
-	height: 600px;
+	height: 400px;
 }
+
+#lower_address {
+	background: white;
+	color: black;
+}
+
+#lower-search-div {
+	padding: 0 0 1em 0;
+}
+

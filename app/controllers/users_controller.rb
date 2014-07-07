@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+  # prepend_before_filter :verify_user, only: [:create]
 
   # GET /users
   # GET /users.json
@@ -7,11 +7,20 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def new
+  end
+
   # POST /users
   # POST /users.json
   def create
-    super
-    NotificationMailer.sign_up_notification(@user).deliver
+  NotificationMailer.sign_up_notification(@user).deliver
+  end
+
+  private
+  
+  def verify_user
+    ## redirect to appropriate path
+    redirect_to new_user_path
   end
 
   def show
@@ -39,4 +48,5 @@ class UsersController < ApplicationController
 
 end
 
-    # @regions = Region.all.pluck(:ward_secti)
+
+
