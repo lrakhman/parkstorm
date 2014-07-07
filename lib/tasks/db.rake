@@ -17,3 +17,11 @@ namespace :db  do
     system('psql -d travis_ci_test < db/fixtures/the_business.sql')
   end
 end
+
+# desc "send email reminders to move car"
+# task :send_reminders => :environment do
+#   if (next_cleaning_day == Date.today + 7) || (next_cleaning_day == Date.today + 1)
+#     User.send_reminders
+#   end
+# end
+

@@ -11,6 +11,8 @@ gem 'twilio-ruby'
 gem 'oauth'
 gem 'mandrill'
 gem 'mandrill-api'
+gem 'delayed_job_active_record'
+
 #testing
 gem 'rspec-rails'
 gem 'capybara', '~> 2.2.1'
