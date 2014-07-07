@@ -111,6 +111,16 @@ header.navigation {
     font-weight: 800;
     padding: .4em 1em;
     text-transform: uppercase;
+    height: 4px;
+
+    label {
+      height: 4px;
+      margin-top: 18%;
+
+      div {
+        height: 40px;
+      }
+    }
   }
 
   .search-bar {

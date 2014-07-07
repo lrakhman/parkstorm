@@ -29,28 +29,34 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    height: 100%;
+    width: 100%;
     margin: auto;
     z-index: 999;
     text-align: center;
     @include transform(translate(-50%, -50%));
 
-    h1 {
+    .big-ass-value-prop {
+      position: absolute;
       color: white;
       font-size: 4em;
+      width: 100%;
+      height: 10%;
     }
 
-    img {
-      margin-top: 8%;
+    a img {
+      position: absolute;
       height: 70px;
       width: auto;
     }
 
     p {
-      margin: 0 auto;
-      width: 80%;
+      top: 18%;
+      left: 28%;
+      width: 45%;
       line-height: 1.5em;
       padding: 1em;
-      position: relative;
+      position: absolute;
       color: white;
       font-weight: 800;
       background-color: transparentize(black, .6);
@@ -73,7 +79,7 @@
     }
   }
 
-  header.address_search {
+  p.address_search {
     box-sizing: border-box;
     display: block;
     -webkit-margin-before: 1em;
@@ -82,14 +88,14 @@
     -webkit-margin-end: 0px;
     line-height: 1.5em;
     padding: .2em 2em;
-    position: relative;
+    position: absolute;
     color: white;
     font-weight: 800;
     background-color: rgba(0, 0, 0, 0.4);
-    height: 80px;
-    width: 70%;
-    margin: 0 auto;
-    margin-top: 5%;
+    height: 10%;
+    width: 25%;
+    left: 28%;
+    top: 50%;
     
     #address {
       padding: .8em 2em;
@@ -101,6 +107,7 @@
 
       .search-and-submit {
         width: 140%;
+        left: -8%;
       }
     }
 
