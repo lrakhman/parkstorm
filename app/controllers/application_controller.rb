@@ -11,4 +11,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def authorize
+    if current_user.is_admin?
+      Rack::MiniProfiler.authorize_request
+    end
+  end
+
 end
