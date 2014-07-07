@@ -276,5 +276,207 @@
     top: 0;
   }
 
-  
+  .modal-inner-signup {
+    @include transition(opacity .25s ease);
+    border-radius: $base-border-radius;
+    background: $modal-background;
+    margin: auto;
+    max-height: 95%;
+    position: relative;
+    overflow: auto;
+    width: 95%;
+    padding: $modal-padding /2;
+    margin-top: .6em;
+
+    input {
+      font-family: inherit;
+      /* 1 */
+      font-size: 100%;
+      /* 2 */
+      margin: 0;
+      /* 3 */
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    label {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    input[type='email'],
+    input[type='text'],
+    input[type='password'] {
+      width: 18em;
+      background-color: white;
+      height: -webkit-calc(3em + 2px);
+      height: calc(3em + 2px);
+      padding: 1em;
+      font-size: 1em;
+      border: 1px solid #cccccc;
+      border-radius: 1.5em;
+      -webkit-transition: all 0.2s ease-out;
+      transition: all 0.2s ease-out;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      resize: none;
+      outline: none;
+    }
+
+    input[type='email']:hover,
+    input[type='text']:hover,
+    input[type='password']:hover {
+      border: 1px solid #cccccc;
+    }
+
+    input[type='email']:focus, 
+    input[type='email']:active,
+    input[type='text']:focus, 
+    input[type='text']:active,
+    input[type='password']:focus,
+    input[type='password']:active {
+      border: 1px solid red;
+    }
+
+    input[type='email']:focus + label:before, 
+    input[type='email']:active + label:before,
+    input[type='text']:focus + label:before, 
+    input[type='text']:active + label:before,
+    input[type='password']:focus + label:before,
+    input[type='password']:active + label:before {
+      color: red;
+    }
+
+    input[type='email'] + label,
+    input[type='text'] + label,
+    input[type='password'] + label {
+      display: block;
+      font-size: 1em;
+      height: 3em;
+      line-height: 3em;
+      margin-top: -webkit-calc(-3em - 1px);
+      margin-top: calc(-3em - 1px);
+      margin-bottom: 1em;
+      pointer-events: none;
+    }
+
+    input[type='email'] + label:before,
+    input[type='text'] + label:before,
+    input[type='password'] + label:before {
+      content: attr(placeholder);
+      display: inline-block;
+      color: #999999;
+      margin: 0 -webkit-calc(1em + 2px);
+      margin: 0 calc(1em + 2px);
+      white-space: nowrap;
+      -webkit-transition-property: -webkit-transform, color;
+      transition-property: transform, color;
+      -webkit-transition-duration: 0.2s;
+      transition-duration: 0.2s;
+      -webkit-transition-delay: 0;
+      transition-delay: 0;
+      -webkit-transition-timing-function: ease-out;
+      transition-timing-function: ease-out;
+      -webkit-transform-origin: left center;
+      -ms-transform-origin: left center;
+      transform-origin: left center;
+    }
+
+    input[type='email']:focus + label:before, 
+    input[type='email'].active + label:before, 
+    input[type='email']:valid + label:before,
+    input[type='text']:focus + label:before, 
+    input[type='text'].active + label:before, 
+    input[type='text']:valid + label:before,
+    input[type='password']:focus + label:before,
+    input[type='password'].active + label:before,
+    input[type='password']:valid + label:before {
+      background: white;
+      line-height: 1;
+      padding: 0 1.5px;
+      -webkit-transform: translateY(-webkit-calc(-3em / 2 - 1px/2)) scale(0.8, 0.8);
+      -ms-transform: translateY(calc(-3em / 2 - 1px/2)) scale(0.8, 0.8);
+      transform: translateY(calc(-3em / 2 - 1px/2)) scale(0.8, 0.8);
+    }
+
+    input[type='email']:valid,
+    input[type='text']:valid,
+    input[type='password']:valid {
+      border: 1px solid #23a045;
+    }
+
+    input[type='email']:valid + label:before,
+    input[type='text']:valid + label:before,
+    input[type='password']:valid + label:before {
+      content: attr(alt);
+      color: #23a045;
+    }
+
+    input[type='submit'] {
+      @include button(simple, white);
+    }
+
+    @include media($medium-screen) {
+      padding: $modal-padding;
+      width: 60%;
+      max-height: 60%;
+      margin-top: 10em;
+    }
+
+    @include media($large-screen) {
+      width: 80%;
+      margin-top: 10em;
+    }
+
+    h1 {
+      color: $base-font-color;
+      margin-bottom: .6em;
+      text-align: left;
+      text-transform: capitalize;
+    }
+
+    p {
+      font-size: $base-font-size;
+      max-width: 100% !important;
+      padding: 0;
+      text-align: left;
+
+      &.intro {
+        color: $blue;
+        line-height: 1.6em;
+      }
+
+      &.body { 
+        color: $base-font-color;
+        line-height: 1.45em;
+
+        @include media($medium-screen) {
+          @include columns(2 8em);
+        }
+      }
+    }
+
+    a.cta {
+      color: white;
+      display: inline-block;
+      margin-right: .5em;
+      margin-top: 1em;
+
+      &:last-child {
+        padding: 0 2em;
+      }
+    }
+  }
+
+  .modal-state:checked + .modal-window {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-state:checked + .modal-window .modal-inner {
+    top: 0;
+  }
+ 
 }
