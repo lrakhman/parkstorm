@@ -48,7 +48,7 @@ function updatePageFromAddress(data, location) {
 
 function postCurrentLocation(data, location, regionFunction) {
   $.post('/current_position', data, function(response){ 
-    $('.copy p:nth-child(2)').html('The next street cleaning<br>for ' + location + ' is:<br>' + response.next_sweep);
+    $('#next_cleaning p').html('The next street cleaning<br>for ' + location + ' is:<br>' + response.next_sweep);
 
     $('#next').html('<h3>Next street cleaning for ' + location + ':</h3>' + response.next_sweep);
       
