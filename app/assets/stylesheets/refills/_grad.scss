@@ -52,7 +52,6 @@
       top: 5%;
       left: 27.5%;
       width: 45%;
-      height: 35%;
       line-height: 1.5em;
       padding: 0.1em;
       position: relative;
@@ -67,6 +66,9 @@
 
       #signup {
         font-size: 0.5em;
+        margin-top: 1em;
+        position:relative;
+        top: 10%;
       }
     }
   }
@@ -102,6 +104,13 @@
     width: 40%;
     top: 5%;
     left: 30%;
+
+    #nav_head {
+      position: relative;
+      left: 0;
+      width: 70%;
+      margin: auto;
+    } 
 
     #address {
       padding: .8em 2em;
