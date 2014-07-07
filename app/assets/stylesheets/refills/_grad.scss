@@ -76,7 +76,10 @@
   header.address_search {
     box-sizing: border-box;
     display: block;
-    
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
     line-height: 1.5em;
     padding: .2em 2em;
     position: relative;
@@ -92,7 +95,7 @@
       background-color: rgba(0, 0, 0, 0);
 
       .search-and-submit {
-        width: 140%;
+        width: 120%;
       }
     }
 
@@ -103,5 +106,3 @@
     }
   }
 }
-
-
