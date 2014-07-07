@@ -2,21 +2,22 @@ class Notification < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :region
 
-# 	Notifications = Struct.new(:text, :emails) do
-#   def perform
-#     emails.each { |e| Notifications.deliver_text_to_email(text, e) }
-#   end
-# end
-
-# Delayed::Job.enqueue Notifications.new('lorem ipsum...', Users.find(:all).collect(&:email))
+  def sent_recently?
+    week_ago = Date.today - 7
+    if sent_at
+      sent_at >= week_ago
+    else
+      false
+    end
+  end
 
 	def self.sweep_notification
 		Notification.all.each do |notice|
-			if notice.region.swept_soon?
+			if notice.region.swept_soon? && !notice.sent_recently?
+        notice.update(sent_at: Date.today)
 				NotificationMailer.sweep_notification(notice).deliver
 			end
 		end
 	end
-
-
 end
+

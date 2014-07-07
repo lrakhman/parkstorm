@@ -24,6 +24,7 @@ gem 'selenium-webdriver'
 gem 'rails', '4.1.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
+gem 'rack-mini-profiler'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -58,7 +59,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 # add queries to postgis
 gem 'activerecord-postgis-adapter'
-
+gem 'rgeo-geojson'
 
 # get user location from IP address
 gem "geocoder"
@@ -66,4 +67,4 @@ gem "geocoder"
 
 
 gem 'simplecov', :require => false, :group => :test
-
+gem 'newrelic_rpm'

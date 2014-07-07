@@ -39,25 +39,14 @@ function findAddress(selector){
 }
 
 function updatePage(data, location) {
-  $.post('/load_region', data, function(response){ 
-    $('#active_map').append(response);
-    
-  });
-
-  postCurrentLocation(data, location);
+  postCurrentLocation(data, location, pagePost);
 }
 
 function updatePageFromAddress(data, location) {
-
-  $.post('/load_region_from_address', data, function(response){ 
-    $('#active_map').replaceWith(response)
-    addLegend(active_map);
-  });
-
-  postCurrentLocation(data, location);
+  postCurrentLocation(data, location, addressPost);
 }
 
-function postCurrentLocation(data, location) {
+function postCurrentLocation(data, location, regionFunction) {
   $.post('/current_position', data, function(response){ 
     $('.copy p:nth-child(2)').html('The next street cleaning<br>for ' + location + ' is:<br>' + response.next_sweep);
 
@@ -74,6 +63,7 @@ function postCurrentLocation(data, location) {
       str += '<li>none</li>';
     }
     $('#future').html(str + '</ul>');
+    regionFunction(data);
   }, 'JSON');
 }
 
@@ -85,4 +75,17 @@ function addLegend(active_map) {
       return div;
       };
     legend.addTo(active_map);
+}
+
+function addressPost(data) {
+  $.post('/load_region_from_address', data, function(response){ 
+    $('#active_map').replaceWith(response)
+    addLegend(active_map);
+  });
+}
+
+function pagePost(data) {
+  $.post('/load_region', data, function(response){ 
+    $('#active_map').append(response);
+  });
 }
