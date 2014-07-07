@@ -11,8 +11,11 @@ class NotificationMailer < ActionMailer::Base
              # :unsub_link => unsub_email_link("123"))   
   end
 
-  def order_notification(user)
-      @user = user
-      mail(:to => @user.email)
+  def sweep_notification(notice)
+      mail(:to => notice.email,
+             # :ward => notice.region.ward,
+             # :area => notice.region.sweep,
+             :subject => "Sweeping Notification for Ward #{notice.region.ward_num}")
   end
+
 end
