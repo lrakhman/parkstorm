@@ -42,7 +42,7 @@ class MandrillDelivery
   def send_mandrill(mail)
     m = Mandrill::API.new
 
-    sending = m.messages.send_template('Sweep Notification',
+    sending = m.messages.send_template('sweep-notification',
                                        [
                             {
                               :name => 'Notification',
