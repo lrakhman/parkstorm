@@ -1,6 +1,10 @@
 <%= render 'refills/grad'%>
 <div id="active_map" class="active_map"></div>
 <div class='cleaning_col'>
+  <div id = 'next'>
+  </div>
+  <div id = 'future'>
+  </div>
 </div>
 <script>
   active_map = L.map('active_map').setView([41.86296, -87.62506], 13).setMaxBounds([[41.644286, -87.940101], [42.023135, -87.523661]]);

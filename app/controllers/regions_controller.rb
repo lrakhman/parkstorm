@@ -11,7 +11,7 @@ class RegionsController < ApplicationController
       next_sweep = "No scheduled cleaning"
     end
 
-    render json: { next_sweep: next_sweep, sweep_days: region.future_cleaning_days[0..15] } 
+    render json: { next_sweep: next_sweep, sweep_days: region.future_cleaning_days_formatted[0..15] } 
   end
 
   def load_region

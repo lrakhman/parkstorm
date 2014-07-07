@@ -5,13 +5,13 @@
   $footer-disclaimer-color: transparentize($footer-color, .6);
 
   background: $footer-background;
-  padding: $base-line-height;
   width: 100%;
   clear: both;
+  height: 48px;
 
   .footer-logo {
-    margin-right: 1em;
-    margin-bottom: 1em;
+    margin: 0.9em;
+
 
     @include media($large-screen) {
       float: left;
