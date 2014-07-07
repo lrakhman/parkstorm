@@ -1,19 +1,12 @@
-<p id="notice"><%= notice %></p>
+<h2><%= @user.fullname %>'s 'Profile</h2>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<p>Your notifications</p>
+<ul>
+  <% @user.notifications.each do |notification| %>
+    <li><%= link_to notification.region.id, notification_path(notification) %></li>
+  <% end %>
+</ul>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
 
-<p>
-  <strong>Login:</strong>
-  <%= @user.login %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_user_registration_path(@user) %> |
+<%= link_to 'Back', root_path %>

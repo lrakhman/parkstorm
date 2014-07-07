@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/pdebelak/porkstorm/app/models/mandrill_delivery.rb": [
+      "/Users/Lo/Code/DBCstuff/honey_badgers/phase3/parkstorm/app/models/mandrill_delivery.rb": [
         1,
         1,
         null,
@@ -61,7 +61,7 @@
         null,
         null
       ],
-      "/home/pdebelak/porkstorm/app/models/user.rb": [
+      "/Users/Lo/Code/DBCstuff/honey_badgers/phase3/parkstorm/app/models/user.rb": [
         1,
         null,
         null,
@@ -80,35 +80,35 @@
         null,
         null
       ],
-      "/home/pdebelak/porkstorm/app/helpers/application_helper.rb": [
+      "/Users/Lo/Code/DBCstuff/honey_badgers/phase3/parkstorm/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/pdebelak/porkstorm/app/helpers/notifications_helper.rb": [
+      "/Users/Lo/Code/DBCstuff/honey_badgers/phase3/parkstorm/app/helpers/notifications_helper.rb": [
         1,
         null
       ],
-      "/home/pdebelak/porkstorm/app/helpers/receive_text_helper.rb": [
+      "/Users/Lo/Code/DBCstuff/honey_badgers/phase3/parkstorm/app/helpers/receive_text_helper.rb": [
         1,
         null
       ],
-      "/home/pdebelak/porkstorm/app/helpers/regions_helper.rb": [
+      "/Users/Lo/Code/DBCstuff/honey_badgers/phase3/parkstorm/app/helpers/regions_helper.rb": [
         1,
         null
       ],
-      "/home/pdebelak/porkstorm/app/helpers/send_text_helper.rb": [
+      "/Users/Lo/Code/DBCstuff/honey_badgers/phase3/parkstorm/app/helpers/send_text_helper.rb": [
         1,
         null
       ],
-      "/home/pdebelak/porkstorm/app/helpers/users_helper.rb": [
+      "/Users/Lo/Code/DBCstuff/honey_badgers/phase3/parkstorm/app/helpers/users_helper.rb": [
         1,
         null
       ],
-      "/home/pdebelak/porkstorm/app/controllers/notifications_controller.rb": [
+      "/Users/Lo/Code/DBCstuff/honey_badgers/phase3/parkstorm/app/controllers/notifications_controller.rb": [
         1,
         null
       ],
-      "/home/pdebelak/porkstorm/app/controllers/application_controller.rb": [
+      "/Users/Lo/Code/DBCstuff/honey_badgers/phase3/parkstorm/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -116,7 +116,7 @@
         null,
         null
       ],
-      "/home/pdebelak/porkstorm/app/controllers/regions_controller.rb": [
+      "/Users/Lo/Code/DBCstuff/honey_badgers/phase3/parkstorm/app/controllers/regions_controller.rb": [
         1,
         null,
         1,
@@ -127,11 +127,14 @@
         1,
         0,
         0,
+        0,
+        0,
+        0,
+        0,
+        0,
         null,
         0,
         null,
-        null,
-        0,
         null,
         0,
         null,
@@ -143,25 +146,16 @@
         0,
         0,
         null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         null,
+        1,
+        0,
+        0,
+        0,
         0,
         null,
         null
       ],
-      "/home/pdebelak/porkstorm/app/controllers/users_controller.rb": [
+      "/Users/Lo/Code/DBCstuff/honey_badgers/phase3/parkstorm/app/controllers/users_controller.rb": [
         1,
         null,
         null,
@@ -175,6 +169,29 @@
         null,
         1,
         0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        null,
+        0,
+        null,
+        null,
+        1,
+        null,
+        1,
         0,
         null,
         null,
@@ -182,13 +199,13 @@
         null,
         null
       ],
-      "/home/pdebelak/porkstorm/app/models/notification.rb": [
+      "/Users/Lo/Code/DBCstuff/honey_badgers/phase3/parkstorm/app/models/notification.rb": [
         1,
         1,
         1,
         null
       ],
-      "/home/pdebelak/porkstorm/app/models/region.rb": [
+      "/Users/Lo/Code/DBCstuff/honey_badgers/phase3/parkstorm/app/models/region.rb": [
         1,
         1,
         1,
@@ -275,6 +292,6 @@
         null
       ]
     },
-    "timestamp": 1404660319
+    "timestamp": 1404692826
   }
 }
