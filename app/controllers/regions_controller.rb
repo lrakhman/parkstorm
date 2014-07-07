@@ -1,10 +1,5 @@
 class RegionsController < ApplicationController
 
-  def index
-    # load a map of chicago
-    # @regions = Region.areas_to_display([41.905585, -87.631297], 100)
-  end
-
   def current_position
     lat = params['latitude']
     long = params['longitude']
@@ -16,22 +11,24 @@ class RegionsController < ApplicationController
       next_sweep = "No scheduled cleaning"
     end
 
-    render json: { next_sweep: next_sweep, 
-                    sweep_days: region.future_cleaning_days[0..15] } 
+    render json: { next_sweep: next_sweep, sweep_days: region.future_cleaning_days_formatted[0..15] } 
   end
 
   def load_region
-    lat = params['latitude']
-    long = params['longitude']
-    @regions = Region.areas_to_display([lat, long], 0.25)
-    render partial: 'map', locals: { regions: @regions, lat: lat, long: long }
+    render partial: 'map', locals: find_region(params)
   end
 
   def load_region_from_address
-    lat = params['latitude']
-    long = params['longitude']
-    @regions = Region.areas_to_display([lat, long], 0.25)
-    render partial: 'address_map', locals: { regions: @regions, lat: lat, long: long }
+    render partial: 'address_map', locals: find_region(params)
+  end
+
+  private
+
+  def find_region(args)
+    lat = args['latitude']
+    long = args['longitude']
+    regions = Region.areas_to_display([lat, long], 0.25)
+    { regions: regions, lat: lat, long: long }
   end
 end
 

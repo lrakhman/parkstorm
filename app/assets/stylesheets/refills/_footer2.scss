@@ -1,17 +1,17 @@
 .footer-2 {
-  $footer-background: desaturate(darken($base-accent-color, 20), 30);
+  $footer-background: $dark-gray;
   $footer-color: white;
   $footer-link-color: transparentize($footer-color, .6);
   $footer-disclaimer-color: transparentize($footer-color, .6);
 
   background: $footer-background;
-  padding: $base-line-height;
   width: 100%;
   clear: both;
+  height: 48px;
 
   .footer-logo {
-    margin-right: 1em;
-    margin-bottom: 1em;
+    margin: 0.9em;
+
 
     @include media($large-screen) {
       float: left;
@@ -24,6 +24,7 @@
   } 
 
   ul {
+    margin: 0.2em;
     margin-bottom: 1em;
     @include media($large-screen) {
       float: left;

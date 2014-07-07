@@ -1,14 +1,14 @@
 .image-gradient-dynamic {
   $image-gradient-color-top: black; 
-  $transparency-top: .6;
+  $transparency-top: .85;
   $image-gradient-color-bottom: black; 
-  $transparency-bottom: .6;
+  $transparency-bottom: .85;
   $vertical-angle: 180deg;
 
   $image-gradient-color-left: black; 
-  $transparency-left: .8;
+  $transparency-left: .85;
   $image-gradient-color-right: black; 
-  $transparency-right: .8;
+  $transparency-right: .85;
   $horizontal-angle: 90deg;
 
   position: relative;
@@ -20,29 +20,41 @@
   background-repeat: no-repeat;
   background-position: 50% 50%;
 
-
   img {
     width: 100%;
     height: 100%;
-    
   }
 
   .copy {
     position: absolute;
-    top: 45%;
+    top: 40%;
     left: 50%;
     margin: auto;
     z-index: 999;
     text-align: center;
     @include transform(translate(-50%, -50%));
 
+    h1 {
+      color: white;
+      font-size: 4em;
+    }
+
+    img {
+      margin-top: 8%;
+      height: 70px;
+      width: auto;
+    }
+
     p {
+      margin: 0 auto;
+      width: 80%;
       line-height: 1.5em;
-      padding: 1em 2em;
+      padding: 1em;
       position: relative;
       color: white;
       font-weight: 800;
       background-color: transparentize(black, .6);
+      font-size: 1.7em;
     }
   }
 
@@ -74,18 +86,28 @@
     color: white;
     font-weight: 800;
     background-color: rgba(0, 0, 0, 0.4);
+    height: 80px;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 5%;
     
+    #address {
+      padding: .8em 2em;
+      font-size: 1.1em;
+    }
+
     .navigation {
       background-color: rgba(0, 0, 0, 0);
 
       .search-and-submit {
-        width: 120%;
-        margin-left: -10%;
+        width: 140%;
       }
     }
 
     img {
       width: auto;
+      height: 15px;
+      margin: 0 auto;
     }
   }
 }

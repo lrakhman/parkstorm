@@ -54,8 +54,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-gem 'rack-cache'
-gem 'dalli'
 # add queries to postgis
 gem 'activerecord-postgis-adapter'
 
