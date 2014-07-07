@@ -48,6 +48,8 @@
       position: absolute;
       height: 70px;
       width: auto;
+      top: 65%;
+      left: 46%;
     }
 
     p {
@@ -79,7 +81,7 @@
     }
   }
 
-  p.address_search {
+  header.address_search {
     box-sizing: border-box;
     display: block;
     -webkit-margin-before: 1em;
@@ -93,25 +95,32 @@
     font-weight: 800;
     background-color: rgba(0, 0, 0, 0.4);
     height: 10%;
-    width: 25%;
-    left: 28%;
+    width: 40%;
     top: 50%;
-    
+    left: 30%;
+
     #address {
       padding: .8em 2em;
+      padding-right: 2em;
       font-size: 1.1em;
+      width: 100%;
     }
 
     .navigation {
       background-color: rgba(0, 0, 0, 0);
+      width: 70%;
+      left: 10%;
+      position: absolute;
 
       .search-and-submit {
+        position: absolute;
         width: 140%;
-        left: -8%;
+        left: -5%;
       }
     }
 
     img {
+      float: right;
       width: auto;
       height: 15px;
       margin: 0 auto;
