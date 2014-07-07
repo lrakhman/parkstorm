@@ -9,7 +9,25 @@
     <div class="footer-secondary-links">
       <ul>
         <li><a href="javascript:void(0)">Stay up to date on street sweeping in your area.</a></li>
-      <li><button href="javascript:void(0)">Get notifications</button></li>
+        <li>
+          <div class = "modal" id = "modal3_div">
+            <label for="modal-3" id = "modal3_label">
+              <div class="btn js-btn">
+                Get Notifications
+              </div>
+            </label>
+          </div>
+        </li>
       </ul>
     </div>
 </footer>
+
+<div class="modal" id = "modal-3-container">
+  <input class="modal-state" id="modal-3" type="checkbox" />
+  <div class="modal-window">
+    <div class="modal-inner">
+      <label class="modal-close" for="modal-3"></label>
+     <%= render 'users/signup'%>
+    </div>
+  </div>
+</div>
