@@ -66,6 +66,19 @@ class Region < ActiveRecord::Base
     end
     results
   end
+  #   query = "SELECT ST_AsGeoJSON(geom), ward_secti FROM regions 
+  #   WHERE ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3), 'MULTIPOINT(#{location[1]} #{location[0]})') <= #{distance} * 1609.34;"
+  #   results = [[],[]]
+  #   Region.connection.execute(query).each do |ward|
+  #     region = Region.find_by_ward_secti(ward["ward_secti"])
+  #     if region.swept_soon?
+  #       results[0] << ward["st_asgeojson"]
+  #     else
+  #       results[1] << ward["st_asgeojson"]
+  #     end
+  #   end
+  #   results
+  # end
 
   private
 
