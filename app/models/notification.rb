@@ -2,12 +2,6 @@ class Notification < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :region
 
-
-
-
-
-# Delayed::Job.enqueue Notifications.new('lorem ipsum...', Users.find(:all).collect(&:email))
-
 	def self.sweep_notification
 		Notification.all.each do |notice|
 			if notice.region.swept_soon?
@@ -15,8 +9,5 @@ class Notification < ActiveRecord::Base
 			end
 		end
 	end
-
- handle_asynchronously :sweep_notification
 end
 
-# Notification.delay.sweep_notification

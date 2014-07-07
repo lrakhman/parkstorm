@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
-  # prepend_before_filter :verify_user, only: [:create]
-
-  # GET /users
-  # GET /users.json
+ 
   def index
     @users = User.all
   end
@@ -10,17 +7,13 @@ class UsersController < ApplicationController
   def new
   end
 
-  # POST /users
-  # POST /users.json
   def create
   NotificationMailer.sign_up_notification(@user).deliver
   end
 
-
-
-
   def show
     @user = User.find_by_id(params[:id])
+    @user.find_user_notifications
   end
 
   def edit

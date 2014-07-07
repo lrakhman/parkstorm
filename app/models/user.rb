@@ -17,11 +17,5 @@ class User < ActiveRecord::Base
 		Notification.where(email: email, user_id: nil).each {|notif| self.notifications << notif}
 	end
 
-	def add_regions
-		self.regions << session[:current_region]
-	end
-
-	
-
 end
 
