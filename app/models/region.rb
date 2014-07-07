@@ -3,15 +3,7 @@ class Region < ActiveRecord::Base
 	has_many :users, through: :notifications
 
   def self.find_by_location(lat, long)
-    query = "SELECT ward_secti FROM regions 
-    WHERE ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3),
-    ST_MakePoint(#{long}, #{lat})) <= 0;"
-
-    if found_section = Region.connection.execute(query).first
-      Region.find_by_ward_secti(found_section["ward_secti"])
-    else
-      found_section
-    end
+    Region.where("ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3), ST_MakePoint(#{long}, #{lat})) <= 0").first
   end
 
   def sections_nearby(distance)
@@ -63,15 +55,13 @@ class Region < ActiveRecord::Base
   end
 
   def self.areas_to_display(location, distance)
-    query = "SELECT ST_AsGeoJSON(geom), ward_secti FROM regions 
-    WHERE ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3), 'MULTIPOINT(#{location[1]} #{location[0]})') <= #{distance} * 1609.34;"
     results = [[],[]]
-    Region.connection.execute(query).each do |ward|
-      region = Region.find_by_ward_secti(ward["ward_secti"])
-      if region.swept_soon?
-        results[0] << ward["st_asgeojson"]
+    regions = Region.select("*, ST_AsGeoJSON(geom) as my_geo").where("ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3), 'MULTIPOINT(#{location[1]} #{location[0]})') <= #{distance} * 1609.34")
+    regions.each do |ward|
+      if ward.swept_soon?
+        results[0] << ward.my_geo
       else
-        results[1] << ward["st_asgeojson"]
+        results[1] << ward.my_geo
       end
     end
     results
