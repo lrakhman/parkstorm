@@ -1,7 +1,8 @@
-<h1>Sign Up</h1>
+
   <div class="container">
     <%= form_for(:user, :url => user_registration_path, :html => { :role => 'form', :id => 'register'}) do |f| %>
-    <h3>Sign up</h3>
+    <h3 id = 'signup_h3'>Sign Up for an Account</h3>
+    <p id = 'manage'><em>to manage all your notifications</em></p></p>
     
     <div class="form-group">
       <%= f.label :firstname %>
@@ -26,7 +27,7 @@
      <%= f.submit 'Sign up', :class => 'button right' %>
   <% end %>
   <div id = "or">
-    <p>OR</p>
+    <h3>OR</h3>
   </div>
    <%= form_for(:notification, :url => notifications_path, :html => { :role => 'form', :id => "email_notes"}) do |f| %>
     <h3>Get Email Notification</h3>

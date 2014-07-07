@@ -419,15 +419,15 @@
     }
 
     @include media($medium-screen) {
-      padding: $modal-padding;
+      padding: $modal-padding/4 $modal-padding;
       width: 60%;
       max-height: 80%;
-      margin-top: 10em;
+      margin-top: 3em;
     }
 
     @include media($large-screen) {
       width: 80%;
-      margin-top: 10em;
+      margin-top: 3em;
     }
 
     h1 {
@@ -493,6 +493,14 @@
     #email_notes {
       width: 45%;
       float: right;
+    }
+
+    #manage {
+      margin: 0;
+    }
+
+    #signup_h3{
+      margin-bottom: 0;
     }
 
   }
