@@ -16,8 +16,8 @@ $(document).ready(function(){
 function findUser() {
   if (navigator.geolocation){
     function success(position) {
-      var latitude  = 43.795792; // position.coords.latitude;
-      var longitude = -91.312800; // position.coords.longitude;
+      var latitude  = position.coords.latitude;
+      var longitude = position.coords.longitude;
       var data = {latitude: latitude, longitude: longitude};
 
       updatePage(data, 'your current location')
