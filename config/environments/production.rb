@@ -74,7 +74,7 @@ Rails.application.configure do
 
   # Set to :debug to see everything in the log.
   config.logger = Logger.new(STDOUT)
-  config.log_level = :debug
+  config.log_level = :info
 
 
   # Prepend all log lines with the following tags.
