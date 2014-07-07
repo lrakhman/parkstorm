@@ -17,20 +17,7 @@
 require 'simplecov'
 SimpleCov.start 'rails'
 
-module WaitForAjax
-  def wait_for_ajax
-    Timeout.timeout(Capybara.default_wait_time) do
-      loop until finished_all_ajax_requests?
-    end
-  end
-
-  def finished_all_ajax_requests?
-    page.evaluate_script('jQuery.active').zero?
-  end
-end
-
 RSpec.configure do |config|
-   config.include WaitForAjax, type: :feature
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
