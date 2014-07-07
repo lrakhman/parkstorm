@@ -1,8 +1,13 @@
 class NotificationsController < ApplicationController
-
-	# def perform
- #    User.all.email.each { |e| NewsletterMailer.deliver_text_to_email(text, e) }
- #  end
+ def create
+ 	if user_signed_in?
+ 		unless current_user.regions.include?(Region.find(session[:current_region_id]))
+ 			current_user.notifications.create!(region_id: session[:current_region_id], email: current_user.email)
+ 		end
+ 	else
+ 		Notification.create!(region_id: session[:current_region_id], email: params[:notifications][:email])
+ 	end
+ 		render plain: "Notification will be sent."
+ end
 end
 
-# Region.first.swept_soon? &&

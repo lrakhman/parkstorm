@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :users
+  resources :users, only: [:show]
+  resources :notifications, only: [:create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   post '/load_region' => 'regions#load_region'
   post '/load_region_from_address' => 'regions#load_region_from_address'
   post '/update_surrounding' => 'regions#load_surrounding_regions'
+  # post '/create_notification' => 'users#create'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

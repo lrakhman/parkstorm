@@ -9,7 +9,7 @@ class RegionsController < ApplicationController
     lat = params['latitude']
     long = params['longitude']
     region = Region.find_by_location(lat, long)
-    session[:current_region] = region
+    session[:current_region_id] = region.id
     if region.next_cleaning_day
       next_sweep = "#{Date::MONTHNAMES[region.next_cleaning_day.month]} #{region.next_cleaning_day.day}"
     else
