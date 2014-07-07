@@ -99,8 +99,8 @@
     color: white;
     font-weight: 800;
     height: 10%;
-    width: 40%;
-    left: 30%;
+    width: 50%;
+    margin: auto;
 
     #nav_head {
       position: relative;
@@ -110,7 +110,6 @@
     } 
 
     #address {
-      padding: .8em 2em;
       padding-right: 2em;
       font-size: 1.1em;
       width: 100%;
@@ -122,10 +121,13 @@
       left: 10%;
       position: absolute;
 
+      .search-bar {
+        width: 100%;
+      }
+
       .search-and-submit {
         position: absolute;
-        width: 140%;
-        left: -5%;
+        width: 100%;
       }
     }
 
