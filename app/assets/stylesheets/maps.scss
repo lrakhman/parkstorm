@@ -1,9 +1,11 @@
 #active_map {
-  @include size(100% 600px);
+  @include size(90% 600px);
   @include position(relative auto);
   margin: 0 0 1.5% 1.5%;
   padding-right: 10px;
   float: left;
+  margin-top: 1em;
+  height: 450px;
 }
 
 .legend {

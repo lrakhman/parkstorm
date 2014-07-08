@@ -22,7 +22,7 @@ function postCurrentLocation(data, location, regionFunction) {
   $.post('/current_position', data, function(response){ 
     $('#next_cleaning p').html('The next street cleaning<br>for ' + location + ' is:<br>' + response.next_sweep);
 
-    $('#next p').html('<h3>Next street cleaning for ' + location + ':</h3>' + response.next_sweep );
+    $('#next p').html('<p>Next street cleaning for ' + location + ':</p><h1>' + response.next_sweep + '<h1>');
     $("#modal3_div").show();
 
     str = "</h3><h3>Street Cleaning Days</h3><ul>"
