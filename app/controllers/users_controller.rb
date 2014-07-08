@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   end
 
   def create
-  NotificationMailer.sign_up_notification(@user).deliver
   end
 
   def show

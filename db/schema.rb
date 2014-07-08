@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707214429) do
+ActiveRecord::Schema.define(version: 20140708192007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,29 @@ ActiveRecord::Schema.define(version: 20140707214429) do
     t.datetime "updated_at"
     t.string   "email"
     t.date     "sent_at"
+    t.string   "phone"
   end
+
+  create_table "regions", primary_key: "gid", force: true do |t|
+    t.string  "ward",       limit: 2
+    t.integer "ward_num"
+    t.integer "sweep"
+    t.string  "wardsweep",  limit: 5
+    t.string  "ward_secti", limit: 254
+    t.string  "month_4",    limit: 254
+    t.string  "month_5",    limit: 254
+    t.string  "month_6",    limit: 254
+    t.string  "month_7",    limit: 254
+    t.string  "month_8",    limit: 254
+    t.string  "month_9",    limit: 254
+    t.string  "month_10",   limit: 254
+    t.string  "month_11",   limit: 254
+    t.decimal "shape_area"
+    t.decimal "shape_len"
+    t.spatial "geom",       limit: {:srid=>4326, :type=>"geometry"}
+  end
+
+  add_index "regions", ["geom"], :name => "regions_geom_gist", :spatial => true
 
   create_table "users", force: true do |t|
     t.string   "firstname"
@@ -57,6 +79,7 @@ ActiveRecord::Schema.define(version: 20140707214429) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "phone"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
