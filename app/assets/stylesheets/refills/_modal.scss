@@ -82,7 +82,6 @@
     position: relative;
     overflow: auto;
     width: 95%;
-    padding: $modal-padding /2;
     margin-top: .6em;
 
     input {
@@ -509,5 +508,23 @@
   input.button {
     margin: 1em;
   }
- 
+}
+
+.authform {
+  p {
+    color: black;
+  }
+}
+
+.checkbox *{
+  display: inline;
+  color: black;
+}
+
+.checkbox input[type='checkbox'] {
+  display: inline;
+}
+
+#login-container {
+  margin-top: -5%;
 }
