@@ -25,7 +25,26 @@ header.navigation {
     position: relative;
     z-index: 9999;
     margin-top: -1%;
-    color: black
+    color: black;
+
+    .navigation-tools {
+      margin: auto;
+      width: 100%;
+      .left-col {
+        width: 25%;
+        height: 3em;
+        display: inline-block;
+        clear: both;
+        float: left;
+      }
+
+      .right-col {
+        width: 25%;
+        height: 3em;
+        display: inline-block;
+        float: right;
+      }
+    }
   }
 
   .logo {
@@ -51,6 +70,14 @@ header.navigation {
 
   .lower-menu {
     background-color: $navigation-background;
+    color: whitesmoke;
+
+    p{
+      margin: auto;
+      display: inline-block;
+      font-weight: bold;
+      padding: 0.5em;
+    }
   }
 
   ul#navigation-menu {  
@@ -133,11 +160,13 @@ header.navigation {
     $search-bar-border: 1px solid $search-bar-border-color;
     $search-bar-background: lighten($search-bar-border-color, 10);
 
-    padding: 13px 5px; 
+   
     float: left;
-    margin-left: 8.5em;
+    width: 50%;
     .search-and-submit {
       position: relative;
+      width: 100%;
+      margin: auto;
 
       input[type=search] {
         background: $navigation-search-background;
@@ -166,7 +195,8 @@ header.navigation {
     }
 
     @include media($horizontal-bar-mode) {
-      width: 16em;
+      width: 49%;
+      padding-top: 1em;
       position: relative; 
       display: inline-block;
 
