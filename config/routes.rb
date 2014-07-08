@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   post '/load_region' => 'regions#load_region'
   post '/load_region_from_address' => 'regions#load_region_from_address'
   post '/update_surrounding' => 'regions#load_surrounding_regions'
+  post 'twilio/send_text_message' => 'twilio#send_text_message'
 end
