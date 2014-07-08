@@ -38,7 +38,7 @@
   <form action=<%= notifications_path %> method='post' id = "email_notes">
     <input name="authenticity_token" value=<%= form_authenticity_token %> type="hidden">
     <div class="form-group">
-      <input type="Email" name="notification[email]" class = 'form-control1' required>
+      <input type="Email" name="notification[email]" class = 'form-control1' >
       <label for="" placeholder="Your Email Address" alt="Email"></label>
     </div>
     <div class="form-group">
