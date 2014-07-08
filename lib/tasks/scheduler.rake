@@ -4,5 +4,3 @@ task :send_reminders => :environment do
   puts "I worked properly."
 end
 
-
-

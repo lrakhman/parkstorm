@@ -11,11 +11,17 @@ class Notification < ActiveRecord::Base
     end
   end
 
+  def notify
+  	NotificationMailer.sweep_notification(self).deliver if email 
+  	TextService.send_text_message(self) if phone 
+  end
+
 	def self.sweep_notification
 		Notification.all.each do |notice|
+			next if notice.region.nil?
 			if notice.region.swept_soon? && !notice.sent_recently?
         notice.update(sent_at: Date.today)
-				NotificationMailer.sweep_notification(notice).deliver
+				notice.notify
 			end
 		end
 	end
