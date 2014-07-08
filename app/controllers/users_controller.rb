@@ -12,29 +12,14 @@ class UsersController < ApplicationController
   end
 
   def show
+    if current_user
+      redirect_to root_path unless current_user.id == params[:id].to_i
+    else
+      redirect_to root_path
+    end
     @user = User.find_by_id(params[:id])
     @user.find_user_notifications
   end
-
-  def edit
-    @user = User.find(params[:id])
-  end
-
-  def update
-    @user = User.find(params[:id])
-    @user.update(user_params)
-
-    flash.notice = "Account Updated!"
-
-    redirect_to user_path(@user)
-  end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:fullname, :email)
-  end
-
 end
 
 

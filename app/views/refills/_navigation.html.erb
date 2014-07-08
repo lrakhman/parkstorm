@@ -30,10 +30,11 @@
         </div>
       </a>
       <% else %>
-      <a href="javascript:void(0)" class="login">
-        <div class="btn js-btn">
-        <%= link_to "Log Out", destroy_user_session_path, :method => :delete %></div>
-        </a>
+    
+        
+        <%= link_to "Profile", user_path(current_user), :class => 'nav_button' %>
+    
+        <%= link_to "Log Out", destroy_user_session_path, :method => :delete, :class => 'nav_button' %>
       <% end %>
     </div>
   </div>
