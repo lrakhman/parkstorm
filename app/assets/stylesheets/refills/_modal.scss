@@ -54,6 +54,7 @@
     cursor: pointer;
     background: $modal-background;
 
+
     &:after,&:before {
       @include position(absolute, 3px 3px 0 50%);
       @include transform(rotate(45deg));
@@ -528,3 +529,5 @@
   }
  
 }
+
+label.modal-close {margin-top: 0;}
