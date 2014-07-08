@@ -7,8 +7,7 @@ function watchForClick(marker) {
     } else {
       marker.setLatLng(e.latlng);         
     }
-    var data = { latitude: e.latlng.lat, longitude: e.latlng.lng }
-
+    var data = { latitude: e.latlng.lat, longitude: e.latlng.lng, date: getDateRange() }
     postCurrentLocation(data, 'your selected location', clickPost);
   });
 }

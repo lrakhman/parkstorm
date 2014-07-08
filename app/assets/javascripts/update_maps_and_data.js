@@ -5,7 +5,7 @@ function findAddress(selector){
   geocoder.geocode({'address': address + 'chicago'}, function(results, status){
     var lat = results[0].geometry.location.k;
     var lng = results[0].geometry.location.B;
-    data = {latitude: lat, longitude: lng};
+    data = {latitude: lat, longitude: lng, date: get_date_range()};
     updatePageFromAddress(data, address);
   });
 }

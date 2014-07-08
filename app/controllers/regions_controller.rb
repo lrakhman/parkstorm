@@ -1,5 +1,10 @@
 class RegionsController < ApplicationController
 
+  def index
+    @today = Date.today
+    @week_from_today = Date.today + 7
+  end
+
   def current_position
     lat = params['latitude']
     long = params['longitude']
@@ -31,7 +36,9 @@ class RegionsController < ApplicationController
   def find_region(args)
     lat = args['latitude']
     long = args['longitude']
-    regions = Region.areas_to_display([lat, long], 0.25)
+    start_date = Date.parse(args['date'][0])
+    end_date = Date.parse(args['date'][1])
+    regions = Region.areas_by_date_range([lat, long], start_date, end_date)
     { regions: regions, lat: lat, long: long }
   end
 end

@@ -19,6 +19,9 @@
           </div>
         </label>
       </div>
+      <h3>Custom date range:</h3>
+      Start date: <input id="start_date" type="date" name="start_date" value="<%= @today %>">
+      End date: <input id="end_date" type="date" name="end_date" value="<%= @week_from_today %>">
     </div>
     
   </div>
@@ -31,6 +34,7 @@
           '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
           'Imagery © <a href="http://mapbox.com">Mapbox</a>', id: 'examples.map-i86knfo3'}).addTo(active_map);
     $(document).ready(function() {
+
       $("#modal3_div").hide();
       locate(active_map);
     });
