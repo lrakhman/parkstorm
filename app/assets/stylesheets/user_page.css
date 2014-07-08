@@ -1,0 +1,15 @@
+#user_container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+#user_container a {
+  text-decoration: none;
+  background-color: gray;
+  color: white;
+  padding: 5px;
+  box-shadow: 2px 2px 2px black;
+  border-radius: 2px;
+}
+#user_container a:hover {
+  background-color: black;
+}

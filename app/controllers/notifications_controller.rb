@@ -1,4 +1,5 @@
 class NotificationsController < ApplicationController
+  
   def create
     email = params[:notification][:email]
    	if user_signed_in?
@@ -11,6 +12,12 @@ class NotificationsController < ApplicationController
    	  end
     end
  		render plain: "Notification will be sent."
+  end
+
+  def destroy
+    notification = Notification.find(params[:id])
+    notification.destroy
+    render plain: "Success"
   end
 end
 
