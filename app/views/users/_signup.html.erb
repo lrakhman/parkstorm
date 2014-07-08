@@ -1,41 +1,85 @@
+<div class="container">
+   <h3 id = 'signup_h3'>Sign Up for an Account</h3>
+    <p id = 'manage'><em>to manage all your notifications</em></p></p>
+  <form action=<%= user_registration_path %> method='post' id = 'register'>
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <div class="form-group">
+    <input type="text" name="user[firstname]" class = 'form-control' required>
+    <label for="" placeholder="Your First Name" alt="First Name"></label>
+    </div>
+    <div class="form-group">
+    <input type="text" name="user[lastname]" class = 'form-control' required>
+    <label for="" placeholder="Your Last Name" alt="Last Name"></label>
+    </div>
+    <div class="form-group">
+    <input type="Email" name="user[email]" class = 'form-control' required>
+    <label for="" placeholder="Your Email Address" alt="Email"></label>
+    </div>
+    <div class="form-group">
+    <input type="password" name="user[password]" class = 'form-control' required>
+    <label for="" placeholder="Your Password" alt="Password"></label>
+    </div>
+    <div class="form-group">
+    <input type="password" name="user[password_confirmation]" class = 'form-control' required>
+    <label for="" placeholder="Confirm Your Password" alt="Confirm Password"></label>
+    </div>
+    <div class="form-group">
+      <input type="submit" value="Sign Up" class = 'button right'>
+    </div>
+  </form>
 
-  <div class="container">
-    <%= form_for(:user, :url => user_registration_path, :html => { :role => 'form', :id => 'register'}) do |f| %>
+    <div id = "or">
+      <h3>OR</h3>
+    </div>
+    <form action=<%= notifications_path %> method='post' id = "email_notes">
+    <input name="authenticity_token" value=<%= form_authenticity_token %> type="hidden">
+    <div class="form-group">
+    <input type="Email" name="notification[email]" class = 'form-control1' required>
+    <label for="" placeholder="Your Email Address" alt="Email"></label>
+    </div>
+    <div class="form-group">
+      <input type="submit" value="Sign Up" class = 'button right'>
+    </div>
+</div>
+
+
+<!--   <div class="container">
+    <%# form_for(:user, :url => user_registration_path, :html => { :role => 'form', :id => 'register'}) do |f| %>
     <h3 id = 'signup_h3'>Sign Up for an Account</h3>
     <p id = 'manage'><em>to manage all your notifications</em></p></p>
     
     <div class="form-group">
-      <%= f.label :firstname %>
-      <%= f.text_field :firstname, :autofocus => true, class: 'form-control' %>
+      <%# f.label :firstname %>
+      <%# f.text_field :firstname, :autofocus => true, placeholder: "Your First Name", alt: "First Name", required: true, class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.label :lastname %>
-      <%= f.text_field :lastname, :autofocus => true, class: 'form-control' %>
+      <%# f.label :lastname %>
+      <%# f.text_field :lastname, :autofocus => true, placeholder: "Your Last Name", alt: "Last Name", required: true, class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%# f.label :email %>
+      <%# f.email_field :email, placeholder: "Your Email", alt: "Email", required: true, class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%# f.label :password %>
+      <%# f.password_field :password, placeholder: "Your Password", alt: "Password", required: true, class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <%# f.label :password_confirmation %>
+      <%# f.password_field :password_confirmation, placeholder: "Confirm Your Password", alt: "Confirm Password", required: true, class: 'form-control' %>
     </div>
-     <%= f.submit 'Sign up', :class => 'button right' %>
-  <% end %>
+     <%# f.submit 'Sign up', :class => 'button right' %>
+  <%# end %>
   <div id = "or">
     <h3>OR</h3>
   </div>
-   <%= form_for(:notification, :url => notifications_path, :html => { :role => 'form', :id => "email_notes"}) do |f| %>
+   <%# form_for(:notification, :url => notifications_path, :html => { :role => 'form', :id => "email_notes"}) do |f| %>
     <h3>Get Email Notification</h3>
     
     <div class="form-group">
-      <%= f.label :email %>
-      <%= f.text_field :email, :autofocus => true, class: 'form-control1' %>
+      <%# f.label :email %>
+      <%# f.text_field :email, :autofocus => true, placeholder: "Your Email", alt: "Email", required: true, class: 'form-control1' %>
     </div>
-    <%= f.submit 'Sign up', :class => 'button right' %>
-    <% end %>
-</div>
+    <%# f.submit 'Sign up', :class => 'button right' %>
+    <%# end %>
+</div> -->
