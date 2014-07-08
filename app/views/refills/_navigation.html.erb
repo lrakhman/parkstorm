@@ -26,17 +26,21 @@
               <label class="modal-close" for="modal-1"></label>
               <h1>Log In</h1>
               <div class="container">
-              <%= form_for(:user, :url => user_session_path, :html => { :role => 'form', :id => "new_user"}) do |f| %>
+                <h3 id = 'signup_h3'>Sign Up for an Account</h3>
+                <form action=<%= user_session_path %> method='post' id = 'login'>
+                  <input name="authenticity_token" value=<%= form_authenticity_token %> type="hidden">
                   <div class="form-group">
-                    <%= f.label :email %>
-                    <%= f.text_field :email, :autofocus => true, class: 'form-control1' %>
+                    <input type="Email" name="user[email]" class = 'form-control' required>
+                    <label for="" placeholder="Your Email Address" alt="Email"></label>
                   </div>
                   <div class="form-group">
-                    <%= f.label :password %>
-                    <%= f.text_field :password, :autofocus => true, class: 'form-control1' %>
+                    <input type="password" name="user[password]" class = 'form-control' required>
+                    <label for="" placeholder="Your Password" alt="Password"></label>
                   </div>
-                  <%= f.submit 'Log In' %>
-                <% end %>
+                  <div class="form-group">
+                    <input type="submit" value="Log In" class = 'button right'>
+                  </div>
+                </form>
               </div>      
             </div>
           </div>
