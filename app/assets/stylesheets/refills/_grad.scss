@@ -125,11 +125,14 @@
 
       .search-bar {
         width: 100%;
+        margin: 1em;
+        margin-left: 8.5em;
       }
 
       .search-and-submit {
         position: absolute;
         width: 100%;
+        margin-top: 1em;
       }
     }
 
@@ -151,7 +154,7 @@
 }
 
 #bottom {
-  margin-top: -8%;
+  margin-top: 1em;
 }
 
 #or {
