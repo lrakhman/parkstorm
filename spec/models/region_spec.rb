@@ -25,27 +25,6 @@ RSpec.describe Region, :type => :model do
     end
   end
 
-  describe '#sections_nearby' do
-
-    let(:region) { Region.find_by_ward_secti("4202") }
-
-    it 'should return all regions with a sufficiently large distance' do
-      expect(region.sections_nearby(100).length).to eq(Region.all.count)
-    end
-
-    it 'should return self with a distance of 0' do
-      expect(region.sections_nearby(0)[0]["ward_secti"]).to eq(region.ward_secti)
-    end
-
-    it 'should return only self with a distance of 0' do
-      expect(region.sections_nearby(0).count). to eq(1)
-    end
-
-    it 'handles in between distances' do
-      expect(region.sections_nearby(1).count).to eq(15)
-    end
-  end
-
   describe '#cleaning_days' do
     
     let(:region) { Region.find(2) }
