@@ -17,6 +17,8 @@ gem 'delayed_job_active_record'
 gem 'rspec-rails'
 gem 'capybara', '~> 2.2.1'
 gem 'devise'
+gem 'selenium-webdriver'
+
 # gem "omniauth"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
