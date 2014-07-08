@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
 
 	def find_user_notifications
 		Notification.where(email: email, user_id: nil).each {|notif| self.notifications << notif}
+		Notification.where(phone: phone, user_id: nil).each {|notif| self.notifications << notif}
 	end
 
 end
