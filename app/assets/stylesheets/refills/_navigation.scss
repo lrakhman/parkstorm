@@ -13,7 +13,7 @@ header.navigation {
   $navigation-submenu-padding: 1em;
   $horizontal-bar-mode: $large-screen;
 
-  background-color: $navigation-background;
+  background-color: #477dca;
   font-family: $sans-serif;
   width: 100%;
   z-index: 999;
@@ -25,6 +25,7 @@ header.navigation {
     position: relative;
     z-index: 9999;
     margin-top: -1%;
+    color: black
   }
 
   .logo {
@@ -46,6 +47,10 @@ header.navigation {
     @include media ($horizontal-bar-mode) {
       float: left;
     }
+  }
+
+  .lower-menu {
+    background-color: $navigation-background;
   }
 
   ul#navigation-menu {  
