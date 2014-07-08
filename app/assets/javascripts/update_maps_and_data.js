@@ -1,31 +1,3 @@
-$(document).ready(function(){
-  var active_map;
-  findUser();
-
-  $('#address_submit').on('click', function(event){
-    findAddress('#address');
-  })
-
-  $('#lower_address_submit').on('click', function(event){
-    findAddress('#lower_address');
-  })
-
-});
-
-
-function findUser() {
-  if (navigator.geolocation){
-    function success(position) {
-      var latitude  = position.coords.latitude;
-      var longitude = position.coords.longitude;
-      var data = {latitude: latitude, longitude: longitude};
-
-      updatePage(data, 'your current location')
-    };
-    navigator.geolocation.getCurrentPosition(success);
-  }
-}
-
 function findAddress(selector){
   var address = $(selector).val();
   $(selector).val('')
