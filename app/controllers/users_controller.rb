@@ -1,4 +1,15 @@
 class UsersController < ApplicationController
+  
+  def index
+    @users = User.all
+  end
+
+  def new
+  end
+
+  def create
+  NotificationMailer.sign_up_notification(@user).deliver
+  end
 
   def show
     if current_user

@@ -3,7 +3,7 @@ Rails.application.configure do
 
 
   config.action_mailer.default_url_options = { :host =>
-   'http://mailer-testing.herokuapp.com/' }
+   'http://dontparkthere.herokuapp.com/' }
 
   config.action_mailer.delivery_method = :mandrill_delivery
   # Code is not reloaded between requests.

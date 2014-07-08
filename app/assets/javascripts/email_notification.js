@@ -6,15 +6,21 @@ $(document).ready(function(){
 	});
 
   $('#modal3_label div').on('click', function(e) {
-    if ($('.navigation-tools').text().match(/Log Out/) != null) {
+    if ($('.navigation-tools').text().match(/Log Out/) !== null) {
       e.preventDefault();
       makeNotification({notification: {email: ""}});
     }
-  })
+  });
 });
 
 function makeNotification(data) {
   $.post('/notifications', data, function(response) {
-      alert(response);
+    if (confirm(response)) {
+      location.reload();
+    }
+    else {
+      location.reload();
+      alert("You will not receive any notifications.");
+    }
   });
 }
