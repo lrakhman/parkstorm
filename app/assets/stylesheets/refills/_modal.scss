@@ -23,7 +23,7 @@
   }
 
   .btn {
-    @include button(simple, white);
+    @include button(simple, $base-accent-color);
     font-size: $base-font-size;
     margin-bottom: $base-line-height;
   }
@@ -212,7 +212,7 @@
     }
 
     input[type='submit'] {
-      @include button(simple, white);
+      @include button(simple, $base-accent-color);
     }
 
     @include media($medium-screen) {
@@ -432,7 +432,7 @@
     }
 
     input[type='submit'] {
-      @include button(simple, white);
+      @include button(simple, $base-accent-color);
     }
 
     @include media($medium-screen) {
@@ -545,4 +545,9 @@
 
 #login-container {
   margin-top: -5%;
+}
+
+#forgotpw {
+  @include button(simple, $base-accent-color);
+  margin-left: 4%;
 }
