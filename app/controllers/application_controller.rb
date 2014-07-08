@@ -4,11 +4,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
 
   before_filter :configure_devise_params, if: :devise_controller?
-  
+
+  protected
+
   def configure_devise_params
     devise_parameter_sanitizer.for(:sign_up) do |u|
       u.permit(:firstname, :lastname, :email, :password, :password_confirmation)
     end
   end
-
 end

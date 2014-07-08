@@ -149,10 +149,10 @@ header.navigation {
     padding: .4em 1em;
     text-transform: uppercase;
     height: 4px;
+    margin-top: 1%;
 
-    label {
+    label[for="modal-1"] {
       height: 4px;
-      margin-top: 18%;
 
       div {
         height: 40px;
