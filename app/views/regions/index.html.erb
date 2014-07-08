@@ -1,27 +1,28 @@
 <%= render 'refills/navigation'%>
-<%= render 'refills/grad'%>
-<div id='bottom'>
-  <div id="active_map" class="active_map"></div>
 
+<div id='bottom'>
+  <main role = "main" class = "row">
+    <article class = "col span_8 clr">
+  <div id="active_map" class="active_map"></div>
+</article>
+
+<aside role="complementary" class = "col span_4 clr">
   <div class='cleaning_col'>
-     <header class="address_search">
-        <header class="navigation">
-          <div class="search-bar" id = "lower-search-div" style = 'width: 100%'>
-            <div class="search-and-submit">
-              <input id = "lower_address" type="search" placeholder="Enter New Street Address" />
-              <button id = "lower_address_submit" type="submit">
-                <img src="https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png" alt="">
-              </button>
-            </div>
-          </div>
-        </header>
-      </header>
+     
 
     <div id = 'next'>
+      <p></p>
+      <div class = "modal" id = "modal3_div">
+        <label for="modal-3" id = "modal3_label">
+          <div class="btn js-btn">
+            Get Notifications <br>for This Location
+          </div>
+        </label>
+      </div>
     </div>
-    <div id = 'future'>
-    </div>
+    
   </div>
+</aside>
   <script>
     active_map = L.map('active_map').setMaxBounds([[41.644286, -87.940101], [42.023135, -87.523661]]);
     var legend = L.control({position: 'bottomright'});
@@ -30,9 +31,13 @@
           '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
           'Imagery © <a href="http://mapbox.com">Mapbox</a>', id: 'examples.map-i86knfo3'}).addTo(active_map);
     $(document).ready(function() {
+      $("#modal3_div").hide();
       locate(active_map);
     });
   </script>
-  <%= render 'refills/footer2' %>
+    <div id = 'future'>
+    </div>
+
 </div>
 
+<%= render 'refills/footer2' %>
