@@ -82,7 +82,8 @@
     position: relative;
     overflow: auto;
     width: 95%;
-    padding: $modal-padding /2;
+    padding: $modal-padding / 2;
+    padding-top: $modal-padding / 4;
     margin-top: .6em;
 
     input {
@@ -217,8 +218,9 @@
 
     @include media($medium-screen) {
       padding: $modal-padding;
+      padding-top: $modal-padding / 4;
       width: 60%;
-      max-height: 60%;
+      max-height: 80%;
       margin-top: 10em;
     }
 
@@ -253,7 +255,23 @@
           @include columns(2 8em);
         }
       }
+
+
     }
+
+    .container {
+        #new_user{
+          .form-group{
+            label {
+              margin: 0;
+            }
+
+            .form-control1{
+              margin: 2em 0;
+            }
+          }
+        }
+      }
 
     a.cta {
       color: white;
