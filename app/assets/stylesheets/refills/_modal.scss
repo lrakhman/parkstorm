@@ -23,7 +23,7 @@
   }
 
   .btn {
-    @include button(simple, $base-accent-color);
+    @include button(simple, white);
     font-size: $base-font-size;
     margin-bottom: $base-line-height;
   }
