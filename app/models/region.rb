@@ -6,17 +6,6 @@ class Region < ActiveRecord::Base
     Region.where("ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3), ST_MakePoint(#{long}, #{lat})) <= 0").first
   end
 
-  def sections_nearby(distance)
-    # Do we need this method or the center method?
-    center = find_center
-    query = "SELECT ward_secti FROM regions 
-    WHERE ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3), \'#{center}\') <= #{distance} * 1609.34;"
-
-    result = []
-    Region.connection.execute(query).each {|thing| result << Region.find_by_ward_secti(thing["ward_secti"])}
-    result
-  end
-
   def cleaning_days
     months = { month_4: 4, month_5: 5, month_6: 6, month_7: 7, month_8: 8,
                month_9: 9, month_10: 10, month_11: 11 }
@@ -54,6 +43,15 @@ class Region < ActiveRecord::Base
     end
   end
 
+  def display_self
+    if next_cleaning_day    
+      next_cleaning = "#{Date::MONTHNAMES[next_cleaning_day.month]} #{next_cleaning_day.day}"
+    else
+      next_cleaning = "none"
+    end
+    { name: "Ward #{ward_num} Area #{sweep}", next_sweep: "Next cleaning day: #{next_cleaning}" }
+  end
+
   def self.areas_to_display(location, distance)
     results = [[],[]]
     regions = Region.select("*, ST_AsGeoJSON(geom) as my_geo").where("ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3), 'MULTIPOINT(#{location[1]} #{location[0]})') <= #{distance} * 1609.34")
@@ -65,26 +63,5 @@ class Region < ActiveRecord::Base
       end
     end
     results
-  end
-  #   query = "SELECT ST_AsGeoJSON(geom), ward_secti FROM regions 
-  #   WHERE ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3), 'MULTIPOINT(#{location[1]} #{location[0]})') <= #{distance} * 1609.34;"
-  #   results = [[],[]]
-  #   Region.connection.execute(query).each do |ward|
-  #     region = Region.find_by_ward_secti(ward["ward_secti"])
-  #     if region.swept_soon?
-  #       results[0] << ward["st_asgeojson"]
-  #     else
-  #       results[1] << ward["st_asgeojson"]
-  #     end
-  #   end
-  #   results
-  # end
-
-  private
-
-  def find_center
-    query = "SELECT ST_AsText(ST_CollectionExtract(ST_GeomFromText(\'#{self.geom}\'),1));"
-
-    Region.connection.execute(query).first.first[1]
   end
 end

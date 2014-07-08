@@ -1,7 +1,7 @@
 #active_map {
-  @include size(70% 600px);
+  @include size(65% 600px);
   @include position(relative auto);
-  margin: auto;
+  margin: 0 0 20px 20px;
   padding-right: 10px;
   float: left;
 }
