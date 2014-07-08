@@ -18,6 +18,7 @@ class Notification < ActiveRecord::Base
 
 	def self.sweep_notification
 		Notification.all.each do |notice|
+			next if notice.region.nil?
 			if notice.region.swept_soon? && !notice.sent_recently?
         notice.update(sent_at: Date.today)
 				notice.notify
