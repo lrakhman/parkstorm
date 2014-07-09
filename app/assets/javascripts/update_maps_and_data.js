@@ -28,6 +28,7 @@ function postCurrentLocation(data, location, regionFunction) {
     str = "</h3><h3>Street Cleaning Days</h3><ul>"
 
     var days = response.sweep_days;
+    console.log(days);
     if (days.length > 0) {
       for (var i=0; i<days.length; i++) {
         str += '<li>' + days[i] + '</li>';
