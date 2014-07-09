@@ -21,6 +21,7 @@ function updatePageFromAddress(data, location) {
 function postLocation(data, location, regionFunction) {
   $.post('/current_position', data, function(response){
     var days = response.sweep_days;
+    console.log(days);
     if (days.length > 0) {
       buildSidebarWithDate(location, response);
     } else {
