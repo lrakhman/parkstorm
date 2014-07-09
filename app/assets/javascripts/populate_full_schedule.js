@@ -25,5 +25,19 @@ function fullSchedule(location, sweepDays){
   htmlString += 'and ' + upcomingDays[upcomingDays.length-1]
   }
   htmlString += '.</p>'
+  
+  for(var i=0; i < sweepDays.length; i++){
+    var month = sweepDays[i][0];
+    var days = sweepDays[i][1];
+    htmlString += '<table><tr><th>' + month + '</th></tr>';
+
+    for(var j=0; j < days.length; j++){
+      htmlString += '<tr><td>' + days[j] + '</td></tr>';
+    }
+    htmlString += '</table>';
+  }
+
   console.log(htmlString)
+
+
 }
