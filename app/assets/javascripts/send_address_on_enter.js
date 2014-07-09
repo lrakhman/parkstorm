@@ -1,22 +1,24 @@
-$(document).ready(function() {
+function enterAddress() {
   $("#address").keyup(function(event){
     if(event.keyCode == 13){
-      $("#address_submit").click();
+      $("button#address_submit").click();
     }
   });
 
   $("#lower_address").keyup(function(event){
     if(event.keyCode == 13){
-      $("#lower_address_submit").click();
+      $("button#lower_address_submit").click();
     }
   });
+}
 
-  $('#update_from_date').on('click', function() {
+function updateDateRange() {
+  $('#update_from_date.button').on('click', function() {
     active_map.off('click');
     $.post('/load_after_date_change', {date: getDateRange()}, function(response) {
-      active_map.removeLayer(everything);
+      active_map.removeLayer(allMapElements);
       $('#map_script').remove();
       $('#active_map').append(response);
     });
   });
-});
+}

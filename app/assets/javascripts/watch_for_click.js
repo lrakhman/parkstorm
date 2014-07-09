@@ -8,12 +8,12 @@ function watchForClick(marker) {
       marker.setLatLng(e.latlng);         
     }
     var data = { latitude: e.latlng.lat, longitude: e.latlng.lng, date: getDateRange() }
-    postCurrentLocation(data, 'your selected location', clickPost);
+    postLocation(data, 'your selected location', clickPost);
   });
 }
 function clickPost(data) {
   $.post('/load_region', data, function(response){
-    active_map.removeLayer(everything);
+    active_map.removeLayer(allMapElements);
     $('#map_script').remove();
     $('#active_map').append(response);
   });
