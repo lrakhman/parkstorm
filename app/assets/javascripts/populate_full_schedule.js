@@ -1,7 +1,8 @@
-// this should be called when 
 // sweepDays should be the result of calling future_cleaning_days_formatted
+// for example:
+// fullSchedule('current location', [["July", [16, 17, 18]], ["August", [21, 22]], ["September", [29, 30]], ["November", [5, 6]]])
+// the result should replace the html in the div with id "monthly_schedule" 
 
-fullSchedule('current location', [["July", [16, 17, 18]], ["August", [21, 22]], ["September", [29, 30]], ["November", [5, 6]]])
 function fullSchedule(location, sweepDays){
 
   var htmlString = '<h3>Street Cleaning Schedule for the Rest of 2014</h3>';
@@ -12,13 +13,16 @@ function fullSchedule(location, sweepDays){
   }
 
   htmlString += '<p>In ' + sweepDays[0][0] + ', streets will be swept at ' + location + ' on the ';
+
   var upcomingDays = sweepDays[0][1]
 
   if(upcomingDays.length === 1){
     htmlString += upcomingDays[0]
-  } else if(upcomingDays.length == 2){
+  } 
+  else if(upcomingDays.length == 2){
     htmlString += upcomingDays[0] + ' and ' + upcomingDays[1]
-  } else{
+  } 
+  else {
     for(var i=0; i < sweepDays.length - 2; i++){
       htmlString += upcomingDays[i] + ', '
     }
@@ -36,8 +40,5 @@ function fullSchedule(location, sweepDays){
     }
     htmlString += '</table>';
   }
-
-  console.log(htmlString)
-
-
+  return htmlString;
 }
