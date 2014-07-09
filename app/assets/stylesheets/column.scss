@@ -10,6 +10,12 @@
 	padding-bottom: 4%;
 	margin: 3em;
 
+	h6 {
+		display: inline-block;
+		margin: 0;
+		width: 60%;
+	}
+
 	#date_icon {
 		width: 130px;
 		margin: auto;
@@ -51,8 +57,9 @@
 }
 
 #modal3_div, #modal3_label {
-	margin-top: 5em;
 	text-align: center;
+	display: inline-block;
+	margin: 0;
 
 	.btn {
 		margin-bottom: 0;
@@ -60,28 +67,32 @@
 }
 
 .checkout-price {
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  font: 14px/40px Helvetica, Arial, sans-serif;
-  padding: 1em 0;
+  position: relative;
+  display: inline;
+  float: right;
+  width: 100px;
+  height: 100px;
+  line-height: 1em;
+  text-align: center;
+  font: 20px Helvetica, Arial, sans-serif;
+  padding: 1.5em 0;
   color: white;
   text-align: center;
   text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.3);
   text-indent: -1px;
   letter-spacing: -1px;
-  background: #477dca;
+  background: #6EA65F;
   border: 1px solid;
-  border-color: #477dca;
+  border-color: #6EA65F;
   border-radius: 50px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-image: -webkit-linear-gradient(top, #477dca, #477dca);
-  background-image: -moz-linear-gradient(top, #477dca, #477dca);
-  background-image: -o-linear-gradient(top, #477dca, #477dca);
-  background-image: linear-gradient(to bottom, #477dca, #477dca);
+  background-image: -webkit-linear-gradient(top, #6EA65F, #6EA65F);
+  background-image: -moz-linear-gradient(top, #6EA65F, #6EA65F);
+  background-image: -o-linear-gradient(top, #6EA65F, #6EA65F);
+  background-image: linear-gradient(to bottom, #6EA65F, #6EA65F);
   -webkit-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
 }
@@ -93,7 +104,7 @@
   left: 3px;
   right: 3px;
   border: 2px solid #f5f8fb;
-  border-radius: 40px;
+  border-radius: 90px;
   -webkit-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), inset 0 -1px 1px rgba(0, 0, 0, 0.25), 0 -1px 1px rgba(0, 0, 0, 0.25);
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), inset 0 -1px 1px rgba(0, 0, 0, 0.25), 0 -1px 1px rgba(0, 0, 0, 0.25);
 }
