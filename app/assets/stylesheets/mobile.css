@@ -8,6 +8,25 @@
   overflow-y: auto;
 }
 
+#mobile .next{
+  padding-top: 0;
+  margin: 0 1em;
+}
+
+#mobile .next_days{
+  margin: 0 1em;
+  border-top: 1px solid black;
+  padding: 0;
+}
+
+#mobile .modal3_label {
+  height: 30px;
+}
+
+#mobile .monthly_schedule {
+  padding: 0;
+}
+
 
 
 @media ( min-width : 420px ) {
