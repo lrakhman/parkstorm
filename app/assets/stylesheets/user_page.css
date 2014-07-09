@@ -13,3 +13,7 @@
 #user_container a:hover {
   background-color: black;
 }
+#profile_title {
+  text-align: center;
+  color: white;
+}
