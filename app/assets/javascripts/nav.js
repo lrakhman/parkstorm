@@ -1,11 +1,3 @@
-$(document).ready(function(){
-  navToggle();
-
-  navActivation();
-
-  animateElements();
-});
-
 function navToggle() {
   var menu = $('#navigation-menu');
   var menuToggle = $('#js-mobile-menu');
