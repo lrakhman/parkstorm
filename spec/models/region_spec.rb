@@ -61,9 +61,9 @@ RSpec.describe Region, :type => :model do
     end
   end
 
-  describe '.areas_to_display' do
+  describe '.areas_by_date_range' do
     
-    let(:area) { Region.areas_to_display([41.890633, -87.629238], 1) }
+    let(:area) { Region.areas_by_date_range([41.890633, -87.629238]) }
 
     it 'should return an array of two arrays' do
       expect(area[0]).to be_a Array

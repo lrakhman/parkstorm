@@ -43,6 +43,12 @@ class Region < ActiveRecord::Base
     end
   end
 
+  def swept_in_date_range?(start_date, end_date)
+    swept = false
+    cleaning_days.each { |day| swept = true if (day >= start_date && day <= end_date) }
+    swept
+  end
+
   def display_self
     if next_cleaning_day    
       next_cleaning = "#{Date::MONTHNAMES[next_cleaning_day.month]} #{next_cleaning_day.day}"
@@ -52,11 +58,15 @@ class Region < ActiveRecord::Base
     { name: "Ward #{ward_num} Area #{sweep}", next_sweep: "Next cleaning day: #{next_cleaning}" }
   end
 
-  def self.areas_to_display(location, distance)
+  def self.get_regions(location, distance)
+    Region.select("*, ST_AsGeoJSON(geom) as my_geo").where("ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3), 'MULTIPOINT(#{location[1]} #{location[0]})') <= #{distance} * 1609.34")
+  end
+
+  def self.areas_by_date_range(location, start_date=(Date.today), end_date=(Date.today + 7))
     results = [[],[]]
-    regions = Region.select("*, ST_AsGeoJSON(geom) as my_geo").where("ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3), 'MULTIPOINT(#{location[1]} #{location[0]})') <= #{distance} * 1609.34")
+    regions = Region.get_regions(location, 0.25)
     regions.each do |ward|
-      if ward.swept_soon?
+      if ward.swept_in_date_range?(start_date, end_date)
         results[0] << ward.my_geo
       else
         results[1] << ward.my_geo
