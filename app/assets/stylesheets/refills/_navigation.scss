@@ -168,7 +168,8 @@ header.navigation {
 
    
     float: left;
-    width: 50%;
+    width: 90%;
+    margin: 1.4em;
     .search-and-submit {
       position: relative;
       width: 100%;
@@ -201,8 +202,8 @@ header.navigation {
     }
 
     @include media($horizontal-bar-mode) {
-      width: 49%;
-      padding-top: 1em;
+      width: 90%;
+      margin: 0 1.4em;
       position: relative; 
       display: inline-block;
 
