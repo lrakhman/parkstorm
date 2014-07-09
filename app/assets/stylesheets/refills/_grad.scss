@@ -155,8 +155,13 @@
 
 #bottom {
   margin-top: 1em;
-  
   margin: 0 auto;
+
+  #next_days {
+    clear: both;
+    max-width: 900px;
+    margin: auto;
+  }
 }
 
 #or {

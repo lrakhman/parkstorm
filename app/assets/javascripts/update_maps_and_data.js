@@ -65,5 +65,9 @@ function pagePost(data) {
 
 function renderDate(date){
   var response = date.split(" ")
-  return "<div id = 'date_icon'><div id = 'month'>" + response[0] + "</div><div id = 'day'>" + response[1]  + "</div></div>"
+  if (isNaN(response[1])) {
+    return "<div>No sweeping scheduled for this location</div>";
+  } else {
+    return "<div id = 'date_icon'><div id = 'month'>" + response[0] + "</div><div id = 'day'>" + response[1]  + "</div></div>"
+  }
 }
