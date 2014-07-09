@@ -13,7 +13,7 @@ function watchForClick(marker) {
 }
 function clickPost(data) {
   $.post('/load_region', data, function(response){
-    active_map.removeLayer(everything);
+    active_map.removeLayer(allMapElements);
     $('#map_script').remove();
     $('#active_map').append(response);
   });
