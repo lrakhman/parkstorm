@@ -161,6 +161,27 @@
     clear: both;
     max-width: 900px;
     margin: auto;
+    padding-top: 2em;
+    text-align: center;
+
+
+    #monthly_schedule {
+      margin: 2em auto;
+      padding-top: 2em;
+      text-align: center;
+      border-top: 1px solid black;
+
+      table {
+        width: 100px;
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      td, th {
+        text-align: center;
+        line-height: 1em;
+      }
+    }
   }
 }
 
