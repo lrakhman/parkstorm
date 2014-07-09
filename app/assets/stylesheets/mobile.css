@@ -4,7 +4,8 @@
   z-index: 9999;
   bottom: 0;
   background-color: white;
-  height: ;
+  height: 70%;
+  overflow-y: auto;
 }
 
 
