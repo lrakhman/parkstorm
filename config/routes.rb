@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   post '/load_after_date_change' => 'regions#load_after_date_change'
   post '/update_surrounding' => 'regions#load_surrounding_regions'
   post 'twilio/send_text_message' => 'twilio#send_text_message'
+  post '/load_user_map' => 'users#load_user_map'
 end

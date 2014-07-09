@@ -26,7 +26,7 @@ feature 'User browsing the website' do
 
   context "logged in user can click profile button to redirect to user page" do
     it "user is able to log in and see their user page" do
-      user = User.create(email: "nfrecka@gmail.com", password: "caketime99")
+      user = User.create(firstname: "Natalie", lastname: "Frecka", email: "nfrecka@gmail.com", password: "caketime99", password_confirmation: "caketime99")
       visit root_path
       find('#login_button').click
       fill_in 'user[email]', with: user.email

@@ -1,0 +1,17 @@
+<div id="personal_map" class="personal_map"></div>
+<script>
+  $(document).ready(function() {
+    personal_map = L.map('personal_map').setView([41.8893288, -87.63722539999999], 15);
+    L.tileLayer('http://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+        '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+        'Imagery © <a href="http://mapbox.com">Mapbox</a>', id: 'examples.map-i86knfo3'}).addTo(map);
+    <% @regions[0].each do |region| %>
+      region = <%= region.html_safe %>;
+      draw_red(region, map);
+    <% end %>
+    <% @regions[1].each do |region| %>
+      region = <%= region.html_safe %>;
+      draw_green(region, map);
+    <% end %>
+  });
+</script>
