@@ -13,7 +13,7 @@ function enterAddress() {
 }
 
 function updateDateRange() {
-  $('#update_from_date').on('click', function() {
+  $('#update_from_date.button').on('click', function() {
     active_map.off('click');
     $.post('/load_after_date_change', {date: getDateRange()}, function(response) {
       active_map.removeLayer(allMapElements);
