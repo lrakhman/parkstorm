@@ -8,15 +8,12 @@
 
 <aside role="complementary" class = "col span_4 clr">
   <div class='cleaning_col'>
-    <div id = 'next'>
-      <p></p>
-      <div class = "modal" id = "modal3_div">
-        <label for="modal-3" id = "modal3_label">
-          <div class="btn js-btn">
-            Get Notifications <br>for This Location
-          </div>
-        </label>
-      </div>
+    <div id = 'range'>
+      <p>Going on vacation? Select the start and end date of the time you will be away, click on the map or enter an address of where you'd like to park, and see where it is safe to leave your car!</p>
+      <h3>Choose date range:</h3>
+      Start date: <input id="start_date" type="date" name="start_date" value="<%= @today %>">
+      End date: <input id="end_date" type="date" name="end_date" value="<%= @week_from_today %>">
+      <button id="update_from_date">Update Map</button>
     </div>
     
   </div>
@@ -35,36 +32,7 @@
     });
   </script>
     <div style = "clear: both;">
-      <br>
-      <p>Going on vacation? See when street sweeping will be for a custom date range <a href="/date_range">here</a>.</p>
-      <br>
-      <h3>Street Cleaning Days</h3>
-      <table>
-        <thead>
-          <tr>
-            <td>April</td>
-            <td>May</td>
-            <td>June</td>
-            <td>July</td>
-            <td>August</td>
-            <td>September</td>
-            <td>October</td>
-            <td>November</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>5, 6</td>
-            <td>none</td>
-            <td>17, 18</td>
-            <td>none</td>
-            <td>none</td>
-            <td>none</td>
-            <td>none</td>
-            <td>none</td>
-          </tr>
-        </tbody>
-      </table>
+
     </div>
 
 </div>
