@@ -21,11 +21,12 @@ function updatePageFromAddress(data, location) {
 function postLocation(data, location, regionFunction) {
   $.post('/current_position', data, function(response){
     var days = response.sweep_days;
-    console.log(days);
     if (days.length > 0) {
       buildSidebarWithDate(location, response);
+      $('#monthly_schedule').html(fullSchedule(location, days));
     } else {
       buildSidebarNoDate(location);
+      $('#monthly_schedule').html("");
     }
     regionFunction(data);
   }, 'JSON');
