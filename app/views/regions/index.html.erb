@@ -1,19 +1,52 @@
-<%= render 'refills/navigation'%>
-
 <div id='bottom'>
   <main role = "main" class = "row">
     <article class = "col span_8 clr">
-  <div id="active_map" class="active_map"></div>
-</article>
+      <div id="active_map" class="active_map"></div>
+    </article>
+    
+    <aside role="complementary" class = "col span_4 clr">
+      <div class='cleaning_col'>
+        <header role = "banner" class = "row">
 
-<aside role="complementary" class = "col span_4 clr">
-  <div class='cleaning_col'>
+          <nav role="navigation" class = "row">
+            <header class="navigation">
+              <div class="lower-menu">
+                <p><em>Everything you need to know about street sweeping in Chicago.</em></p>
+              <div class = 'right-col'>
+        <% unless current_user %>
+          <a href="javascript:void(0)" class="login">
+          <div class="modal">
+            <label for="modal-1">
+              <div class="btn js-btn">Log In</div>
+            </label>
+            <input class="modal-state" id="modal-1" type="checkbox" />
+            <div class="modal-window">
+              <div class="modal-inner">
+                <label class="modal-close" for="modal-1"></label>
+                <%= render 'users/login' %>
+              </div>
+            </div>
+          </div>
+        </a>
+        <% else %>       
+          <%= link_to "Profile", user_path(current_user), :class => 'nav_button' %>
+      
+          <%= link_to "Log Out", destroy_user_session_path, :method => :delete, :class => 'nav_button' %>
+        <% end %>
+      </div>  
+              </div>
+            </header>
+          </nav>
+
+        </header>
+
+
     <div id = 'next'>
       <p></p>
       <div class = "modal" id = "modal3_div">
         <label for="modal-3" id = "modal3_label">
-          <div class="btn js-btn">
-            Get Notifications <br>for This Location
+          <div class="checkout-price">
+            Notify Me
           </div>
         </label>
       </div>

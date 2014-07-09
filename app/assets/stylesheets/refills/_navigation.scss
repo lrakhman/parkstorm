@@ -1,6 +1,6 @@
 header.navigation {
   $navigation-padding: 1.5em;
-  $navigation-background: $dark-gray;
+  $navigation-background: white;
   $navigation-color: transparentize(white, 0.3);
   $navigation-color-hover: white;
   $navigation-height: 80px;
@@ -13,7 +13,7 @@ header.navigation {
   $navigation-submenu-padding: 1em;
   $horizontal-bar-mode: $large-screen;
 
-  background-color: #477dca;
+  background-color: white;
   font-family: $sans-serif;
   width: 100%;
   z-index: 999;
@@ -72,7 +72,8 @@ header.navigation {
 
   .lower-menu {
     background-color: $navigation-background;
-    color: whitesmoke;
+    color: dark-gray;
+    width: 100%;
 
 
     p{
