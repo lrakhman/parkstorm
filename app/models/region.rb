@@ -62,19 +62,6 @@ class Region < ActiveRecord::Base
     Region.select("*, ST_AsGeoJSON(geom) as my_geo").where("ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3), 'MULTIPOINT(#{location[1]} #{location[0]})') <= #{distance} * 1609.34")
   end
 
-  # def self.areas_to_display(location)
-  #   results = [[],[]]
-  #   regions = Region.get_regions(location, 0.25)
-  #   regions.each do |ward|
-  #     if ward.swept_soon?
-  #       results[0] << ward.my_geo
-  #     else
-  #       results[1] << ward.my_geo
-  #     end
-  #   end
-  #   results
-  # end
-
   def self.areas_by_date_range(location, start_date=(Date.today), end_date=(Date.today + 7))
     results = [[],[]]
     regions = Region.get_regions(location, 0.25)
