@@ -17,8 +17,7 @@
 
 	#date_icon {
 		width: 130px;
-		margin: auto;
-		margin-top: 2em;
+		margin: 2em auto;
 		border-radius: 15px;
 		border: 1px solid gray;
 		box-shadow: 3px 3px 5px #888888;
@@ -57,10 +56,8 @@
 }
 
 #modal3_div {
-	text-align: center;
 	width: 50%;
-	display: inline-block;
-	margin: auto;
+	margin: 1em auto;
 
 	.btn {
 		margin-bottom: 0;
