@@ -1,12 +1,13 @@
 .cleaning_col {
 	width: 90%;
-	float: right;
+	margin: auto;
 	height: 450px;
 	padding-right: 2%;
 	padding-left: 2%;
 
 	#notify_exp {
 		padding-top: 1em;
+		font-size: 0.8em;
 	}
 }
 
@@ -56,7 +57,7 @@
 }
 
 #modal3_div {
-	width: 50%;
+	width: 43%;
 	margin: 1em auto;
 
 	.btn {
@@ -66,6 +67,8 @@
 
 #modal3_label {
 	text-align: center;
+	width: 120px;
+	margin: auto;
 }
 
 .button {
@@ -89,6 +92,7 @@
    text-decoration: none;
    vertical-align: middle;
    float: left;
+   width: 120px;
    }
 .button:hover {
    border-top-color: #28597a;
