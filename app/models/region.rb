@@ -26,7 +26,17 @@ class Region < ActiveRecord::Base
   end
 
   def future_cleaning_days_formatted
-    future_cleaning_days.map{|date| "#{Date::MONTHNAMES[date.month]} #{date.day}"}
+    collect_dates = Hash.new
+    future_cleaning_days.each do |date|
+      month_name = Date::MONTHNAMES[date.month]
+      collect_dates[month_name] ||= []
+      collect_dates[month_name] << date.day.ordinalize
+    end
+    collect_dates
+
+    collect_dates.map{|month, days| [month, days]}
+
+    # future_cleaning_days.map{|date| "#{Date::MONTHNAMES[date.month]} #{date.day}"}
   end
 
   def next_cleaning_day
