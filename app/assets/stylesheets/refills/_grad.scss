@@ -155,8 +155,40 @@
 
 #bottom {
   margin-top: 1em;
-  max-width: 900px;
   margin: 0 auto;
+
+  #next_days {
+    clear: both;
+    max-width: 900px;
+    margin: auto;
+    padding-top: 2em;
+    text-align: center;
+
+
+    #monthly_schedule {
+      margin: 2em auto;
+      padding-top: 2em;
+      text-align: center;
+      border-top: 1px solid black;
+
+      span {
+        font-weight: bold;
+        font-size: 1.5em;
+      }
+
+      table {
+        width: 100px;
+        display: inline-block;
+        vertical-align: top;
+        margin: 1em;
+      }
+
+      td, th {
+        text-align: center;
+        line-height: 1em;
+      }
+    }
+  }
 }
 
 #or {

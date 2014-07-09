@@ -11,53 +11,35 @@ function findAddress(selector){
 }
 
 function updatePage(data, location) {
-  postCurrentLocation(data, location, pagePost);
+  postLocation(data, location, pagePost);
 }
 
 function updatePageFromAddress(data, location) {
-  postCurrentLocation(data, location, addressPost);
+  postLocation(data, location, addressPost);
 }
 
-function postCurrentLocation(data, location, regionFunction) {
-  $.post('/current_position', data, function(response){ 
-    $('#next_cleaning p').html('The next street cleaning<br>for ' + location + ' is:<br>' + response.next_sweep);
-
-    $('#next p').html('<h3>Next street cleaning for ' + location + ':</h3><br>' + renderDate(response.next_sweep));
-    $("#modal3_div").show();
-
-    str = "</h3><h3>Street Cleaning Days</h3><ul>"
-
+function postLocation(data, location, regionFunction) {
+  $.post('/current_position', data, function(response){
     var days = response.sweep_days;
     if (days.length > 0) {
-      for (var i=0; i<days.length; i++) {
-        str += '<li>' + days[i] + '</li>';
-      }
+      buildSidebarWithDate(location, response);
+      $('#monthly_schedule').html(fullSchedule(location, days));
     } else {
-      str += '<li>none</li>';
+      buildSidebarNoDate(location);
+      $('#monthly_schedule').html("");
     }
-    $('#future').html(str + '</ul>');
     regionFunction(data);
   }, 'JSON');
 }
 
-function addLegend(active_map) {
-  if ($('#next').length > 0) {
-    legend.onAdd = function (map) {
-      var div = L.DomUtil.create('div', 'info legend');
-      div.innerHTML += '<b>Streets will next be swept in:</b><br><br>' +
-              '<i style="background: red"></i> ' + 'less than a week<br><br>' + '<i style="background: green"></i> ' + 'a week or more';
-      return div;
-    };
-    legend.addTo(active_map);
-  } else {
-    legend.onAdd = function (map) {
-      var div = L.DomUtil.create('div', 'info legend');
-      div.innerHTML += '<b>Streets will next be swept:</b><br><br>' +
-              '<i style="background: red"></i> ' + 'during the date range<br><br>' + '<i style="background: green"></i> ' + 'outside the date range';
-      return div;
-    };
-    legend.addTo(active_map);
-  }
+function addressSubmit() {
+  $('#address_submit').on('click', function(event){
+    findAddress('#address');
+  })
+
+  $('#lower_address_submit').on('click', function(event){
+    findAddress('#lower_address');
+  })
 }
 
 function addressPost(data) {
@@ -75,5 +57,21 @@ function pagePost(data) {
 
 function renderDate(date){
   var response = date.split(" ")
-  return "<div id = 'date_icon'><div id = 'month'>" + response[0] + "</div><div id = 'day'>" + response[1]  + "</div></div>"
+  if (isNaN(response[1])) {
+    return "<div>No sweeping scheduled for this location</div>";
+  } else {
+    return "<div id = 'date_icon'><div id = 'month'>" + response[0] + "</div><div id = 'day'>" + response[1]  + "</div></div>"
+  }
+}
+
+function buildSidebarWithDate(location, response) {
+  $('#next p').html('<h3>Next street cleaning for ' + location + ':</h3><br>' + renderDate(response.next_sweep));
+  $("#modal3_div").show();
+  $('#notify_exp').html('Want email or SMS notifications for street sweeping at this location?  Sign up here.');
+}
+
+function buildSidebarNoDate(location) {
+  $('#next p').html('<h3>There is no scheculed street sweeping<br>for ' + location + '.</h3><p>Please select another location to see street sweeping dates.</p>');
+  $("#modal3_div").hide();
+  $('#notify_exp').html('');
 }

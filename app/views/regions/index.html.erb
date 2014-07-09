@@ -10,14 +10,16 @@
   <div class='cleaning_col'>
     <div id = 'next'>
       <p></p>
+       <div id = "notify_exp"></div>
       <div class = "modal" id = "modal3_div">
         <label for="modal-3" id = "modal3_label">
-          <div class="btn js-btn">
-            Get Notifications <br>for This Location
+          <div class="button">
+            Notify Me
           </div>
         </label>
       </div>
     </div>
+
     
   </div>
 </aside>
@@ -31,40 +33,59 @@
     $(document).ready(function() {
 
       $("#modal3_div").hide();
-      locate(active_map);
+      locateUser(active_map);
     });
   </script>
-    <div style = "clear: both;">
-      <br>
+
+  
+    <div  id = "next_days">
+      <h3>Search by Date</h3>
       <p>Going on vacation? See when street sweeping will be for a custom date range <a href="/date_range">here</a>.</p>
-      <br>
-      <h3>Street Cleaning Days</h3>
-      <table>
-        <thead>
-          <tr>
-            <td>April</td>
-            <td>May</td>
-            <td>June</td>
-            <td>July</td>
-            <td>August</td>
-            <td>September</td>
-            <td>October</td>
-            <td>November</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>5, 6</td>
-            <td>none</td>
-            <td>17, 18</td>
-            <td>none</td>
-            <td>none</td>
-            <td>none</td>
-            <td>none</td>
-            <td>none</td>
-          </tr>
-        </tbody>
-      </table>
+
+
+      
+      <div id = "monthly_schedule">
+      <h3>Street Cleaning Schedule for the Rest of 2014</h3>
+      <p>This month, streets will be swept for your current location on the 8th, 9th, 17th, and 18th.</p>
+
+        <table>
+          <tr><th>July</th></tr>
+          <tr><td>8th</td></tr>
+          <tr><td>9th</td></tr>
+          <tr><td>17th</td></tr>
+          <tr><td>18th</td></tr>
+        </table>
+      
+        <table>
+          <tr><th>August</th></tr>
+          <tr><td>3rd</td></tr>
+          <tr><td>4th</td></tr>
+          <tr><td>21st</td></tr>
+          <tr><td>22nd</td></tr>
+        </table>
+
+        <table>
+          <tr><th>September</th></tr>
+          <tr><td>3rd</td></tr>
+          <tr><td>4th</td></tr>
+          <tr><td>21st</td></tr>
+          <tr><td>22nd</td></tr>
+        </table>
+
+        <table>
+          <tr><th>October</th></tr>
+          <tr><td>3rd</td></tr>
+          <tr><td>4th</td></tr>
+        </table>
+
+        <table>
+          <tr><th>November</th></tr>
+          <tr><td>3rd</td></tr>
+          <tr><td>4th</td></tr>
+        </table>
+      </div>
+       
+
     </div>
 
 </div>
