@@ -10,14 +10,16 @@
   <div class='cleaning_col'>
     <div id = 'next'>
       <p></p>
+       <div id = "notify_exp">Want email or SMS notifications for street sweeping at this location?  Sign up here.</div>
       <div class = "modal" id = "modal3_div">
         <label for="modal-3" id = "modal3_label">
-          <div class="btn js-btn">
-            Get Notifications <br>for This Location
+          <div class="button">
+            Notify Me
           </div>
         </label>
       </div>
     </div>
+
     
   </div>
 </aside>
@@ -34,9 +36,14 @@
       locate(active_map);
     });
   </script>
-    <div style = "clear: both;">
-      <br>
+
+  
+    <div  id = "next_days">
+      <h3>Upcoming Street Cleaning Days</h3>
       <p>Going on vacation? See when street sweeping will be for a custom date range <a href="/date_range">here</a>.</p>
+
+
+      
       <br>
       <h3>Street Cleaning Days</h3>
       <table>

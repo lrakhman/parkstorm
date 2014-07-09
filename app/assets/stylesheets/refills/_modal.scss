@@ -11,6 +11,12 @@
     margin-bottom: 0;
   }
 
+  #login_link {
+    color: white;
+    margin: 1.25em;
+    font-size: 1.2em;
+  }
+
   label img {
     $img-width: 300px;
     border-radius: $img-width/2;
