@@ -16,5 +16,5 @@ function clickPost(data) {
     active_map.removeLayer(everything);
     $('#map_script').remove();
     $('#active_map').append(response);
-  })
+  });
 }
