@@ -60,6 +60,10 @@ header  #first {
   header.navigation .search-bar {
     width: 60%;
   }
+
+  header.navigation .search-bar .search-and-submit button[type=submit] {
+    right: -20px;
+  }
 }
 
 @media ( min-width : 420px ) {
