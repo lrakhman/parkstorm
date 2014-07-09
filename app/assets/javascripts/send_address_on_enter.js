@@ -1,4 +1,4 @@
-$(document).ready(function() {
+function enterAddress() {
   $("#address").keyup(function(event){
     if(event.keyCode == 13){
       $("button#address_submit").click();
@@ -10,8 +10,10 @@ $(document).ready(function() {
       $("button#lower_address_submit").click();
     }
   });
+}
 
-  $('#update_from_date.button').on('click', function() {
+function updateDateRange() {
+  $('#update_from_date').on('click', function() {
     active_map.off('click');
     $.post('/load_after_date_change', {date: getDateRange()}, function(response) {
       active_map.removeLayer(allMapElements);
@@ -19,4 +21,4 @@ $(document).ready(function() {
       $('#active_map').append(response);
     });
   });
-});
+}
