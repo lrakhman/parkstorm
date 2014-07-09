@@ -1,0 +1,17 @@
+#mobile {
+  display: block;
+  position: fixed;
+  z-index: 9999;
+  bottom: 0;
+  background-color: white;
+  height: ;
+}
+
+
+
+@media ( min-width : 420px ) {
+  #mobile {
+    display: none;
+    position: relative;
+  }
+}
