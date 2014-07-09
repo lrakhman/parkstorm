@@ -161,16 +161,12 @@
   text-align: center;
 
 
-  #monthly_schedule {
+  .monthly_schedule {
     margin: 2em auto;
     padding-top: 2em;
     text-align: center;
     border-top: 1px solid black;
 
-    span {
-      font-weight: bold;
-      font-size: 1.5em;
-    }
 
     table {
       width: 100px;

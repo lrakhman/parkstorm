@@ -14,7 +14,7 @@ function makeNotification(data) {
 }
 
 function instantNotificationWhenLoggedIn () {
-  $('#modal3_label div').on('click', function(e) {
+  $('.modal3_label div').on('click', function(e) {
     if ($('.navigation-tools').text().match(/Log Out/) !== null) {
       e.preventDefault();
       makeNotification({notification: {email: ""}, logged_in: true});

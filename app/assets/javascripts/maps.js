@@ -19,7 +19,7 @@ function locateUser(map) {
 }
 
 function addLegend(active_map) {
-  if ($('#next').length > 0) {
+  if ($('.next').length > 0) {
     addMainLegend();
   } else {
     addDateLegend();
