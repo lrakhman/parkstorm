@@ -19,7 +19,7 @@
   </div>
 </aside>
   <script>
-    active_map = L.map('active_map').setMaxBounds([[41.644286, -87.940101], [42.023135, -87.523661]]);
+    active_map = L.map('active_map').setMaxBounds([[41.644286, -87.940101], [42.023135, -87.523661]]).setView([41.8893288, -87.63722539999999], 13);
     var legend = L.control({position: 'bottomright'});
     addLegend(active_map)
     L.tileLayer('http://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +

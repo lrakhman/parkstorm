@@ -1,17 +1,19 @@
 <header role = "banner" class = "row" style = "margin-top: -2.5%">
   <nav role="navigation" class = "row">
     <header class="navigation" style="padding: 1.5em; padding-bottom: 2.75em">
-      <div class="menu-wrapper">      
+      <div class="menu-wrapper"> 
         <div class="navigation-tools">
-          <div class = 'left-col'></div>
+          <div class = 'left-col'><a href="/"><%= image_tag('sweep.png', id: 'sweep') %></a></div>
           <div class="search-bar">
             <div class="search-and-submit">
-              <input id = "lower_address" type="search" placeholder="Enter Street Address" />
+              <% unless  @profile_page %>
+                <input id = "lower_address" type="search" placeholder="Enter Street Address" />
                 <button id = "lower_address_submit" type="submit">
                   <img src="https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png" alt="">
                 </button>
-            
-          
+              <% else %>
+                <h2 id="profile_title">Your Profile Page</h2>
+              <% end %>
         </div>
 
       </div>
