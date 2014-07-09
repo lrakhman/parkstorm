@@ -50,18 +50,6 @@
 	width: 100%;
 }
 
-#sidebarz {
-	position: fixed;
-	background-color: white;
-	z-index: 9999;
-}
-
-@media ( min-width : 420px ) {
-	#sidebarz{
-		position: relative;
-		z-index: 1;
-	}
-}
 
 @media ( min-width : 768px ) {
 	
