@@ -13,11 +13,14 @@ header.navigation {
   $navigation-submenu-padding: 1em;
   $horizontal-bar-mode: $large-screen;
 
+
+
   background-color: #477dca;
   font-family: $sans-serif;
   width: 100%;
   z-index: 999;
   margin-top: -1.3%;
+  
 
   .left-col {
     width: 25%;
@@ -102,6 +105,7 @@ header.navigation {
       margin: 0;
       padding: 0;
       margin-top: 5%;
+
     }
   }
 

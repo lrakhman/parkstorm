@@ -27,7 +27,40 @@
   padding: 0;
 }
 
+header  #first {
+  padding: 1.5em;
+  padding-bottom: 2.75em;
 
+}
+
+@media (max-width : 420px){
+  header .navigation   .left-col, header .navigation .lower-menu .right-col {
+    width: 0%;
+  }
+  header .navigation .lower-menu p  {
+    width: 100%;
+  }
+
+  .modal #login_link{
+    margin: 0;
+  }
+
+  header.navigation .menu-wrapper {
+    margin: 0;
+  }
+
+  header #first {
+    padding: 1em;
+  }
+
+  header.navigation a.login {
+    padding: 0;
+  }
+
+  header.navigation .search-bar {
+    width: 60%;
+  }
+}
 
 @media ( min-width : 420px ) {
   #mobile {
