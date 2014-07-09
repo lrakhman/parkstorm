@@ -1,3 +1,19 @@
+/**
+  $(document).ready(function(){
+
+  AND
+
+  $(function() {
+
+  are the SAME THING.
+
+  Essentially you have 2 nested document readys. Why?
+
+  All of these events have lost their context.
+  I would suggest taking the callbacks and extracting
+  the functions to named methods for clarity.
+**/
+
 $(document).ready(function(){
   $(function() {
     var menu = $('#navigation-menu');

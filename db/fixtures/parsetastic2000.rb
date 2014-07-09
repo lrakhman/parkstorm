@@ -1,3 +1,6 @@
+# AGAIN NAMING!
+# Also, what is this code doing?  it's crazy!!
+
 holder = []
 in_headers = false
 what = false
@@ -100,7 +103,7 @@ File.open('the_business.sql', 'w') do |f|
     if thing.count >= 15
       str = "('#{thing[0]}','#{thing[1]}','#{thing[2]}','#{thing[3]}','#{thing[4]}','#{thing[5]}','#{thing[6]}','#{thing[7]}','#{thing[8]}','#{thing[9]}','#{thing[10]}','#{thing[11]}','#{thing[12]}','#{thing[13]}','#{thing[14]}',"
       str.gsub!(/\s/, "")
-      f.write("INSERT INTO \"regions\" (\"ward\",\"ward_num\",\"sweep\",\"wardsweep\",\"ward_secti\",\"month_4\",\"month_5\",\"month_6\",\"month_7\",\"month_8\",\"month_9\",\"month_10\",\"month_11\",\"shape_area\",\"shape_len\",geom) VALUES #{str}") 
+      f.write("INSERT INTO \"regions\" (\"ward\",\"ward_num\",\"sweep\",\"wardsweep\",\"ward_secti\",\"month_4\",\"month_5\",\"month_6\",\"month_7\",\"month_8\",\"month_9\",\"month_10\",\"month_11\",\"shape_area\",\"shape_len\",geom) VALUES #{str}")
       thing = []
       f.write("ST_GeomFromKML('#{line}")
       hds = false

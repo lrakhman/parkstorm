@@ -1,3 +1,4 @@
+-- Why is this named 'the_business???  Good naming people!'
 SET STANDARD_CONFORMING_STRINGS TO ON;
 BEGIN;
 CREATE TABLE "regions" (gid serial,
