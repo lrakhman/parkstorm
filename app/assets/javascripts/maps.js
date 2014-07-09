@@ -16,7 +16,7 @@ function findUser(map) {
       var latitude  = position.coords.latitude;
       var longitude = position.coords.longitude;
       map.setView([latitude, longitude], 15);
-      var data = {latitude: latitude, longitude: longitude};
+      var data = {latitude: latitude, longitude: longitude, date: getDateRange()};
       updatePage(data, 'your current location');
     }, function () {
       map.setView([41.8893288, -87.63722539999999], 15);

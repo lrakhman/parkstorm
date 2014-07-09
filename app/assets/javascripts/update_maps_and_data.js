@@ -5,7 +5,7 @@ function findAddress(selector){
   geocoder.geocode({'address': address + 'chicago'}, function(results, status){
     var lat = results[0].geometry.location.k;
     var lng = results[0].geometry.location.B;
-    data = {latitude: lat, longitude: lng};
+    data = {latitude: lat, longitude: lng, date: getDateRange()};
     updatePageFromAddress(data, address);
   });
 }
@@ -41,13 +41,23 @@ function postCurrentLocation(data, location, regionFunction) {
 }
 
 function addLegend(active_map) {
-  legend.onAdd = function (map) {
-     var div = L.DomUtil.create('div', 'info legend');
-        div.innerHTML += '<b>Streets will next be swept in:</b><br><br>' +
+  if ($('#next').length > 0) {
+    legend.onAdd = function (map) {
+      var div = L.DomUtil.create('div', 'info legend');
+      div.innerHTML += '<b>Streets will next be swept in:</b><br><br>' +
               '<i style="background: red"></i> ' + 'less than a week<br><br>' + '<i style="background: green"></i> ' + 'a week or more';
       return div;
-      };
+    };
     legend.addTo(active_map);
+  } else {
+    legend.onAdd = function (map) {
+      var div = L.DomUtil.create('div', 'info legend');
+      div.innerHTML += '<b>Streets will next be swept:</b><br><br>' +
+              '<i style="background: red"></i> ' + 'during the date range<br><br>' + '<i style="background: green"></i> ' + 'outside the date range';
+      return div;
+    };
+    legend.addTo(active_map);
+  }
 }
 
 function addressPost(data) {
