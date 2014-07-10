@@ -1,6 +1,6 @@
 <header role = "banner" class = "row" style = "margin-top: -2.5%">
   <nav role="navigation" class = "row">
-    <header class="navigation" style="padding: 1.5em; padding-bottom: 2.75em">
+    <header class="navigation" id = "first">
       <div class="menu-wrapper"> 
         <div class="navigation-tools">
           <div class = 'left-col'><a href="/"><%= image_tag('sweep.png', id: 'sweep') %></a></div>
@@ -34,9 +34,9 @@
           </div>
         </a>
         <% else %>       
-          <%= link_to "Profile", user_path(current_user), :class => 'nav_button' %>
+          <%= link_to "Profile", user_path(current_user), :class => 'nav_button2' %>
       
-          <%= link_to "Log Out", destroy_user_session_path, :method => :delete, :class => 'nav_button' %>
+          <%= link_to "Log Out", destroy_user_session_path, :method => :delete, :class => 'nav_button2' %>
         <% end %>
       </div>
       </div>    
