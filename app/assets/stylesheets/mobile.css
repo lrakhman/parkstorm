@@ -1,0 +1,74 @@
+#mobile {
+  display: block;
+  position: fixed;
+  z-index: 9999;
+  bottom: 0;
+  background-color: white;
+  height: 70%;
+  overflow-y: auto;
+}
+
+#mobile .next{
+  padding-top: 0;
+  margin: 0 1em;
+}
+
+#mobile .next_days{
+  margin: 0 1em;
+  border-top: 1px solid black;
+  padding: 0;
+}
+
+#mobile .modal3_label {
+  height: 30px;
+}
+
+#mobile .monthly_schedule {
+  padding: 0;
+}
+
+header  #first {
+  padding: 1.5em;
+  padding-bottom: 2.75em;
+
+}
+
+@media (max-width : 420px){
+  header .navigation   .left-col, header .navigation .lower-menu .right-col {
+    width: 0%;
+  }
+  header .navigation .lower-menu p  {
+    width: 100%;
+  }
+
+  .modal #login_link{
+    margin: 0;
+  }
+
+  header.navigation .menu-wrapper {
+    margin: 0;
+  }
+
+  header #first {
+    padding: 1em;
+  }
+
+  header.navigation a.login {
+    padding: 0;
+  }
+
+  header.navigation .search-bar {
+    width: 60%;
+  }
+
+  header.navigation .search-bar .search-and-submit button[type=submit] {
+    right: -20px;
+  }
+}
+
+@media ( min-width : 420px ) {
+  #mobile {
+    display: none;
+    position: relative;
+  }
+}

@@ -3,26 +3,24 @@
 <div id='bottom'>
   <main role = "main" class = "row">
     <article class = "col span_8 clr">
-  <div id="active_map" class="active_map"></div>
-</article>
+      <div id="active_map" class="active_map"></div>
+    </article>
 
-<aside role="complementary" class = "col span_4 clr">
-  <div class='cleaning_col'>
-    <div id = 'next'>
-      <p></p>
-       <div id = "notify_exp"></div>
-      <div class = "modal" id = "modal3_div">
-        <label for="modal-3" id = "modal3_label">
-          <div class="button">
-            Notify Me
+    <aside role="complementary" class = "col span_4 clr">
+      <div class='cleaning_col'>
+        <div class = 'next'>
+          <p></p>
+          <div class = "notify_exp"></div>
+          <div class = "modal modal3_div">
+            <label for="modal-3" class = "modal3_label">
+              <div class="button">
+                Notify Me
+              </div>
+            </label>
           </div>
-        </label>
+        </div>     
       </div>
-    </div>
-
-    
-  </div>
-</aside>
+    </aside>
   <script>
     active_map = L.map('active_map').setMaxBounds([[41.644286, -87.940101], [42.023135, -87.523661]]).setView([41.8893288, -87.63722539999999], 13);
     var legend = L.control({position: 'bottomright'});
@@ -32,57 +30,20 @@
           'Imagery © <a href="http://mapbox.com">Mapbox</a>', id: 'examples.map-i86knfo3'}).addTo(active_map);
     $(document).ready(function() {
 
-      $("#modal3_div").hide();
+      $(".modal3_div").hide();
       locateUser(active_map);
     });
   </script>
 
   
-    <div  id = "next_days">
+    <div class = "next_days">
       <h3>Search by Date</h3>
       <p>Going on vacation? See when street sweeping will be for a custom date range <a href="/date_range">here</a>.</p>
 
 
       
-      <div id = "monthly_schedule">
-      <h3>Street Cleaning Schedule for the Rest of 2014</h3>
-      <p>This month, streets will be swept for your current location on the 8th, 9th, 17th, and 18th.</p>
+      <div class = "monthly_schedule">
 
-        <table>
-          <tr><th>July</th></tr>
-          <tr><td>8th</td></tr>
-          <tr><td>9th</td></tr>
-          <tr><td>17th</td></tr>
-          <tr><td>18th</td></tr>
-        </table>
-      
-        <table>
-          <tr><th>August</th></tr>
-          <tr><td>3rd</td></tr>
-          <tr><td>4th</td></tr>
-          <tr><td>21st</td></tr>
-          <tr><td>22nd</td></tr>
-        </table>
-
-        <table>
-          <tr><th>September</th></tr>
-          <tr><td>3rd</td></tr>
-          <tr><td>4th</td></tr>
-          <tr><td>21st</td></tr>
-          <tr><td>22nd</td></tr>
-        </table>
-
-        <table>
-          <tr><th>October</th></tr>
-          <tr><td>3rd</td></tr>
-          <tr><td>4th</td></tr>
-        </table>
-
-        <table>
-          <tr><th>November</th></tr>
-          <tr><td>3rd</td></tr>
-          <tr><td>4th</td></tr>
-        </table>
       </div>
        
 
@@ -91,3 +52,25 @@
 </div>
 
 <%= render 'refills/footer2' %>
+
+<div id = "mobile">
+  <div class = 'next'>
+    <p></p>
+    <div class = "notify_exp"></div>
+    <div class = "modal modal3_div">
+      <label for="modal-3" class = 'modal3_label'>
+        <div class="button">
+          Notify Me
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <div class = "next_days">
+    <h3>Search by Date</h3>
+    <p>Going on vacation? See when street sweeping will be for a custom date range <a href="/date_range">here</a>.</p>
+  
+    <div class = "monthly_schedule">
+    </div>
+  </div>
+</div>

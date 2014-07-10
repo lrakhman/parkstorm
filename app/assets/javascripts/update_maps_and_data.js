@@ -23,10 +23,10 @@ function postLocation(data, location, regionFunction) {
     var days = response.sweep_days;
     if (days.length > 0) {
       buildSidebarWithDate(location, response);
-      $('#monthly_schedule').html(fullSchedule(location, days));
+      $('.monthly_schedule').html(fullSchedule(location, days));
     } else {
       buildSidebarNoDate(location);
-      $('#monthly_schedule').html("");
+      $('.monthly_schedule').html("");
     }
     regionFunction(data);
   }, 'JSON');
@@ -65,13 +65,13 @@ function renderDate(date){
 }
 
 function buildSidebarWithDate(location, response) {
-  $('#next p').html('<h3>Next street cleaning for ' + location + ':</h3><br>' + renderDate(response.next_sweep));
-  $("#modal3_div").show();
-  $('#notify_exp').html('Want email or SMS notifications for street sweeping at this location?  Sign up here.');
+  $('.next p').html('<h3>Next street cleaning for ' + location + ':</h3><br>' + renderDate(response.next_sweep));
+  $(".modal3_div").show();
+  $('.notify_exp').html('Want email or SMS notifications for street sweeping at this location?  Sign up here.');
 }
 
 function buildSidebarNoDate(location) {
-  $('#next p').html('<h3>There is no scheculed street sweeping<br>for ' + location + '.</h3><p>Please select another location to see street sweeping dates.</p>');
-  $("#modal3_div").hide();
-  $('#notify_exp').html('');
+  $('.next p').html('<h3>There is no scheculed street sweeping<br>for ' + location + '.</h3><p>Please select another location to see street sweeping dates.</p>');
+  $(".modal3_div").hide();
+  $('.notify_exp').html('');
 }
