@@ -1,17 +1,24 @@
 <div id="personal_map" class="personal_map"></div>
 <script>
   $(document).ready(function() {
-    personal_map = L.map('personal_map').setView([41.8893288, -87.63722539999999], 15);
+    personal_map = L.map('personal_map').setView([41.8893288, -87.63722539999999], 13);
     L.tileLayer('http://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
         '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-        'Imagery © <a href="http://mapbox.com">Mapbox</a>', id: 'examples.map-i86knfo3'}).addTo(map);
-    <% @regions[0].each do |region| %>
+        'Imagery © <a href="http://mapbox.com">Mapbox</a>', id: 'examples.map-i86knfo3'}).addTo(personal_map);
+    <% regions[0].each do |region| %>
       region = <%= region.html_safe %>;
-      draw_red(region, map);
+      red_geo = L.geoJson(region, {color: 'red'})
+      red_geo.addTo(personal_map);
+      // region_obj = get_region_obj(region)
+      red_geo.bindPopup(<%# region_obj.display_self[:next_sweep]%>).openPopup();
     <% end %>
-    <% @regions[1].each do |region| %>
+    <% regions[1].each do |region| %>
       region = <%= region.html_safe %>;
-      draw_green(region, map);
+      green_geo = L.geoJson(region, {color: 'green'})
+      green_geo.addTo(personal_map);
+      // region_obj = get_region_obj(region)
+      green_geo.bindPopup(<%# region_obj.display_self[:next_sweep]%>).openPopup();
     <% end %>
+
   });
 </script>
