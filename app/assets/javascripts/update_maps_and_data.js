@@ -4,22 +4,25 @@ function findAddress(selector){
   var geocoder = new google.maps.Geocoder();
   geocoder.geocode({'address': address + 'chicago'}, function(results, status){
     if(status === 'OK'){
-      if(isNaN(results[0].address_components[0].short_name)){
-        address = results[0].address_components[0].short_name
-      }
-      else{
-        address = results[0].address_components[0].short_name + " " + results[0].address_components[1].short_name
-      }     
+      buildAddress(results);
     }
     else{
       buildSidebarNotFound();
-    }
-
-    var lat = results[0].geometry.location.k;
-    var lng = results[0].geometry.location.B;
-    data = {latitude: lat, longitude: lng, date: getDateRange()};
-    updatePageFromAddress(data, address);
+    }    
   });
+}
+
+function buildAddress(results){
+  if(isNaN(results[0].address_components[0].short_name)){
+    address = results[0].address_components[0].short_name
+  }
+  else{
+    address = results[0].address_components[0].short_name + " " + results[0].address_components[1].short_name
+  } 
+  var lat = results[0].geometry.location.k;
+  var lng = results[0].geometry.location.B;
+  data = {latitude: lat, longitude: lng, date: getDateRange()};
+  updatePageFromAddress(data, address);
 }
 
 function updatePage(data, location) {
