@@ -19,7 +19,9 @@ class UsersController < ApplicationController
     else
       redirect_to root_path
     end
-
+    @profile_page = true
+    @user = User.find_by_id(params[:id])
+    @user.find_user_notifications
   end
 
   def date_range
