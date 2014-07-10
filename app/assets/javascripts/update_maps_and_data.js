@@ -3,11 +3,23 @@ function findAddress(selector){
   $(selector).val('')
   var geocoder = new google.maps.Geocoder();
   geocoder.geocode({'address': address + 'chicago'}, function(results, status){
-    var lat = results[0].geometry.location.k;
-    var lng = results[0].geometry.location.B;
-    data = {latitude: lat, longitude: lng, date: getDateRange()};
-    updatePageFromAddress(data, address);
+    if(status === 'OK'){
+      buildAddress(results);
+    }
+    else{
+      buildSidebarNotFound();
+    }    
   });
+}
+
+function buildAddress(results){
+  var regex = /,\sChicago,\sIL,*\s\d*,*\s*USA/;
+  var address = results[0].formatted_address.replace(regex, "")
+
+  var lat = results[0].geometry.location.k;
+  var lng = results[0].geometry.location.B;
+  data = {latitude: lat, longitude: lng, date: getDateRange()};
+  updatePageFromAddress(data, address);
 }
 
 function updatePage(data, location) {
@@ -33,9 +45,6 @@ function postLocation(data, location, regionFunction) {
 }
 
 function addressSubmit() {
-  $('#address_submit').on('click', function(event){
-    findAddress('#address');
-  })
 
   $('#lower_address_submit').on('click', function(event){
     findAddress('#lower_address');
@@ -64,6 +73,13 @@ function renderDate(date){
   }
 }
 
+function buildSidebarNotFound(){
+  $('.next p').html('<h3>Location not found</h3><p>Please enter another address.</p>');
+  $(".modal3_div").hide();
+  $('.notify_exp').html('');
+  $('.monthly_schedule').html('');
+}
+
 function buildSidebarWithDate(location, response) {
   $('.next p').html('<h3>Next street cleaning for ' + location + ':</h3><br>' + renderDate(response.next_sweep));
   $(".modal3_div").show();
@@ -71,7 +87,8 @@ function buildSidebarWithDate(location, response) {
 }
 
 function buildSidebarNoDate(location) {
-  $('.next p').html('<h3>There is no scheculed street sweeping<br>for ' + location + '.</h3><p>Please select another location to see street sweeping dates.</p>');
+  $('.next p').html('<h3>There is no scheduled street sweeping<br>for ' + location + '.</h3><p>Please select another location to see street sweeping dates.</p>');
   $(".modal3_div").hide();
+  $('.monthly_schedule').html('');
   $('.notify_exp').html('');
 }

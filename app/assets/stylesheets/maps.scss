@@ -26,3 +26,13 @@
 #next h3:first-child {
   margin: 0px;
 }
+
+#personal_map {
+  @include size(100% 600px);
+  @include position(relative auto);
+  margin: 0;
+  padding-right: 10px;
+  float: left;
+  margin-top: 0em;
+  height: 550px;
+}

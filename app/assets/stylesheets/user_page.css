@@ -1,8 +1,8 @@
-#user_container {
-  /*max-width: 800px;*/
+.user_container {
+  width: 80%;
   margin: 0 auto;
 }
-#user_container a {
+.user_container a {
   text-decoration: none;
   background-color: gray;
   color: white;
@@ -10,10 +10,24 @@
   box-shadow: 2px 2px 2px black;
   border-radius: 2px;
 }
-#user_container a:hover {
+.user_container a:hover {
   background-color: black;
 }
 #profile_title {
   text-align: center;
   color: white;
+}
+
+#user_title {
+  text-align: center;
+  padding-bottom: 2%;
+  border-bottom: 1px solid black;
+}
+
+.user_container ul li ul li{
+  margin-left: -10%;
+}
+
+.user_container ul {
+  padding-bottom: 5%;
 }
