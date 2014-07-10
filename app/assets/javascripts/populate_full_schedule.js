@@ -1,8 +1,3 @@
-// sweepDays should be the result of calling future_cleaning_days_formatted
-// for example:
-// fullSchedule('current location', [["July", [16, 17, 18]], ["August", [21, 22]], ["September", [29, 30]], ["November", [5, 6]]])
-// the result should replace the html in the div with id "monthly_schedule" 
-
 function fullSchedule(location, sweepDays){
 
   var htmlString = '<h3>Street Cleaning Schedule for the Rest of 2014</h3>';
