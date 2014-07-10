@@ -80,6 +80,7 @@ function buildSidebarNotFound(){
   $('.next p').html('<h3>Location not found</h3><p>Please enter another address.</p>');
   $(".modal3_div").hide();
   $('.notify_exp').html('');
+  $('.monthly_schedule').html('');
 }
 
 function buildSidebarWithDate(location, response) {
@@ -91,5 +92,6 @@ function buildSidebarWithDate(location, response) {
 function buildSidebarNoDate(location) {
   $('.next p').html('<h3>There is no scheduled street sweeping<br>for ' + location + '.</h3><p>Please select another location to see street sweeping dates.</p>');
   $(".modal3_div").hide();
+  $('.monthly_schedule').html('');
   $('.notify_exp').html('');
 }
