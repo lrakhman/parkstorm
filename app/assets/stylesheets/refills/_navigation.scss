@@ -28,6 +28,17 @@ header.navigation {
     display: inline-block;
     clear: both;
     float: left;
+
+    h3{
+      display: inline-block;
+      float: left;
+      padding-top: 1em;
+    }
+
+    #sweep {
+      float: left;
+    }
+
   }
 
   .right-col {

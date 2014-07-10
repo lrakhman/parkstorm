@@ -13,12 +13,9 @@ function findAddress(selector){
 }
 
 function buildAddress(results){
-  if(isNaN(results[0].address_components[0].short_name)){
-    address = results[0].address_components[0].short_name
-  }
-  else{
-    address = results[0].address_components[0].short_name + " " + results[0].address_components[1].short_name
-  } 
+  var regex = /,\sChicago,\sIL,*\s\d*,*\s*USA/;
+  var address = results[0].formatted_address.replace(regex, "")
+
   var lat = results[0].geometry.location.k;
   var lng = results[0].geometry.location.B;
   data = {latitude: lat, longitude: lng, date: getDateRange()};
