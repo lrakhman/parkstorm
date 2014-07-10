@@ -35,8 +35,6 @@ class Region < ActiveRecord::Base
     collect_dates
 
     collect_dates.map{|month, days| [month, days]}
-
-    # future_cleaning_days.map{|date| "#{Date::MONTHNAMES[date.month]} #{date.day}"}
   end
 
   def next_cleaning_day
@@ -53,7 +51,7 @@ class Region < ActiveRecord::Base
     end
   end
 
-  def swept_in_date_range?(start_date, end_date)
+  def swept_in_date_range?(start_date=Date.today, end_date=Date.today + 7)
     swept = false
     cleaning_days.each { |day| swept = true if (day >= start_date && day <= end_date) }
     swept
@@ -66,6 +64,10 @@ class Region < ActiveRecord::Base
       next_cleaning = "none"
     end
     { name: "Ward #{ward_num} Area #{sweep}", next_sweep: "Next cleaning day: #{next_cleaning}" }
+  end
+
+  def to_geojson
+    Region.select("*, ST_AsGeoJSON(geom) as my_geo").where(gid: id)
   end
 
   def self.get_regions(location, distance)
@@ -83,12 +85,5 @@ class Region < ActiveRecord::Base
       end
     end
     results
-  end
-
-  def get_region_obj(json_obj)
-    region = json_obj[0][0]
-    region_obj = JSON.parse(region)
-    marker_coords = region_obj["geometries"][0]["coordinates"]
-    Region.where("ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3), ST_MakePoint(#{marker_coords[1]}, #{marker_coords[0]})) <= 0").first
   end
 end

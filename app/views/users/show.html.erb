@@ -1,11 +1,12 @@
 <%= render 'refills/navigation' %>
 
-<div id="user_container">
+<div class="user_container">
   <h2><%= @user.fullname %>'s Profile</h2>
-  
+  <p>Your notifications:</p>
+</div>
   
 <%= render partial: "user_map", locals: {regions: @regions}%>
-  <p>Your notifications:</p>
+<div class="user_container">
   <ul>
     <% @user.notifications.each do |notification| %>
       <li><%= notification.region.display_self[:name] %> | <%= link_to 'Remove', notification_path(notification), method: :delete, class: "remove_notification" %>
@@ -14,9 +15,6 @@
         </ul>
       </li>
     <% end %>
-  </ul>
-  <ul>
-    <li><%= link_to 'Back', root_path %></li>
   </ul>
 </div>
 

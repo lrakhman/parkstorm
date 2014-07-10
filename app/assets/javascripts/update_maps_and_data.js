@@ -89,7 +89,7 @@ function buildSidebarWithDate(location, response) {
 }
 
 function buildSidebarNoDate(location) {
-  $('.next p').html('<h3>There is no scheuled street sweeping<br>for ' + location + '.</h3><p>Please select another location to see street sweeping dates.</p>');
+  $('.next p').html('<h3>There is no scheduled street sweeping<br>for ' + location + '.</h3><p>Please select another location to see street sweeping dates.</p>');
   $(".modal3_div").hide();
   $('.notify_exp').html('');
 }
