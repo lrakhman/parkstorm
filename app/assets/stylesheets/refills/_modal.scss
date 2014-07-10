@@ -59,6 +59,7 @@
     @include size(1.5em);
     cursor: pointer;
     background: $modal-background;
+    z-index: 9999;
 
 
     &:after,&:before {
@@ -567,7 +568,7 @@
 }
 
 .signup {
-  background:rgba(200, 23, 23, .5);
+
   position: relative;
 }
 
