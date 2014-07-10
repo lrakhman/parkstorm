@@ -51,7 +51,7 @@ class Region < ActiveRecord::Base
     end
   end
 
-  def swept_in_date_range?(start_date, end_date)
+  def swept_in_date_range?(start_date=Date.today, end_date=Date.today + 7)
     swept = false
     cleaning_days.each { |day| swept = true if (day >= start_date && day <= end_date) }
     swept
