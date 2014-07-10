@@ -1,22 +1,27 @@
 <%= render 'refills/navigation' %>
 
-<div class="user_container">
-  <h2><%= @user.fullname %>'s Profile</h2>
-  <p>Your notifications:</p>
-</div>
-  
-<%= render partial: "user_map", locals: {regions: @regions}%>
-<div class="user_container">
-  <ul>
-    <% @user.notifications.each do |notification| %>
-      <li><%= notification.region.display_self[:name] %> | <%= link_to 'Remove', notification_path(notification), method: :delete, class: "remove_notification" %>
+<div id='bottom'>
+  <main role='main' class='row'>
+    <article class='col span_8 clr'>
+      <%= render partial: "user_map", locals: {regions: @regions}%>
+    </article>
+    <aside role='complementary' class='col span_4 clr'>
+      <div class="user_container">
+        <h2 id='user_title'><%= @user.fullname %>'s Profile</h2>
+        <p>Your notifications:</p>
         <ul>
-          <li><%= notification.region.display_self[:next_sweep] %></li>
+          <% @user.notifications.each do |notification| %>
+            <li><%= notification.region.display_self[:name] %> | <%= link_to 'Remove', notification_path(notification), method: :delete, class: "remove_notification" %>
+              <ul>
+                <li><%= notification.region.display_self[:next_sweep] %></li>
+              </ul>
+            </li>
+          <% end %>
         </ul>
-      </li>
-    <% end %>
-  </ul>
-</div>
+      </div>
+    </aside>
+  </main> 
+</div>  
 
 <script>
   $(document).ready(function() {

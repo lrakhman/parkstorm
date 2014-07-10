@@ -17,3 +17,17 @@
   text-align: center;
   color: white;
 }
+
+#user_title {
+  text-align: center;
+  padding-bottom: 2%;
+  border-bottom: 1px solid black;
+}
+
+.user_container ul li ul li{
+  margin-left: -10%;
+}
+
+.user_container ul {
+  padding-bottom: 5%;
+}
