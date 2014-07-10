@@ -6,7 +6,6 @@ $(document).ready(function(){
         windowHeight = $(window).height();
     
     if ($mobile.css('display') === 'none'){
-      $mobile.addClass('slide-up')
       $mobile.css({
         'display': 'block'
       });
