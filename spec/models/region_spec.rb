@@ -94,4 +94,38 @@ RSpec.describe Region, :type => :model do
       expect(Region.find(600).future_cleaning_days).to be_empty
     end
   end
+
+  describe '#future_cleaning_days_formatted' do
+    it 'returns an array' do
+      expect(Region.first.future_cleaning_days_formatted).to be_a Array
+    end
+  end
+
+  describe '#swept_soon?' do
+    it 'returns true if swept soon' do
+      region = Region.all.find { |region| region.swept_soon? }
+      expect(region.swept_soon?).to be true
+    end
+
+    it 'returns false if not' do
+      expect(Region.find(600).swept_soon?).to be false
+    end
+  end
+
+  describe '#swept_in_date_range?' do
+    it 'can return true' do
+      region = Region.all.find { |region| region.swept_soon? }
+      expect(region.swept_in_date_range?).to be true
+    end
+
+    it 'returns false with no sweeping' do
+      expect(Region.find(600).swept_in_date_range?).to be false
+    end
+  end
+
+  describe '#to_geojson' do
+    it 'returns an active record collection' do
+      expect(Region.first.to_geojson[0]).to be_a Region
+    end
+  end
 end

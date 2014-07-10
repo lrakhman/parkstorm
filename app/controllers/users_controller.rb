@@ -1,14 +1,4 @@
 class UsersController < ApplicationController
-  
-  def index
-    @users = User.all
-  end
-
-  def new
-  end
-
-  def create
-  end
 
   def show
     if current_user
@@ -20,11 +10,6 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
     @profile_page = true
-  end
-
-  def date_range
-    @today = Date.today
-    @week_from_today = Date.today + 7
   end
 end
 
