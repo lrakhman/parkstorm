@@ -1,5 +1,22 @@
+#toggle{
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  color: black;
+  z-index: 99999;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  opacity: 0.9;
+  display: none;
+}
+
+.slide-up{
+  transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+}
 #mobile {
-  display: block;
+  display: none;
   position: fixed;
   z-index: 9999;
   bottom: 0;
@@ -33,12 +50,16 @@ header  #first {
 
 }
 
-@media (max-width : 420px){
+@media (max-width : 460px){
   header .navigation   .left-col, header .navigation .lower-menu .right-col {
     width: 0%;
   }
   header .navigation .lower-menu p  {
     width: 100%;
+  }
+
+  #toggle{
+    display: block;
   }
 
   .modal #login_link{
@@ -64,9 +85,31 @@ header  #first {
   header.navigation .search-bar .search-and-submit button[type=submit] {
     right: -20px;
   }
+
+  .cleaning_col {
+    display: none;
+  }
+
+  #bottom .next_days, #bottom .monthly_schedule {
+    display: none;
+  }
+
+  #active_map {
+    /*height: 70%;*/
+    /*position: absolute;*/
+  }
+
+  header.navigation .left-col {
+    display: none;
+  }
+
+  #first {
+    margin-top: -10%;
+  }
+
 }
 
-@media ( min-width : 420px ) {
+@media ( min-width : 460px ) {
   #mobile {
     display: none;
     position: relative;
