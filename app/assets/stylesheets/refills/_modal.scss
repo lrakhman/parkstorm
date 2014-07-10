@@ -34,10 +34,6 @@
     margin-bottom: $base-line-height;
   }
 
-  .modal-open {
-    overflow: hidden;
-  }
-
   .modal-window { 
 // overlay
     @include transition(opacity .25s ease);
@@ -584,7 +580,6 @@
   display: inline-block;
   height: 100%;
   width: 30%;
-  overflow: hidden;
   text-align: left;
 
   @include position(relative, 5% null null auto);
