@@ -86,11 +86,4 @@ class Region < ActiveRecord::Base
     end
     results
   end
-
-  def get_region_obj(json_obj)
-    region = json_obj[0][0]
-    region_obj = JSON.parse(region)
-    marker_coords = region_obj["geometries"][0]["coordinates"]
-    Region.where("ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3), ST_MakePoint(#{marker_coords[1]}, #{marker_coords[0]})) <= 0").first
-  end
 end
