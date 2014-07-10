@@ -1,0 +1,18 @@
+<div class="container" id='login-container'>
+  <h1>Log In</h1>
+  <form action=<%= user_session_path %> method='post' id = 'login'>
+    <input name="authenticity_token" value=<%= form_authenticity_token %> type="hidden">
+    <div class="form-group">
+      <input type="Email" name="user[email]" class = 'form-control' required>
+      <label for="" placeholder="Your Email Address" alt="Email"></label>
+    </div>
+    <div class="form-group">
+      <input type="password" name="user[password]" class = 'form-control' required>
+      <label for="" placeholder="Your Password" alt="Password"></label>
+    </div>
+    <div class="form-group">
+      <input type="submit" value="Log In" id='login_submit' class = 'button right'>
+    </div>
+  </form>  
+  <button id="forgotpw">Forgot Your Password?</button>
+</div>

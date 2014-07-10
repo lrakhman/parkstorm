@@ -1,4 +1,4 @@
-$(document).ready(function() {
+function removeNotification() {
   $(".remove_notification").on('click', function(e) {
     e.preventDefault();
     href = $(this).attr("href");
@@ -6,4 +6,4 @@ $(document).ready(function() {
     $.post(href, {"_method": "delete"}, function() {});
     return false;
   });
-});
+}

@@ -7,15 +7,14 @@ function watchForClick(marker) {
     } else {
       marker.setLatLng(e.latlng);         
     }
-    var data = { latitude: e.latlng.lat, longitude: e.latlng.lng }
-
-    postCurrentLocation(data, 'your selected location', clickPost);
+    var data = { latitude: e.latlng.lat, longitude: e.latlng.lng, date: getDateRange() }
+    postLocation(data, 'your selected location', clickPost);
   });
 }
 function clickPost(data) {
   $.post('/load_region', data, function(response){
-    active_map.removeLayer(everything);
+    active_map.removeLayer(allMapElements);
     $('#map_script').remove();
     $('#active_map').append(response);
-  })
+  });
 }

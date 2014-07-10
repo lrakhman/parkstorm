@@ -125,11 +125,14 @@
 
       .search-bar {
         width: 100%;
+        margin: 1em;
+        margin-left: 8.5em;
       }
 
       .search-and-submit {
         position: absolute;
         width: 100%;
+        margin-top: 1em;
       }
     }
 
@@ -150,12 +153,43 @@
   top: 50%;
 }
 
+.next_days {
+  clear: both;
+  max-width: 900px;
+  margin: auto;
+  padding-top: 2em;
+  text-align: center;
+
+
+  .monthly_schedule {
+    margin: 2em auto;
+    padding-top: 2em;
+    text-align: center;
+    border-top: 1px solid black;
+
+
+    table {
+      width: 100px;
+      display: inline-block;
+      vertical-align: top;
+      margin: 1em;
+    }
+
+    td, th {
+      text-align: center;
+      line-height: 1em;
+    }
+  }
+}
+
+
 #bottom {
-  margin-top: -8%;
+  margin-top: 1em;
+  margin: 0 auto;  
 }
 
 #or {
-  margin: 1.5em 1em 0.8em 1em;
+  margin: 0.8em 1em 0.8em 1em;
   font-weight: bold;
   font-size: 1.5em;
 }

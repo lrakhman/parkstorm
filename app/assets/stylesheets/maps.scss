@@ -1,9 +1,11 @@
 #active_map {
-  @include size(65% 600px);
+  @include size(100% 600px);
   @include position(relative auto);
-  margin: 0 0 1.5% 1.5%;
+  margin: 0;
   padding-right: 10px;
   float: left;
+  margin-top: 0em;
+  height: 550px;
 }
 
 .legend {
@@ -23,4 +25,14 @@
 
 #next h3:first-child {
   margin: 0px;
+}
+
+#personal_map {
+  @include size(90% 600px);
+  @include position(relative auto);
+  margin: 0 0 1.5% 1.5%;
+  padding-right: 10px;
+  float: left;
+  margin-top: 1em;
+  height: 450px;
 }

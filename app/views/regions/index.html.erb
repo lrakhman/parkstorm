@@ -1,38 +1,76 @@
-<%= render 'refills/grad'%>
+<%= render 'refills/navigation'%>
+
 <div id='bottom'>
-  <div id="active_map" class="active_map"></div>
+  <main role = "main" class = "row">
+    <article class = "col span_8 clr">
+      <div id="active_map" class="active_map"></div>
+    </article>
 
-  <div class='cleaning_col'>
-     <header class="address_search">
-        <header class="navigation">
-          <div class="search-bar" id = "lower-search-div" style = 'width: 100%'>
-            <div class="search-and-submit">
-              <input id = "lower_address" type="search" placeholder="Enter New Street Address" />
-              <button id = "lower_address_submit" type="submit">
-                <img src="https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png" alt="">
-              </button>
-            </div>
+    <aside role="complementary" class = "col span_4 clr">
+      <div class='cleaning_col'>
+        <div class = 'next'>
+          <p></p>
+          <div class = "notify_exp"></div>
+          <div class = "modal modal3_div">
+            <label for="modal-3" class = "modal3_label">
+              <div class="button">
+                Notify Me
+              </div>
+            </label>
           </div>
-        </header>
-      </header>
-
-    <div id = 'next'>
-    </div>
-    <div id = 'future'>
-    </div>
-  </div>
+        </div>     
+      </div>
+    </aside>
   <script>
-    active_map = L.map('active_map').setView([41.86296, -87.62506], 13).setMaxBounds([[41.644286, -87.940101], [42.023135, -87.523661]]);
+    active_map = L.map('active_map').setMaxBounds([[41.644286, -87.940101], [42.023135, -87.523661]]).setView([41.8893288, -87.63722539999999], 13);
     var legend = L.control({position: 'bottomright'});
-
     addLegend(active_map)
     L.tileLayer('http://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
           '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
           'Imagery © <a href="http://mapbox.com">Mapbox</a>', id: 'examples.map-i86knfo3'}).addTo(active_map);
     $(document).ready(function() {
-      locate(active_map);
+
+      $(".modal3_div").hide();
+      locateUser(active_map);
     });
   </script>
-  <%= render 'refills/footer2' %>
+
+  
+    <div class = "next_days">
+      <h3>Search by Date</h3>
+      <p>Going on vacation? See when street sweeping will be for a custom date range <a href="/date_range">here</a>.</p>
+
+
+      
+      <div class = "monthly_schedule">
+
+      </div>
+       
+
+    </div>
+
 </div>
 
+<%= render 'refills/footer2' %>
+
+<div id = "mobile">
+  <div class = 'next'>
+    <p></p>
+    <div class = "notify_exp"></div>
+    <div class = "modal modal3_div">
+      <label for="modal-3" class = 'modal3_label'>
+        <div class="button">
+          Notify Me
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <div class = "next_days">
+    <h3>Search by Date</h3>
+    <p>Going on vacation? See when street sweeping will be for a custom date range <a href="/date_range">here</a>.</p>
+  
+    <div class = "monthly_schedule">
+    </div>
+  </div>
+</div>

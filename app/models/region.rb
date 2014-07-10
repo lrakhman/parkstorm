@@ -26,7 +26,15 @@ class Region < ActiveRecord::Base
   end
 
   def future_cleaning_days_formatted
-    future_cleaning_days.map{|date| "#{Date::MONTHNAMES[date.month]} #{date.day}"}
+    collect_dates = Hash.new
+    future_cleaning_days.each do |date|
+      month_name = Date::MONTHNAMES[date.month]
+      collect_dates[month_name] ||= []
+      collect_dates[month_name] << date.day.ordinalize
+    end
+    collect_dates
+
+    collect_dates.map{|month, days| [month, days]}
   end
 
   def next_cleaning_day
@@ -43,6 +51,12 @@ class Region < ActiveRecord::Base
     end
   end
 
+  def swept_in_date_range?(start_date=Date.today, end_date=Date.today + 7)
+    swept = false
+    cleaning_days.each { |day| swept = true if (day >= start_date && day <= end_date) }
+    swept
+  end
+
   def display_self
     if next_cleaning_day    
       next_cleaning = "#{Date::MONTHNAMES[next_cleaning_day.month]} #{next_cleaning_day.day}"
@@ -52,11 +66,19 @@ class Region < ActiveRecord::Base
     { name: "Ward #{ward_num} Area #{sweep}", next_sweep: "Next cleaning day: #{next_cleaning}" }
   end
 
-  def self.areas_to_display(location, distance)
+  def to_geojson
+    Region.select("*, ST_AsGeoJSON(geom) as my_geo").where(gid: id)
+  end
+
+  def self.get_regions(location, distance)
+    Region.select("*, ST_AsGeoJSON(geom) as my_geo").where("ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3), 'MULTIPOINT(#{location[1]} #{location[0]})') <= #{distance} * 1609.34")
+  end
+
+  def self.areas_by_date_range(location, start_date=(Date.today), end_date=(Date.today + 7))
     results = [[],[]]
-    regions = Region.select("*, ST_AsGeoJSON(geom) as my_geo").where("ST_DISTANCE_SPHERE(ST_CollectionExtract(geom, 3), 'MULTIPOINT(#{location[1]} #{location[0]})') <= #{distance} * 1609.34")
+    regions = Region.get_regions(location, 0.25)
     regions.each do |ward|
-      if ward.swept_soon?
+      if ward.swept_in_date_range?(start_date, end_date)
         results[0] << ward.my_geo
       else
         results[1] << ward.my_geo

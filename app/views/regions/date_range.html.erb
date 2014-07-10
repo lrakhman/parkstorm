@@ -1,0 +1,40 @@
+<%= render 'refills/navigation'%>
+
+<div id='bottom'>
+  <main role = "main" class = "row">
+    <article class = "col span_8 clr">
+  <div id="active_map" class="active_map"></div>
+</article>
+
+<aside role="complementary" class = "col span_4 clr">
+  <div class='cleaning_col'>
+    <div id = 'range'>
+      <p>Going on vacation? Select the start and end date of the time you will be away, click on the map or enter an address of where you'd like to park, and see where it is safe to leave your car!</p>
+      <h3>Choose date range:</h3>
+      Start date: <input id="start_date" type="date" name="start_date" value="<%= @today %>">
+      End date: <input id="end_date" type="date" name="end_date" value="<%= @week_from_today %>">
+      <button id="update_from_date" class = "button">Update Map</button>
+    </div>
+    
+  </div>
+</aside>
+  <script>
+    active_map = L.map('active_map').setMaxBounds([[41.644286, -87.940101], [42.023135, -87.523661]]).setView([41.8893288, -87.63722539999999], 13);
+    var legend = L.control({position: 'bottomright'});
+    addLegend(active_map)
+    L.tileLayer('http://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+          '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+          'Imagery © <a href="http://mapbox.com">Mapbox</a>', id: 'examples.map-i86knfo3'}).addTo(active_map);
+    $(document).ready(function() {
+
+      $(".modal3_div").hide();
+      locateUser(active_map);
+    });
+  </script>
+    <div style = "clear: both;">
+
+    </div>
+
+</div>
+
+<%= render 'refills/footer2' %>

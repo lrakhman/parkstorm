@@ -72,7 +72,7 @@ File.foreach('mss_2014.kml') do |line|
     end
   end
 end
-File.open('the_business.sql', 'w') do |f|
+File.open('load_wards.sql', 'w') do |f|
   f.write("SET STANDARD_CONFORMING_STRINGS TO ON;\n")
   f.write("BEGIN;\n")
   f.write("CREATE TABLE \"regions\" (gid serial,\n")
@@ -95,18 +95,18 @@ File.open('the_business.sql', 'w') do |f|
   f.write("SELECT AddGeometryColumn('','regions','geom','4326','GEOMETRYCOLLECTION',2);\n")
   hds = true
   geo = false
-  thing = []
+  identifiers = []
   holder.each do |line|
-    if thing.count >= 15
-      str = "('#{thing[0]}','#{thing[1]}','#{thing[2]}','#{thing[3]}','#{thing[4]}','#{thing[5]}','#{thing[6]}','#{thing[7]}','#{thing[8]}','#{thing[9]}','#{thing[10]}','#{thing[11]}','#{thing[12]}','#{thing[13]}','#{thing[14]}',"
+    if identifiers.count >= 15
+      str = "('#{identifiers[0]}','#{identifiers[1]}','#{identifiers[2]}','#{identifiers[3]}','#{identifiers[4]}','#{identifiers[5]}','#{identifiers[6]}','#{identifiers[7]}','#{identifiers[8]}','#{identifiers[9]}','#{identifiers[10]}','#{identifiers[11]}','#{identifiers[12]}','#{identifiers[13]}','#{identifiers[14]}',"
       str.gsub!(/\s/, "")
       f.write("INSERT INTO \"regions\" (\"ward\",\"ward_num\",\"sweep\",\"wardsweep\",\"ward_secti\",\"month_4\",\"month_5\",\"month_6\",\"month_7\",\"month_8\",\"month_9\",\"month_10\",\"month_11\",\"shape_area\",\"shape_len\",geom) VALUES #{str}") 
-      thing = []
+      identifiers = []
       f.write("ST_GeomFromKML('#{line}")
       hds = false
       geo = true
     elsif hds
-      thing << line
+      identifiers << line
     elsif geo
       if line =~ /<\/MultiGeometry>/
         f.write("#{line}'));\n")

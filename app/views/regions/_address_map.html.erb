@@ -16,8 +16,8 @@
     <% end %>
 
     var marker = L.marker([<%= lat %>, <%= long %>])
-    everything = L.layerGroup([marker].concat.apply([marker], placeholder));
-    everything.addTo(active_map);
+    allMapElements = L.layerGroup([marker].concat.apply([marker], placeholder));
+    allMapElements.addTo(active_map);
 
     watchForClick(marker);
   });
