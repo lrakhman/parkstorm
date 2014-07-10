@@ -2,9 +2,10 @@
 
 <div id="user_container">
   <h2><%= @user.fullname %>'s Profile</h2>
-
+  
+  
+<%= render partial: "user_map", locals: {regions: @regions}%>
   <p>Your notifications:</p>
-
   <ul>
     <% @user.notifications.each do |notification| %>
       <li><%= notification.region.display_self[:name] %> | <%= link_to 'Remove', notification_path(notification), method: :delete, class: "remove_notification" %>
