@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     @profile_page = true
     @user = User.find_by_id(params[:id])
     @user.find_user_notifications
+    @regions = @user.regions.map { |region| region.to_geojson }
   end
 end
 
