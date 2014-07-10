@@ -71,16 +71,11 @@ RSpec.describe Region, :type => :model do
     end
 
     it 'should return two empty arrays if the location is not in Chicago' do
-      area = Region.areas_to_display([50,50], 10)
+      area = Region.areas_by_date_range([50,50])
       expect(area[0]).to be_empty
       expect(area[1]).to be_empty
     end
 
-    it 'should return all regions with a sufficiently large radius' do
-      area = Region.areas_to_display([41.890633, -87.62939], 100)
-      expect(area[0].count + area[1].count).to eq(Region.all.count)
-
-    end
   end
 
   describe '#future_cleaning_days' do
