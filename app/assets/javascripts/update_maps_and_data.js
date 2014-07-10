@@ -3,6 +3,15 @@ function findAddress(selector){
   $(selector).val('')
   var geocoder = new google.maps.Geocoder();
   geocoder.geocode({'address': address + 'chicago'}, function(results, status){
+    console.log(results[0].address_components[0].short_name)
+    console.log(results[0].address_components[1].short_name)
+    if(isNaN(results[0].address_components[0].short_name)){
+      address = results[0].address_components[0].short_name
+    }
+    else{
+      address = results[0].address_components[0].short_name + " " + results[0].address_components[1].short_name
+    }
+    
     var lat = results[0].geometry.location.k;
     var lng = results[0].geometry.location.B;
     data = {latitude: lat, longitude: lng, date: getDateRange()};
