@@ -1,4 +1,10 @@
 $(document).ready(function(){
+
+  toggleListener();
+  resizeMap();
+});
+
+function toggleListener(){
   $('#toggle').on('click', function(){
     var $toggle = $(this),
         $mobile = $('#mobile'),
@@ -22,6 +28,15 @@ $(document).ready(function(){
         'bottom': 0
       })  
     }
-    
   });
-});
+}
+
+function resizeMap(){
+
+
+  if ($(window).height() <= 700){
+    $('#active_map').css({
+      'height': ($(window).height() - 170) + 'px'
+    })
+  }
+}
