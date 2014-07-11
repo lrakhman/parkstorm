@@ -34,7 +34,7 @@ function toggleListener(){
 function resizeMap(){
 
 
-  if ($(window).height() <= 700){
+  if ($(window).width() <= 460){
     $('#active_map').css({
       'height': ($(window).height() - 170) + 'px'
     })
