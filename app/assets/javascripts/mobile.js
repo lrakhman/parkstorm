@@ -15,7 +15,7 @@ function toggleListener(){
       $mobile.css({
         'display': 'block'
       });
-
+      $toggle.html('&#x25BC')
       $toggle.css({
         'bottom': (mobileHeight) + 'px'
       })
@@ -24,6 +24,7 @@ function toggleListener(){
       $mobile.css({
         'display': 'none'
       });
+      $toggle.html('&#x25B2')
       $toggle.css({
         'bottom': 0
       })  
