@@ -15,7 +15,7 @@ function toggleListener(){
       $mobile.css({
         'display': 'block'
       });
-
+      $toggle.html('&#x25BC')
       $toggle.css({
         'bottom': (mobileHeight) + 'px'
       })
@@ -24,6 +24,7 @@ function toggleListener(){
       $mobile.css({
         'display': 'none'
       });
+      $toggle.html('&#x25B2')
       $toggle.css({
         'bottom': 0
       })  
@@ -34,7 +35,7 @@ function toggleListener(){
 function resizeMap(){
 
 
-  if ($(window).height() <= 700){
+  if ($(window).width() <= 460){
     $('#active_map').css({
       'height': ($(window).height() - 170) + 'px'
     })
